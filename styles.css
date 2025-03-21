@@ -1,0 +1,196 @@
+/* =========================
+   BASIC RESET / BOX SIZING
+   ========================= */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: Arial, sans-serif;
+}
+
+body {
+	background: #f4f4f4;
+	color: #333;
+	line-height: 1.6;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+/* =========================
+   HEADER STYLING
+   ========================= */
+header {
+	background: #222;
+	color: #fff;
+	padding: 20px 0;
+	text-align: center;
+}
+
+	header h1 {
+		font-size: 2.2rem;
+		margin-bottom: 5px;
+	}
+
+	header h2 {
+		font-weight: normal;
+		font-size: 1.2rem;
+		color: #ccc;
+	}
+
+/* =========================
+   ABOUT SECTION
+   ========================= */
+#about {
+	max-width: 900px;
+	margin: 40px auto;
+	padding: 20px;
+	background: #fff;
+	border-radius: 6px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+	#about h2 {
+		margin-bottom: 15px;
+		font-size: 1.8rem;
+	}
+
+	#about p {
+		font-size: 1rem;
+		line-height: 1.5;
+	}
+
+/* =========================
+   PORTFOLIO SECTION
+   ========================= */
+#portfolio {
+	max-width: 900px;
+	margin: 40px auto;
+	padding: 20px;
+}
+
+	#portfolio h2 {
+		font-size: 1.8rem;
+		margin-bottom: 20px;
+		text-align: center;
+	}
+
+.game-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px;
+	justify-content: center;
+}
+
+.game-item {
+	background: #fff;
+	width: 200px;
+	border-radius: 6px;
+	box-shadow: 0 0 5px rgba(0,0,0,0.1);
+	text-align: center;
+	position: relative;
+	padding: 10px;
+	cursor: pointer;
+}
+
+	.game-item img {
+		max-width: 180px; /**/ /* Limit the width to 150px */
+		max-height: 200px; /* Limit the height to 150px */
+		width: 100%; /* Let the browser scale appropriately */
+		height: 100%; /* Let the browser scale appropriately */
+		object-fit: cover; /* fills the box and crops any overflow */
+		border-radius: 6px; /* If you still want rounded corners, for instance */
+		cursor: pointer;
+	}
+
+/* =========================
+   MODAL (GAME DETAILS) 
+   ========================= */
+.modal-overlay {
+	display: none; /* Hidden by default */
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0,0,0,0.7);
+	justify-content: center;
+	align-items: center;
+	z-index: 999;
+}
+
+.modal-content {
+	background: #fff;
+	width: 90%;
+	max-width: 600px;
+	padding: 20px;
+	border-radius: 6px;
+	position: relative;
+}
+
+.modal-close {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	cursor: pointer;
+	background: none;
+	border: none;
+	font-size: 1.2rem;
+	color: #333;
+}
+
+.modal-content h3 {
+	margin-top: 0;
+	text-align: center;
+}
+
+/* 
+   Fixed video size for consistency.
+   Adjust if you want a different dimension.
+*/
+.video-container {
+	margin: 20px 0;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+	.video-container video,
+	.video-container iframe {
+		width: 550px;
+		height: 360px;
+		border: none;
+		outline: none;
+	}
+
+/* =========================
+   CONTACT SECTION
+   ========================= */
+footer {
+	background: #222;
+	color: #fff;
+	text-align: center;
+	padding: 20px 0;
+	margin-top: 40px;
+}
+
+.contact-links {
+	display: flex;
+	justify-content: center;
+	gap: 20px;
+	margin-top: 10px;
+}
+
+	.contact-links a {
+		color: #fff;
+		font-size: 1.2rem;
+		display: inline-block;
+		transition: 0.3s;
+	}
+
+		.contact-links a:hover {
+			color: #ddd;
+		}
