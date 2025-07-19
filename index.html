@@ -1,10 +1,9 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
+	<meta charset="UTF-8" />
 	<title>Monu Kumavat - Portfolio</title>
-	<!-- Link to your external CSS file -->
-	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
@@ -33,141 +32,123 @@
 	<!-- ========== PORTFOLIO SECTION ========== -->
 	<section id="portfolio">
 		<h2>Projects</h2>
-		<div class="game-list">
 
+		<!-- Company Projects -->
+		<!--<div class="project-category">
+			<h3>Company Projects</h3>
+			<div class="game-list">
 
-			<!-- Project blockchainRpgModal -->
-			<div class="game-item">
-				<img src="assets/images/RPGOdyssey.png"
-					 alt="Game 4 Thumbnail"
-					 onclick="openModal('blockchainRpgModal')">
-				<!--<h3>Game Title 4</h3>-->
+				<div class="game-item" onclick="openModal('VRSpaceShooter')">
+					<img src="assets/images/VRSpaceShooter.png" alt="Game 2 Thumbnail" />
+				</div>
+
+				<div class="game-item" onclick="openModal('CarRaceMultiplayer')">
+					<img src="assets/images/CarRaceMultiplayer.png" alt="Game 3 Thumbnail" />
+				</div>
+
+				<div class="game-item" onclick="openModal('AIQuizGame')">
+					<img src="assets/images/AIQuizGame.png" alt="Game 3 Thumbnail" />
+				</div>
+
 			</div>
+		</div>-->
+		<!-- Freelance Projects -->
+		<div class="project-category">
+			<h3>Freelance Projects</h3>
+			<div class="game-list">
 
+				<div class="game-item" onclick="openModal('fruitfighter')">
+					<img src="assets/images/fruit fighter.png" alt="Fruit Fighter Thumbnail" />
+				</div>
 
-			<!-- Project  VRSpaceShooter -->
-			<div class="game-item">
-				<img src="assets/images/VRSpaceShooter.png"
-					 alt="Game 2 Thumbnail"
-					 onclick="openModal('VRSpaceShooter')">
-				<!--<h3>Game Title 2</h3>-->
-			</div>
+				<div class="game-item" onclick="openModal('TengoBlitz')">
+					<img src="assets/images/TengoBlitz.png" alt="Tengo Blitz Thumbnail" />
+				</div>
 
-			<!-- Project CarRaceMultiplayer -->
-			<div class="game-item">
-				<img src="assets/images/CarRaceMultiplayer.png"
-					 alt="Game 3 Thumbnail"
-					 onclick="openModal('CarRaceMultiplayer')">
-				<!--<h3>Game Title 3</h3>-->
-			</div>
+				<div class="game-item" onclick="openModal('helixballdrop')">
+					<img src="assets/images/helix ball drop.png" alt="Helix Ball Drop Thumbnail" />
+				</div>
 
-			<!-- Project AIQuizGame -->
-			<div class="game-item">
-				<img src="assets/images/AIQuizGame.png"
-					 alt="Game 3 Thumbnail"
-					 onclick="openModal('AIQuizGame')">
-				<!--<h3>Game Title 3</h3>-->
-			</div>
+				<div class="game-item" onclick="openModal('blockandHoop')">
+					<img src="assets/images/blockandHoop.png" alt="Block and Hoop Thumbnail" />
+				</div>
 
-			<!-- Project fruit frighter -->
-			<div class="game-item">
-				<img src="assets/images/fruit fighter.png"
-					 alt="Game 3 Thumbnail"
-					 onclick="openModal('fruitfighter')">
-				<!--<h3>Game Title 3</h3>-->
-			</div>
-
-			<!-- Project Block and Hoop -->
-			<div class="game-item">
-				<!-- Clicking the image opens modal1 -->
-				<img src="assets/images/blockandHoop.png"
-					 alt="Block and Hoop Thumbnail"
-					 onclick="openModal('blockandHoop')">
-				<!--<h3>Block and Hoop</h3>-->
-			</div>
-
-			<!-- Project TengoBlitz -->
-			<div class="game-item">
-				<!-- Clicking the image opens modal1 -->
-				<img src="assets/images/TengoBlitz.png"
-					 alt="Block and Hoop Thumbnail"
-					 onclick="openModal('TengoBlitz')">
-				<!--<h3>Block and Hoop</h3>-->
-			</div>
-
-			<!-- Project helix ball drop -->
-			<div class="game-item">
-				<!-- Clicking the image opens modal1 -->
-				<img src="assets/images/helix ball drop.png"
-					 alt="helix ball drop Thumbnail"
-					 onclick="openModal('helixballdrop')">
-				<!--<h3>Block and Hoop</h3>-->
 			</div>
 		</div>
+
+		<!-- Personal Projects -->
+		<div class="project-category">
+			<h3>Personal Projects</h3>
+			<div class="game-list">
+
+				<div class="game-item" onclick="openModal('blockchainRpgModal')">
+					<img src="assets/images/RPGOdyssey.png" alt="Blockchain RPG Odyssey Thumbnail" />
+				</div>
+
+				<div class="game-item" onclick="openModal('VRSpaceShooter')">
+					<img src="assets/images/VRSpaceShooter.png" alt="Game 2 Thumbnail" />
+				</div>
+
+				<div class="game-item" onclick="openModal('AIQuizGame')">
+					<img src="assets/images/AIQuizGame.png" alt="Game 3 Thumbnail" />
+				</div>
+
+				<div class="game-item" onclick="openModal('CarRaceMultiplayer')">
+					<img src="assets/images/CarRaceMultiplayer.png" alt="Game 3 Thumbnail" />
+				</div>
+
+
+
+			</div>
+		</div>
+
 	</section>
 
-	<!--
-	  ========== MODAL SECTIONS ==========
-	  Each modal corresponds to one project.
-	  Clicking a thumbnail above opens its matching modal.
-	-->
-	<!-- Modal for Project VRSpaceShooter -->
+	<!-- MODALS -->
+	<!-- VR Space Shooter -->
 	<div id="VRSpaceShooter" class="modal-overlay">
 		<div class="modal-content">
 			<button class="modal-close" onclick="closeModal('VRSpaceShooter')">X</button>
 			<h3>VR Space Shooter</h3>
 			<div class="video-container">
 				<video controls>
-					<source src="assets/videos/VRSpaceShooter.mp4" type="video/mp4">
+					<source src="assets/videos/VRSpaceShooter.mp4" type="video/mp4" />
 					Your browser does not support the video tag.
 				</video>
 			</div>
 			<p>
 				A Unity-based VR game where players pick up a gun to destroy waves of asteroids speeding from left to right, earning points toward future weapon upgrades and purchases. Developed with the XR Interaction Toolkit and Oculus Integration, this project features smooth motion tracking, immersive 3D environments, and escalating challenges as asteroids accelerate over time.
 				It marks my first venture into VR and showcases the potential for expanded gameplay mechanics and upgrades in future iterations.
-
 			</p>
-			<!--<p>
-				<a href="https://example.com/game2.apk" target="_blank">
-					Download .APK
-				</a>
-			</p>-->
 		</div>
 	</div>
 
-	<!-- Modal for Project CarRaceMultiplayer -->
+	<!-- Car Race Multiplayer -->
 	<div id="CarRaceMultiplayer" class="modal-overlay">
 		<div class="modal-content">
 			<button class="modal-close" onclick="closeModal('CarRaceMultiplayer')">X</button>
 			<h3>Cosmic Racer</h3>
 			<div class="video-container">
 				<video controls>
-					<source src="assets/videos/CarRaceMultiplayer.mp4" type="video/mp4">
+					<source src="assets/videos/CarRaceMultiplayer.mp4" type="video/mp4" />
 					Your browser does not support the video tag.
 				</video>
 			</div>
 			<p>
-
 				Developed as a two-person project for my Master’s coursework, this game marked my first foray into multiplayer development. I focused on the core gameplay logic and car mechanics, leveraging Photon for real-time player connections and competitive racing. We also implemented a login/register system using PHP and phpMyAdmin, ensuring each player’s car upgrades and unlocks are securely stored and never lost.
 				Working closely with my teammate, who handled the saving mechanics, taught me the value of collaboration and gave me hands-on experience with advanced networking and data persistence in game development.
 			</p>
-			<!--<p>
-				<a href="https://example.com/game3.apk" target="_blank">
-					Download .APK
-				</a>
-			</p>-->
 		</div>
 	</div>
 
-
-	<!-- Modal for Project AIQuizGame -->
+	<!-- AI Quiz Game -->
 	<div id="AIQuizGame" class="modal-overlay">
 		<div class="modal-content">
 			<button class="modal-close" onclick="closeModal('AIQuizGame')">X</button>
 			<h3>AI Quiz Game</h3>
 			<div class="video-container">
 				<video controls>
-					<source src="assets/videos/AIQuizGame.mp4" type="video/mp4">
+					<source src="assets/videos/AIQuizGame.mp4" type="video/mp4" />
 					Your browser does not support the video tag.
 				</video>
 			</div>
@@ -175,173 +156,151 @@
 				A dynamic trivia experience powered by OpenAI’s ChatGPT and DALL·E plugins, tailored to different age groups. The game generates quiz questions, matching images, and multiple-choice options for each round.
 				Players must answer before time runs out to advance, and future updates will allow using earned coins to buy hints—adding a strategic layer for all ages.
 			</p>
-			<!--<p>
-				<a href="https://example.com/game3.apk" target="_blank">
-					Download .APK
-				</a>
-			</p>-->
 		</div>
 	</div>
 
-	<!-- Modal for project blockchainRpgModal-->
+	<!-- Blockchain RPG Odyssey -->
 	<div id="blockchainRpgModal" class="modal-overlay">
 		<div class="modal-content">
 			<button class="modal-close" onclick="closeModal('blockchainRpgModal')">X</button>
 			<h3>The Blockchain RPG Odyssey</h3>
 			<div class="video-container">
-				<!-- Use the YouTube embed URL: https://www.youtube.com/embed/YOUR_VIDEO_ID -->
 				<iframe width="640"
 						height="360"
 						src="https://www.youtube.com/embed/Tm-68s42WpY"
 						frameborder="0"
 						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-						allowfullscreen>
-				</iframe>
+						allowfullscreen></iframe>
 			</div>
 			<p>
 				As my final M.Sc. project, this 2D RPG explores integrating blockchain technology directly into gameplay. By using the NEAR wallet plugin, players can buy or sell NFT items—both to enhance their in-game experience and to trade in the real world. The game features a robust skill tree, including sword mastery, dodging, teleportation, and more. Players can also collect and craft resources to battle bosses and other enemies.
 				Through this project, I gained hands-on experience with blockchain fundamentals and discovered how to seamlessly incorporate NFTs into traditional game mechanics.
 			</p>
-			<!--
-			<p>
-			  <a href="https://example.com/game4.apk" target="_blank">
-				Download .APK
-			  </a>
-			</p>
-			-->
 		</div>
 	</div>
 
-	<!-- Modal for Project  fruit fighter -->
+	<!-- Fruit Fighter -->
 	<div id="fruitfighter" class="modal-overlay">
 		<div class="modal-content">
 			<button class="modal-close" onclick="closeModal('fruitfighter')">X</button>
 			<h3>Fruit Fighter</h3>
 			<div class="video-container">
 				<video controls>
-					<source src="assets/videos/fruit fighter.mp4" type="video/mp4">
+					<source src="assets/videos/fruitfighter.mp4" type="video/mp4" />
 					Your browser does not support the video tag.
 				</video>
 			</div>
 			<p>
-
 				A fast-paced 2.5D fruit-slicing game prototype built in Unity in just 20 days for a freelance partner. Players slice fruits with a knife while avoiding bombs—one wrong slice, and it’s game over! This project introduced a fresh spin on the classic fruit-cutting genre, emphasizing quick reflexes and strategic dodges.
 				Despite a tight deadline, it was an exciting challenge that yielded a polished, engaging result.
-
-
 			</p>
-			<!--<p>
-				<a href="https://example.com/game1.apk" target="_blank">
-					Download .APK
-				</a>
-			</p>-->
 		</div>
 	</div>
 
-
-	<!-- Modal for Project  Block and Hoop -->
+	<!-- Block and Hoop -->
 	<div id="blockandHoop" class="modal-overlay">
 		<div class="modal-content">
 			<button class="modal-close" onclick="closeModal('blockandHoop')">X</button>
 			<h3>Block and Hoop</h3>
 			<div class="video-container">
 				<video controls>
-					<source src="assets/videos/blockandHoop.mp4" type="video/mp4">
+					<source src="assets/videos/blockandHoop.mp4" type="video/mp4" />
 					Your browser does not support the video tag.
 				</video>
 			</div>
 			<p>
-				A fast-paced arcade puzzle where you move or place blocks to guide a bouncing ball into the hoop. I used Unity’s Line Renderer to visualize the ball’s trajectory, making the gameplay more intuitive and satisfying.
-				Each level ramps up in difficulty with faster ball movement and more complex layouts, challenging players to strategize quickly and adapt on the fly.
+				A fast-paced arcade puzzle where you move or place blocks to guide a bouncing ball into the hoop. I used Unity’s Line Renderer to visualize the ball’s trajectory, making the gameplay more intuitive and satisfying. Each level ramps up in difficulty with faster ball movement and more complex layouts, challenging players to strategize quickly and adapt on the fly.
 			</p>
-			<!--<p>
-				<a href="https://example.com/game1.apk" target="_blank">
-					Download .APK
-				</a>
-			</p>-->
 		</div>
 	</div>
 
-	<!-- Modal for Project TengoBlitz -->
+	<!-- Tengo blitz -->
 	<div id="TengoBlitz" class="modal-overlay">
 		<div class="modal-content">
 			<button class="modal-close" onclick="closeModal('TengoBlitz')">X</button>
-			<h3>TengoBlitz</h3>
+			<h3>Tengo Blitz</h3>
 			<div class="video-container">
 				<video controls>
-					<source src="assets/videos/TengoBlitz.mp4" type="video/mp4">
+					<source src="assets/videos/TengoBlitz.mp4" type="video/mp4" />
 					Your browser does not support the video tag.
 				</video>
 			</div>
 			<p>
 				Tengo Blitz is a fast-paced puzzle game inspired by Tetris, developed in Unity using C# over a span of 20–25 days for a freelance partner. Unlike traditional match games, Tengo Blitz challenges players to strategically place and combine blocks so their total sums up to 10—clearing the stack only when the sum is exact.
-				This adds a brain-teasing layer of math-based logic to the classic falling-block formula. I implemented a grid-based system to manage tile placement and stack control, along with smooth tile animations and visual effects powered by DoTween and Unity Animator. 
-				The game also features animated power-ups, including the Hammer (to destroy selected tiles) and Meow (a cat-themed power that clears rows or patterns). 
+				This adds a brain-teasing layer of math-based logic to the classic falling-block formula. I implemented a grid-based system to manage tile placement and stack control, along with smooth tile animations and visual effects powered by DoTween and Unity Animator.
+				The game also features animated power-ups, including the Hammer (to destroy selected tiles) and Meow (a cat-themed power that clears rows or patterns).
 				The interface is designed using Unity’s responsive UI tools, with animated feedback, timer-based gameplay, and real-time scoring. Tengo Blitz is a polished, engaging game that demonstrates my skills in logic-driven mechanics, animation, and delivering high-quality freelance projects on a tight timeline.
 			</p>
-			<!--<p>
-				<a href="https://example.com/game1.apk" target="_blank">
-					Download .APK
-				</a>
-			</p>-->
 		</div>
 	</div>
 
-
-
-	<!-- Modal for Project helix ball drop -->
+	<!-- helix ball drop -->
 	<div id="helixballdrop" class="modal-overlay">
 		<div class="modal-content">
 			<button class="modal-close" onclick="closeModal('helixballdrop')">X</button>
 			<h3>Helix Ball Drop</h3>
 			<div class="video-container">
 				<video controls>
-					<source src="assets/videos/helix ball drop.mp4" type="video/mp4">
+					<source src="assets/videos/helixballdrop.mp4" type="video/mp4" />
 					Your browser does not support the video tag.
 				</video>
 			</div>
 			<p>
-				Helix Ball Drop is a highly addictive hyper-casual game developed in Unity using C#, featuring simple yet satisfying mechanics and infinite level progression. Built as a freelance project, the core gameplay revolves around guiding a bouncing ball through rotating platforms, avoiding obstacles while progressing downward. 
-				The game includes Unity Ads integration, offering rewarded video ads and interstitials, along with In-App Purchase (IAP) functionality that allows players to permanently remove ads for a smoother experience. Players can also upgrade their ball, enhancing its appearance or abilities, adding a layer of personalization and progression. 
+				Helix Ball Drop is a highly addictive hyper-casual game developed in Unity using C#, featuring simple yet satisfying mechanics and infinite level progression. Built as a freelance project, the core gameplay revolves around guiding a bouncing ball through rotating platforms, avoiding obstacles while progressing downward.
+				The game includes Unity Ads integration, offering rewarded video ads and interstitials, along with In-App Purchase (IAP) functionality that allows players to permanently remove ads for a smoother experience. Players can also upgrade their ball, enhancing its appearance or abilities, adding a layer of personalization and progression.
 				The project uses Unity's animation tools for bounce and destruction effects, ensuring smooth, polished feedback. With its endless level design, progressively increasing difficulty, and quick restart loop, Helix Ball Drop keeps players engaged for long sessions. This project highlights my ability to implement monetization, in-game economy, and polish addictive gameplay loops in a short development cycle.
 			</p>
-			<!--<p>
-				<a href="https://example.com/game1.apk" target="_blank">
-					Download .APK
-				</a>
-			</p>-->
 		</div>
 	</div>
 
-
-	<!-- ========== CONTACT SECTION / FOOTER ========== -->
-	<footer>
-		<p>Contact Me</p>
+	<!-- FOOTER -->
+	<footer id="footer">
+		<p>© 2025 Monu Kumavat. All rights reserved.</p>
 		<div class="contact-links">
-			<!-- Replace # with your actual links -->
-			<a href="https://www.linkedin.com/in/monu-kumavat/" target="_blank" title="LinkedIn">
-				LinkedIn
-			</a>
-			<a href="mailto:kumavatmonu79@gmail.com" title="Email">
-				Email
-			</a>
-			<!--<a href="tel:+447741948421" title="Phone">
-				Phone
-			</a>-->
+			<a href="mailto:monu@example.com">Email</a>
+			<a href="https://github.com/monukumavat" target="_blank" rel="noopener noreferrer">GitHub</a>
+			<a href="https://linkedin.com/in/monukumavat" target="_blank" rel="noopener noreferrer">LinkedIn</a>
 		</div>
 	</footer>
 
-	<!-- ========== JAVASCRIPT ========== -->
 	<script>
-		// Function to open a modal by ID
-		function openModal(modalId) {
-			document.getElementById(modalId).style.display = "flex";
+		// Modal open/close logic
+		function openModal(id) {
+			const modal = document.getElementById(id);
+			if (modal) {
+				modal.style.display = 'flex';
+			}
+		}
+		function closeModal(id) {
+			const modal = document.getElementById(id);
+			if (modal) {
+				modal.style.display = 'none';
+			}
 		}
 
-		// Function to close a modal by ID
-		function closeModal(modalId) {
-			document.getElementById(modalId).style.display = "none";
+		// Close modal on clicking outside content
+		document.querySelectorAll('.modal-overlay').forEach(modal => {
+			modal.addEventListener('click', e => {
+				if (e.target === modal) {
+					modal.style.display = 'none';
+				}
+			});
+		});
+
+		// Scroll reveal effect
+		const revealElements = document.querySelectorAll('section, .game-item, footer');
+		function revealOnScroll() {
+			const windowHeight = window.innerHeight;
+			revealElements.forEach(el => {
+				const elementTop = el.getBoundingClientRect().top;
+				if (elementTop < windowHeight - 100) {
+					el.classList.add('active');
+				}
+			});
 		}
+		window.addEventListener('scroll', revealOnScroll);
+		window.addEventListener('load', revealOnScroll);
 	</script>
+
 </body>
 </html>
