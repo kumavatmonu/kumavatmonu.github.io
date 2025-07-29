@@ -34,24 +34,18 @@
 		<h2>Projects</h2>
 
 		<!-- Company Projects -->
-		<!--<div class="project-category">
+		<div class="project-category">
 			<h3>Company Projects</h3>
 			<div class="game-list">
 
-				<div class="game-item" onclick="openModal('VRSpaceShooter')">
-					<img src="assets/images/VRSpaceShooter.png" alt="Game 2 Thumbnail" />
+				<div class="game-item" onclick="openModal('TennisLiveScoreApp')">
+					<img src="assets/images/Tennis Live app.png" alt="Game 2 Thumbnail" />
 				</div>
 
-				<div class="game-item" onclick="openModal('CarRaceMultiplayer')">
-					<img src="assets/images/CarRaceMultiplayer.png" alt="Game 3 Thumbnail" />
-				</div>
-
-				<div class="game-item" onclick="openModal('AIQuizGame')">
-					<img src="assets/images/AIQuizGame.png" alt="Game 3 Thumbnail" />
-				</div>
+				
 
 			</div>
-		</div>-->
+		</div>
 		<!-- Freelance Projects -->
 		<div class="project-category">
 			<h3>Freelance Projects</h3>
@@ -59,7 +53,7 @@
 
 				<div class="game-item" onclick="openModal('fruitfighter')">
 					<img src="assets/images/fruit fighter.png" alt="Fruit Fighter Thumbnail" />
-					<span class="tooltip-text">Fruit Fighter</span>
+					<!--<span class="tooltip-text">Fruit Fighter</span>-->
 				</div>
 
 				<div class="game-item" onclick="openModal('TengoBlitz')">
@@ -106,6 +100,24 @@
 	</section>
 
 	<!-- MODALS -->
+	<!-- Tennis Live Score App-->
+	<div id="TennisLiveScoreApp" class="modal-overlay">
+		<div class="modal-content">
+			<button class="modal-close" onclick="closeModal('TennisLiveScoreApp')">X</button>
+			<h3>Tennis Live Score App</h3>
+			<div class="video-container">
+				<video controls>
+					<source src="assets/videos/TennisLiveApp.mp4" type="video/mp4" />
+					Your browser does not support the video tag.
+				</video>
+			</div>
+			<p>
+				Tennis Live Score is a real-time score tracking app focused on Tennis matches, ATP Tours, and tournaments, developed in just 5 days using Unity and C#. The app uses RapidAPI’s third-party sports API to fetch and display live match data. Players can view detailed match information, including live scores, player names, their country representation, current rankings, and even explore match history from previous years. 
+				I built a robust API integration system to manage live data streaming, handle JSON parsing, and update the UI in real time. The interface is clean, mobile-friendly, and optimized for quick access to key stats, with smooth transitions and real-time refresh capabilities. This project showcases my ability to work with external APIs, create dynamic data-driven UIs, and deliver fully functional applications under tight deadlines.
+			</p>
+		</div>
+	</div>
+
 	<!-- VR Space Shooter -->
 	<div id="VRSpaceShooter" class="modal-overlay">
 		<div class="modal-content">
