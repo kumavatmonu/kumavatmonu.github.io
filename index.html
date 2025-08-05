@@ -92,6 +92,10 @@
 					<img src="assets/images/CarRaceMultiplayer.png" alt="Game 3 Thumbnail" />
 				</div>
 
+				<div class="game-item" onclick="openModal('doubleRun')">
+					<img src="assets/images/doubleRun.png" alt="Game 3 Thumbnail" />
+				</div>
+
 
 
 			</div>
@@ -150,6 +154,25 @@
 			<p>
 				Developed as a two-person project for my Master’s coursework, this game marked my first foray into multiplayer development. I focused on the core gameplay logic and car mechanics, leveraging Photon for real-time player connections and competitive racing. We also implemented a login/register system using PHP and phpMyAdmin, ensuring each player’s car upgrades and unlocks are securely stored and never lost.
 				Working closely with my teammate, who handled the saving mechanics, taught me the value of collaboration and gave me hands-on experience with advanced networking and data persistence in game development.
+			</p>
+		</div>
+	</div>
+
+	<!-- Double Run -->
+	<div id="CarRaceMultiplayer" class="modal-overlay">
+		<div class="modal-content">
+			<button class="modal-close" onclick="closeModal('doubleRun')">X</button>
+			<h3>Double Run</h3>
+			<div class="video-container">
+				<video controls>
+					<source src="assets/videos/doubleRun.mp4" type="video/mp4" />
+					Your browser does not support the video tag.
+				</video>
+			</div>
+			<p>
+				In this fast-paced obstacle-avoidance game, players must control two characters at the same time—each facing different types of obstacles. 
+				While one character may need to jump, the other might have to slide, requiring sharp focus and coordination. As players progress, both speed and difficulty increase, creating an intense and rewarding gameplay experience. 
+				Points earned during play can be used to unlock new characters, adding variety and motivation. Built in just 10 days as a fun personal project, the game showcases smooth transitions using Unity’s animation tools, physics engine, and DoTween effects.
 			</p>
 		</div>
 	</div>
