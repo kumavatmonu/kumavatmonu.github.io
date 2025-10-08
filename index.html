@@ -145,6 +145,22 @@
 					</div>
 				</article>
 
+				<article class="card" data-tags="company" data-open="spaceshooter">
+					<img class="thumb" loading="lazy" src="assets/zapplogics/spaceshooter.png" alt="spaceshooter thumbnail" />
+					<div class="card-body">
+						<h3>2D Space Shooter</h3>
+						<span class="badge">Unity · C# · Ads · IAP  </span>
+					</div>
+				</article>
+
+				<article class="card" data-tags="company" data-open="Aviator">
+					<img class="thumb" loading="lazy" src="assets/zapplogics/Aviator.png" alt="Aviator thumbnail" />
+					<div class="card-body">
+						<h3>Aviator Game</h3>
+						<span class="badge">Unity · C# · Line Renderer · Rewarded Ads  </span>
+					</div>
+				</article>
+
 				<!-- Freelance -->
 				<article class="card" data-tags="freelance" data-open="fruitfighter">
 					<img class="thumb" loading="lazy" src="assets/images/fruit fighter.png" alt="Fruit Fighter game thumbnail" />
@@ -408,14 +424,51 @@
 				</div>
 
 				<p>
-					Developed 10+ slot games from scratch using Unity and C#, each featuring unique reel logic, visual design, and payout structures (ranging from 3×3 to 6×6 grids). 
-					Implemented full In-App Purchase (IAP) systems, dynamic win tables, and engaging sound design to enhance the overall user experience. 
-					Each title was optimized for mobile performance and published on app stores under different variations to meet client and app store compliance requirements. 
+					Developed 10+ slot games from scratch using Unity and C#, each featuring unique reel logic, visual design, and payout structures (ranging from 3×3 to 6×6 grids).
+					Implemented full In-App Purchase (IAP) systems, dynamic win tables, and engaging sound design to enhance the overall user experience.
+					Each title was optimized for mobile performance and published on app stores under different variations to meet client and app store compliance requirements.
 					Focused on modular architecture, making it easy to adjust win probabilities, animations, and mechanics per release — showcasing expertise in gameplay programming, system logic design, and monetization integration.
 				</p>
 			</div>
 		</div>
 	</div>
+
+	<div class="modal" id="spaceshooter" role="dialog" aria-modal="true" aria-hidden="true" aria-label="spaceshooter">
+		<div class="modal-panel">
+			<div class="modal-head"><strong>2D Space Shooter</strong><button class="modal-close" data-close>&times;</button></div>
+			<div class="modal-body">
+				<div class="video">
+					<video controls preload="metadata" playsinline poster="assets/zapplogics/spaceshooter.png">
+						<source src="assets/zapplogics/spaceshooter.mp4" type="video/mp4" />
+					</video>
+				</div>
+				<p>
+					Developed a 2D space combat game from scratch using Unity and C#, where players control a customizable jet to defeat waves of enemies across 100+ progressively challenging levels. 
+					Each level features distinct enemy types, attack patterns, and abilities, creating an engaging difficulty curve. Implemented particle effects and dynamic animations for explosions, bullets, and boosters, delivering an immersive and visually appealing experience. Added In-App Purchases (IAP) and rewarded ads, allowing players to earn extra coins to upgrade jet power, bullet speed, and damage output, or purchase new, more powerful jets. The project demonstrates strong skills in game logic, monetization systems, visual effects, and player engagement design.
+				</p>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="modal" id="Aviator" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Aviator">
+		<div class="modal-panel">
+			<div class="modal-head"><strong>Aviator Game</strong><button class="modal-close" data-close>&times;</button></div>
+			<div class="modal-body">
+				<div class="video">
+					<video controls preload="metadata" playsinline poster="assets/zapplogics/Aviator.png">
+						<source src="assets/zapplogics/Aviator.mp4" type="video/mp4" />
+					</video>
+				</div>
+				<p>
+					Developed a complete Aviator-style crash betting game from scratch using Unity and C#. Players place their bets before the plane takes off, and as it ascends, the multiplier increases in real time (e.g., 1.2x, 2x, 5x, etc.). To win, players must cash out before the plane crashes — securing profit — or lose their bet if they fail to react in time. Built a mathematics-driven algorithm to determine random crash points and fair payout multipliers, ensuring an engaging risk-reward balance. Used Line Renderer for visualizing flight trajectories, supported by particle effects and animations for takeoff, flight, and explosion sequences. 
+					(Note: The in-game title “Avaitor” appears due to an early prototype build; the updated version was not recorded.)
+					This project highlights strong skills in real-time probability systems, Unity animation, and interactive UI design.
+				</p>
+			</div>
+		</div>
+	</div>
+
 
 	<div class="modal" id="VRSpaceShooter" role="dialog" aria-modal="true" aria-hidden="true" aria-label="VR Space Shooter">
 		<div class="modal-panel">
@@ -664,13 +717,13 @@
 					const card = document.createElement("div");
 					card.className = "apk-card";
 					card.innerHTML = `
-					<div class="apk-icon">📦</div>
-					<div><strong>${slide.dataset.filename || "Download build"}</strong></div>
-					<a href="${slide.dataset.href}" target="_blank" rel="noopener"
-					   download="${slide.dataset.filename || ""}">
-					  ${slide.dataset.href?.includes("drive.google.com") ? "Download from Drive" : "Download APK"}
-					</a>
-				  `;
+						<div class="apk-icon">📦</div>
+						<div><strong>${slide.dataset.filename || "Download build"}</strong></div>
+						<a href="${slide.dataset.href}" target="_blank" rel="noopener"
+						   download="${slide.dataset.filename || ""}">
+						  ${slide.dataset.href?.includes("drive.google.com") ? "Download from Drive" : "Download APK"}
+						</a>
+					  `;
 					return card;
 				}
 				return document.createTextNode("Unsupported media");
