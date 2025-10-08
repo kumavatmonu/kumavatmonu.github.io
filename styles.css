@@ -496,6 +496,30 @@ footer {
 	}
 }
 
+.skills-tags {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	margin-top: 15px;
+}
+
+	.skills-tags span {
+		background: #1e293b;
+		color: #cbd5e1;
+		padding: 8px 14px;
+		border-radius: 20px;
+		font-size: 0.95rem;
+		border: 1px solid #3b82f6;
+		transition: all 0.25s ease;
+		user-select: none;
+	}
+
+		.skills-tags span:hover {
+			background: #3b82f6;
+			color: #fff;
+			transform: scale(1.05);
+			cursor: default;
+		}
 
 /* === Motion === */
 @media (prefers-reduced-motion:no-preference) {
