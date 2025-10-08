@@ -416,6 +416,30 @@
 		</div>
 	</div>
 
+
+	<script>
+		function stopMediaIn(modal) {
+			// Pause & reset <video>
+			modal.querySelectorAll('video').forEach(v => {
+				try { v.pause(); } catch (e) { }
+				// optional: rewind so it starts from beginning next time
+				try { v.currentTime = 0; } catch (e) { }
+			});
+
+			// Stop iframe players (YouTube/Vimeo)
+			modal.querySelectorAll('iframe').forEach(f => {
+				const src = f.getAttribute('src') || '';
+				// If YouTube with JS API enabled, send stop command
+				if (src.includes('youtube.com') && src.includes('enablejsapi=1')) {
+					try { f.contentWindow.postMessage('{"event":"command","func":"stopVideo","args":""}', '*'); } catch (e) { }
+				} else {
+					// Fallback: force reload (stops audio)
+					f.setAttribute('src', src);
+				}
+			});
+		}
+	</script>
+
 	<script>
 		// Footer year
 		document.getElementById('y').textContent = new Date().getFullYear();
@@ -440,17 +464,27 @@
 
 		// Modals
 		let lastFocus;
-		function openModal(id) {
-			const m = document.getElementById(id);
-			if (!m) return;
-			lastFocus = document.activeElement;
-			m.setAttribute('aria-hidden', 'false');
-			m.querySelector('[data-close]')?.focus();
-		}
-		function closeModal(m) {
-			m.setAttribute('aria-hidden', 'true');
-			lastFocus?.focus();
-		}
+        function openModal(id) {
+            const m = document.getElementById(id);
+            if (!m) return;
+
+            // Close & stop any other open modals/videos
+            document.querySelectorAll('.modal[aria-hidden="false"]').forEach(openM => {
+                stopMediaIn(openM);
+                openM.setAttribute('aria-hidden', 'true');
+            });
+
+            lastFocus = document.activeElement;
+            m.setAttribute('aria-hidden', 'false');
+            m.querySelector('[data-close]')?.focus();
+        }
+
+        function closeModal(m) {
+            // Stop media in this modal when it’s closed
+            stopMediaIn(m);
+            m.setAttribute('aria-hidden', 'true');
+            lastFocus?.focus();
+        }
 		document.querySelectorAll('.grid [data-open]').forEach(card => {
 			card.addEventListener('click', () => openModal(card.getAttribute('data-open')));
 		});
@@ -480,89 +514,119 @@
 	</script>
 
 	<script>
+		/* -------- Universal slider for modals -------- */
 		(function () {
 			function createMediaEl(slide) {
 				const type = slide.dataset.type;
-				if (type === 'video') {
-					const v = document.createElement('video');
-					v.controls = true; v.playsInline = true; v.preload = 'metadata';
+				if (type === "video") {
+					const v = document.createElement("video");
+					v.controls = true;
+					v.playsInline = true;
+					v.preload = "metadata";
 					v.src = slide.dataset.src;
-					v.poster = slide.getAttribute('src'); // use thumb as poster
+					v.poster = slide.getAttribute("src") || "";
+					// Safari sometimes needs an explicit load on first render
+					v.addEventListener("loadedmetadata", () => { /* noop, ensures sizing */ }, { once: true });
 					return v;
 				}
-				if (type === 'image') {
+				if (type === "image") {
 					const img = new Image();
-					img.src = slide.dataset.src || slide.getAttribute('src');
-					img.alt = slide.alt || 'Project image';
+					img.src = slide.dataset.src || slide.getAttribute("src");
+					img.alt = slide.alt || "Project image";
 					return img;
 				}
-				if (type === 'file') {
-					const card = document.createElement('div');
-					card.className = 'apk-card';
+				if (type === "file") {
+					const card = document.createElement("div");
+					card.className = "apk-card";
 					card.innerHTML = `
-			<div class="apk-icon">📦</div>
-			<div><strong>${slide.dataset.filename || 'Download build'}</strong></div>
-			<a href="${slide.dataset.href}" download="${slide.dataset.filename || ''}">Download APK</a>
-		  `;
+				<div class="apk-icon">📦</div>
+				<div><strong>${slide.dataset.filename || "Download build"}</strong></div>
+				<a href="${slide.dataset.href}" target="_blank" rel="noopener"
+				   download="${slide.dataset.filename || ""}">
+				  ${slide.dataset.href?.includes("drive.google.com") ? "Download from Drive" : "Download APK"}
+				</a>
+			  `;
 					return card;
 				}
-				return document.createTextNode('Unsupported media');
+				return document.createTextNode("Unsupported media");
 			}
 
-			function initSlider(root) {
-				const slider = root.querySelector('[data-slider]');
+			function initSlider(modal) {
+				const slider = modal.querySelector("[data-slider]");
 				if (!slider || slider.__inited) return;
 				slider.__inited = true;
 
-				const viewer = slider.querySelector('.viewer');
-				const thumbs = [...slider.querySelectorAll('.gallery .thumb')];
-				const btnPrev = slider.querySelector('[data-prev]');
-				const btnNext = slider.querySelector('[data-next]');
-				const idxEl = slider.querySelector('[data-idx]');
-				const totalEl = slider.querySelector('[data-total]');
+				const viewer = slider.querySelector(".viewer");
+				const thumbs = Array.from(slider.querySelectorAll(".gallery .thumb"));
+				const btnPrev = slider.querySelector("[data-prev]");
+				const btnNext = slider.querySelector("[data-next]");
+				const idxEl = slider.querySelector("[data-idx]");
+				const totalEl = slider.querySelector("[data-total]");
 
-				let i = 0; const total = thumbs.length;
-				totalEl.textContent = total;
+				let i = 0;
+				const total = thumbs.length;
+				if (totalEl) totalEl.textContent = String(total);
 
 				function render(index) {
-					i = (index + total) % total; // wrap
-					viewer.innerHTML = '';
-					viewer.appendChild(createMediaEl(thumbs[i]));
-					thumbs.forEach(t => t.classList.remove('is-active'));
-					thumbs[i].classList.add('is-active');
-					idxEl.textContent = i + 1;
+					if (!total) return;
+					i = (index + total) % total; // wrap around
+					viewer.innerHTML = "";
+					const media = createMediaEl(thumbs[i]);
+					viewer.appendChild(media);
+					thumbs.forEach(t => t.classList.remove("is-active"));
+					thumbs[i].classList.add("is-active");
+					if (idxEl) idxEl.textContent = String(i + 1);
+
+					// If first is a video, make sure it's ready (don’t autoplay unless you want)
+					if (media.tagName === "VIDEO") {
+						try { media.load(); } catch (e) { }
+					}
 				}
 
-				// events
-				btnPrev.addEventListener('click', () => render(i - 1));
-				btnNext.addEventListener('click', () => render(i + 1));
-				thumbs.forEach((t, ti) => t.addEventListener('click', () => render(ti)));
+				// nav handlers
+				btnPrev?.addEventListener("click", () => render(i - 1));
+				btnNext?.addEventListener("click", () => render(i + 1));
+				thumbs.forEach((t, ti) => t.addEventListener("click", () => render(ti)));
 
-				// keyboard & swipe inside modal
-				const modal = root;
-				modal.addEventListener('keydown', (e) => {
-					if (e.key === 'ArrowLeft') render(i - 1);
-					if (e.key === 'ArrowRight') render(i + 1);
+				// keyboard + swipe
+				modal.addEventListener("keydown", (e) => {
+					if (e.key === "ArrowLeft") render(i - 1);
+					if (e.key === "ArrowRight") render(i + 1);
 				});
-				let sx = 0; viewer.addEventListener('touchstart', e => sx = e.changedTouches[0].clientX, { passive: true });
-				viewer.addEventListener('touchend', e => {
+				let sx = 0;
+				viewer.addEventListener("touchstart", (e) => (sx = e.changedTouches[0].clientX), { passive: true });
+				viewer.addEventListener("touchend", (e) => {
 					const dx = e.changedTouches[0].clientX - sx;
 					if (Math.abs(dx) > 40) render(i + (dx < 0 ? 1 : -1));
 				});
 
-				// initial render
+				// initial render immediately
 				render(0);
 			}
 
-			// Initialize when the modal opens
-			document.querySelectorAll('.modal').forEach(m => {
-				m.addEventListener('click', e => {
-					// when overlay gets opened by your existing openModal() we run init once
-					if (m.getAttribute('aria-hidden') === 'false') initSlider(m);
-				});
+			// A) Init all sliders once DOM is ready (fixes 1/1 & blank viewer)
+			document.addEventListener("DOMContentLoaded", () => {
+				document.querySelectorAll(".modal").forEach(initSlider);
+			});
+
+			// B) Also init whenever a modal becomes visible (in case you add sliders later)
+			const mo = new MutationObserver((mutations) => {
+				for (const m of mutations) {
+					if (
+						m.type === "attributes" &&
+						m.attributeName === "aria-hidden" &&
+						m.target.getAttribute("aria-hidden") === "false"
+					) {
+						initSlider(m.target);
+					}
+				}
+			});
+			document.querySelectorAll(".modal").forEach((m) => {
+				mo.observe(m, { attributes: true });
 			});
 		})();
 	</script>
+
 
 </body>
 </html>
