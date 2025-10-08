@@ -1,342 +1,366 @@
-﻿<!DOCTYPE html>
+﻿<!doctype html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8" />
-	<title>Monu Kumavat - Portfolio</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Monu Kumavat — Experienced Game Developer (Unity / AR·VR)</title>
+	<meta name="description" content="Experienced Game Developer with 6+ years in Unity. 50+ shipped prototypes & apps, AR/VR, multiplayer, live-ops, and performance optimization." />
+	<meta name="author" content="Monu Kumavat" />
+	<meta property="og:title" content="Monu Kumavat — Game Developer" />
+	<meta property="og:description" content="Unity · AR/VR · Multiplayer · 50+ projects · 10M+ downloads." />
+	<meta property="og:type" content="website" />
+	<meta property="og:image" content="assets/images/VRSpaceShooter.png" />
+	<meta name="theme-color" content="#0b1220" />
+	<link rel="preload" href="assets/images/VRSpaceShooter.png" as="image" />
 	<link rel="stylesheet" href="styles.css" />
+	<script type="application/ld+json">
+		{
+		  "@context": "https://schema.org",
+		  "@type": "Person",
+		  "name": "Monu Kumavat",
+		  "jobTitle": "Game Developer",
+		  "url": "https://kumavatmonu.github.io/",
+		  "sameAs": [
+			"https://github.com/monu37",
+			"https://www.linkedin.com/in/monu-kumavat/"
+		  ],
+		  "knowsAbout": ["Unity","C#","AR/VR","Multiplayer","Photon","Firebase","PlayFab"],
+		  "alumniOf": "Kingston University"
+		}
+	</script>
 </head>
 <body>
-
-	<!-- ========== HEADER ========== -->
-	<header>
-		<h1>Monu Kumavat</h1>
-		<h2>Game Developer | Unity Developer | AR/VR Developer</h2>
-	</header>
-
-	<!-- ========== ABOUT SECTION ========== -->
-	<section id="about">
-		<h2>About Me</h2>
-		<p>
-			I’m Monu Kumavat, a Game Developer with 6+ years of experience
-			building over 50 games and apps using Unity and C#. I’ve led
-			projects like Bingo Free World (10M+ downloads) and worked
-			extensively with AR/VR, real-time APIs, and multiplayer networking.
-			Whether I’m optimizing performance or experimenting with
-			innovative features, I’m driven by a passion for delivering
-			memorable, seamless gameplay experiences. Over the years, I’ve
-			also enjoyed mentoring junior developers and fostering
-			collaborative teams to bring creative ideas to life.
-		</p>
-	</section>
-
-	<!-- ========== PORTFOLIO SECTION ========== -->
-	<section id="portfolio">
-		<h2>Projects</h2>
-
-		<!-- Company Projects -->
-		<div class="project-category">
-			<h3>Company Projects</h3>
-			<div class="game-list">
-
-				<div class="game-item" onclick="openModal('TennisLiveScoreApp')">
-					<img src="assets/images/Tennis Live app.png" alt="Tennis Live app Thumbnail" />
-				</div>
-
-				
-
-			</div>
-		</div>
-		<!-- Freelance Projects -->
-		<div class="project-category">
-			<h3>Freelance Projects</h3>
-			<div class="game-list">
-
-				<div class="game-item" onclick="openModal('fruitfighter')">
-					<img src="assets/images/fruit fighter.png" alt="Fruit Fighter Thumbnail" />
-					<!--<span class="tooltip-text">Fruit Fighter</span>-->
-				</div>
-
-				<div class="game-item" onclick="openModal('TengoBlitz')">
-					<img src="assets/images/TengoBlitz.png" alt="Tengo Blitz Thumbnail" />
-				</div>
-
-				<div class="game-item" onclick="openModal('helixballdrop')">
-					<img src="assets/images/helix ball drop.png" alt="Helix Ball Drop Thumbnail" />
-				</div>
-
-				<div class="game-item" onclick="openModal('blockandHoop')">
-					<img src="assets/images/blockandHoop.png" alt="Block and Hoop Thumbnail" />
-				</div>
-
-			</div>
-		</div>
-
-		<!-- Personal Projects -->
-		<div class="project-category">
-			<h3>Personal Projects</h3>
-			<div class="game-list">
-
-				<div class="game-item" onclick="openModal('blockchainRpgModal')">
-					<img src="assets/images/RPGOdyssey.png" alt="Blockchain RPG Odyssey Thumbnail" />
-				</div>
-
-				<div class="game-item" onclick="openModal('VRSpaceShooter')">
-					<img src="assets/images/VRSpaceShooter.png" alt="VR Space Shooter Thumbnail" />
-				</div>
-
-				<div class="game-item" onclick="openModal('AIQuizGame')">
-					<img src="assets/images/AIQuizGame.png" alt="AI Quiz Game Thumbnail" />
-				</div>
-
-				<div class="game-item" onclick="openModal('CarRaceMultiplayer')">
-					<img src="assets/images/CarRaceMultiplayer.png" alt="Car Race Multiplayer Thumbnail" />
-				</div>
-
-				<div class="game-item" onclick="openModal('doubleRun')">
-					<img src="assets/images/doubleRun.png" alt="Double Run Thumbnail" />
-				</div>
-
-
-
-			</div>
-		</div>
-
-	</section>
-
-	<!-- MODALS -->
-	<!-- Tennis Live Score App-->
-	<div id="TennisLiveScoreApp" class="modal-overlay">
-		<div class="modal-content">
-			<button class="modal-close" onclick="closeModal('TennisLiveScoreApp')">X</button>
-			<h3>Tennis Live Score App</h3>
-			<div class="video-container">
-				<video controls>
-					<source src="assets/videos/TennisLiveApp.mp4" type="video/mp4" />
-					Your browser does not support the video tag.
-				</video>
-			</div>
+	<div class="wrap">
+		<header data-reveal>
+			<span class="pill">Experienced Game Developer · Unity · AR/VR · Multiplayer</span>
+			<h1>Monu Kumavat</h1>
 			<p>
-				Tennis Live Score is a real-time score tracking app focused on Tennis matches, ATP Tours, and tournaments, developed in just 5 days using Unity and C#. The app uses RapidAPI’s third-party sports API to fetch and display live match data. Players can view detailed match information, including live scores, player names, their country representation, current rankings, and even explore match history from previous years. 
-				I built a robust API integration system to manage live data streaming, handle JSON parsing, and update the UI in real time. The interface is clean, mobile-friendly, and optimized for quick access to key stats, with smooth transitions and real-time refresh capabilities. This project showcases my ability to work with external APIs, create dynamic data-driven UIs, and deliver fully functional applications under tight deadlines.
+				6+ years crafting games and interactive apps in Unity (50+ shipped prototypes & client projects).
+				Led features for <strong>Bingo Free World (10M+)</strong>, built AR/VR experiences, live-ops and in-game economies, and mentored teams to deliver high-polish gameplay.
 			</p>
+			<div class="cta">
+				<a class="btn" href="mailto:monukumavat37@gmail.com?subject=Game%20Developer%20Opportunity">Contact Me</a>
+				<a class="btn secondary" href="assets/Monu_Kumavat_Resume.pdf" download>Download CV</a>
+			</div>
+		</header>
+
+		<!-- About -->
+		<section id="about" data-reveal>
+			<h2>About</h2>
+			<p class="sub">Unity specialist focused on performance, gameplay feel, and rapid delivery.</p>
+			<div class="chips" aria-label="Skills">
+				<span class="chip">Unity · C#</span>
+				<span class="chip">AR/VR (XR Toolkit)</span>
+				<span class="chip">Multiplayer (Photon)</span>
+				<span class="chip">Mobile (iOS/Android)</span>
+				<span class="chip">Shaders · VFX</span>
+				<span class="chip">Optimization · Profiling</span>
+				<span class="chip">Firebase · Analytics</span>
+				<span class="chip">Ads · IAP · Live-ops</span>
+				<span class="chip">DoTween · Cinemachine</span>
+			</div>
+		</section>
+
+		<!-- Experience -->
+		<section id="experience" data-reveal>
+			<h2>Experience</h2>
+			<div class="xp">
+				<article class="xp-item">
+					<h3>Mid-Senior Game Developer · CODESOFT INFOTECH</h3>
+					<div class="xp-meta">Jan 2024 – Present · Remote</div>
+					<ul class="xp-bullets">
+						<li>Led a 5-dev team; boosted delivery velocity by <strong>30%</strong> and mentored juniors.</li>
+						<li>Shipped 3 games across Play Store, PC & Web; implemented analytics, A/B and live-ops.</li>
+						<li>Drove performance profiling, memory budgets, and asset pipeline efficiency.</li>
+					</ul>
+				</article>
+				<article class="xp-item">
+					<h3>Game Developer · Zapplogics Solutions</h3>
+					<div class="xp-meta">May 2022 – Feb 2023 · Bengaluru</div>
+					<ul class="xp-bullets">
+						<li>Delivered 20+ client projects; increased user engagement by <strong>30%</strong>.</li>
+						<li>Architected gameplay systems, state machines, and UI flows with addressables.</li>
+					</ul>
+				</article>
+				<article class="xp-item">
+					<h3>Game Developer · CODESOFT INFOTECH</h3>
+					<div class="xp-meta">Jul 2020 – Mar 2022 · Surat (Hybrid)</div>
+					<ul class="xp-bullets">
+						<li>Co-led features for <strong>Bingo Free World (10M+ downloads)</strong>.</li>
+						<li>Built 15+ hyper-casual titles using object pooling, SOs, event-driven patterns.</li>
+					</ul>
+				</article>
+			</div>
+		</section>
+
+		<!-- Projects -->
+		<section id="projects" data-reveal>
+			<h2>Projects</h2>
+			<p class="sub">Filter by type</p>
+			<div class="filters" role="tablist" aria-label="Project filters">
+				<button role="tab" aria-selected="true" data-filter="all">All</button>
+				<button role="tab" data-filter="company">Company</button>
+				<button role="tab" data-filter="freelance">Freelance</button>
+				<button role="tab" data-filter="personal">Personal</button>
+			</div>
+			<div class="grid" id="projectGrid">
+				<!-- Company -->
+				<article class="card" data-tags="company" data-open="TennisLiveScoreApp">
+					<img class="thumb" loading="lazy" src="assets/images/Tennis Live app.png" alt="Tennis Live Score App thumbnail" />
+					<div class="card-body">
+						<h3>Tennis Live Score App</h3>
+						<span class="badge">Unity · RapidAPI</span>
+					</div>
+				</article>
+
+				<!-- Freelance -->
+				<article class="card" data-tags="freelance" data-open="fruitfighter">
+					<img class="thumb" loading="lazy" src="assets/images/fruit fighter.png" alt="Fruit Fighter game thumbnail" />
+					<div class="card-body"><h3>Fruit Fighter</h3><span class="badge">Freelance</span></div>
+				</article>
+				<article class="card" data-tags="freelance" data-open="TengoBlitz">
+					<img class="thumb" loading="lazy" src="assets/images/TengoBlitz.png" alt="Tengo Blitz puzzle game thumbnail" />
+					<div class="card-body"><h3>Tengo Blitz</h3><span class="badge">Freelance</span></div>
+				</article>
+				<article class="card" data-tags="freelance" data-open="helixballdrop">
+					<img class="thumb" loading="lazy" src="assets/images/helix ball drop.png" alt="Helix Ball Drop hyper-casual game thumbnail" />
+					<div class="card-body"><h3>Helix Ball Drop</h3><span class="badge">Ads · IAP</span></div>
+				</article>
+				<article class="card" data-tags="freelance" data-open="blockandHoop">
+					<img class="thumb" loading="lazy" src="assets/images/blockandHoop.png" alt="Block and Hoop puzzle game thumbnail" />
+					<div class="card-body"><h3>Block & Hoop</h3><span class="badge">Physics</span></div>
+				</article>
+
+				<!-- Personal -->
+				<article class="card" data-tags="personal" data-open="blockchainRpgModal">
+					<img class="thumb" loading="lazy" src="assets/images/RPGOdyssey.png" alt="Blockchain RPG Odyssey thumbnail" />
+					<div class="card-body"><h3>Blockchain RPG Odyssey</h3><span class="badge">NEAR · NFTs</span></div>
+				</article>
+				<article class="card" data-tags="personal" data-open="VRSpaceShooter">
+					<img class="thumb" loading="lazy" src="assets/images/VRSpaceShooter.png" alt="VR Space Shooter thumbnail" />
+					<div class="card-body"><h3>VR Space Shooter</h3><span class="badge">XR Toolkit</span></div>
+				</article>
+				<article class="card" data-tags="personal" data-open="AIQuizGame">
+					<img class="thumb" loading="lazy" src="assets/images/AIQuizGame.png" alt="AI Quiz Game thumbnail" />
+					<div class="card-body"><h3>AI Quiz Game</h3><span class="badge">OpenAI · GenAI</span></div>
+				</article>
+				<article class="card" data-tags="personal" data-open="CarRaceMultiplayer">
+					<img class="thumb" loading="lazy" src="assets/images/CarRaceMultiplayer.png" alt="Multiplayer car race thumbnail" />
+					<div class="card-body"><h3>Cosmic Racer (Multiplayer)</h3><span class="badge">Photon</span></div>
+				</article>
+				<article class="card" data-tags="personal" data-open="doubleRun">
+					<img class="thumb" loading="lazy" src="assets/images/doubleRun.png" alt="Double Run dual-control runner thumbnail" />
+					<div class="card-body"><h3>Double Run</h3><span class="badge">Hyper-casual-game</span></div>
+				</article>
+			</div>
+		</section>
+
+		<!-- Education -->
+		<section id="education" data-reveal>
+			<h2>Education</h2>
+			<div class="xp">
+				<article class="xp-item">
+					<h3>MSc — Game Development</h3>
+					<div class="xp-meta">Kingston University, UK</div>
+					<ul class="xp-bullets"><li>Final project: 2D Blockchain RPG with NEAR wallet & NFT economy.</li></ul>
+				</article>
+			</div>
+		</section>
+
+		<!-- Contact / Footer -->
+		<footer>
+			<p>© <span id="y"></span> Monu Kumavat. All rights reserved.</p>
+			<div class="links">
+				<a rel="noopener" target="_blank" href="https://github.com/monu37">GitHub</a>
+				<a rel="noopener" target="_blank" href="https://www.linkedin.com/in/monu-kumavat/">LinkedIn</a>
+				<a href="monukumavat37@gmail.com">Email</a>
+			</div>
+		</footer>
+	</div>
+
+	<!-- ===== Modals ===== -->
+	<div class="modal" id="TennisLiveScoreApp" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Tennis Live Score App">
+		<div class="modal-panel">
+			<div class="modal-head"><strong>Tennis Live Score App</strong><button class="modal-close" data-close>&times;</button></div>
+			<div class="modal-body">
+				<div class="video">
+					<video controls preload="metadata" playsinline poster="assets/images/Tennis Live app.png">
+						<source src="assets/videos/TennisLiveApp.mp4" type="video/mp4" />
+						Your browser does not support the video tag.
+					</video>
+				</div>
+				<p>Tennis Live Score is a real-time score tracking app focused on Tennis matches, ATP Tours, and tournaments, developed in just 5 days using Unity and C#. The app uses RapidAPI’s third-party sports API to fetch and display live match data. Players can view detailed match information, including live scores, player names, their country representation, current rankings, and even explore match history from previous years. I built a robust API integration system to manage live data streaming, handle JSON parsing, and update the UI in real time. The interface is clean, mobile-friendly, and optimized for quick access to key stats, with smooth transitions and real-time refresh capabilities. This project showcases my ability to work with external APIs, create dynamic data-driven UIs, and deliver fully functional applications under tight deadlines.</p>
+			</div>
 		</div>
 	</div>
 
-	<!-- VR Space Shooter -->
-	<div id="VRSpaceShooter" class="modal-overlay">
-		<div class="modal-content">
-			<button class="modal-close" onclick="closeModal('VRSpaceShooter')">X</button>
-			<h3>VR Space Shooter</h3>
-			<div class="video-container">
-				<video controls>
-					<source src="assets/videos/VRSpaceShooter.mp4" type="video/mp4" />
-					Your browser does not support the video tag.
-				</video>
+	<div class="modal" id="VRSpaceShooter" role="dialog" aria-modal="true" aria-hidden="true" aria-label="VR Space Shooter">
+		<div class="modal-panel">
+			<div class="modal-head"><strong>VR Space Shooter</strong><button class="modal-close" data-close>&times;</button></div>
+			<div class="modal-body">
+				<div class="video">
+					<video controls preload="metadata" playsinline poster="assets/images/VRSpaceShooter.png">
+						<source src="assets/videos/VRSpaceShooter.mp4" type="video/mp4" />
+					</video>
+				</div>
+				<p>A Unity-based VR game where players pick up a gun to destroy waves of asteroids speeding from left to right, earning points toward future weapon upgrades and purchases. Developed with the XR Interaction Toolkit and Oculus Integration, this project features smooth motion tracking, immersive 3D environments, and escalating challenges as asteroids accelerate over time. It marks my first venture into VR and showcases the potential for expanded gameplay mechanics and upgrades in future iterations.</p>
 			</div>
-			<p>
-				A Unity-based VR game where players pick up a gun to destroy waves of asteroids speeding from left to right, earning points toward future weapon upgrades and purchases. Developed with the XR Interaction Toolkit and Oculus Integration, this project features smooth motion tracking, immersive 3D environments, and escalating challenges as asteroids accelerate over time.
-				It marks my first venture into VR and showcases the potential for expanded gameplay mechanics and upgrades in future iterations.
-			</p>
 		</div>
 	</div>
 
-	<!-- Car Race Multiplayer -->
-	<div id="CarRaceMultiplayer" class="modal-overlay">
-		<div class="modal-content">
-			<button class="modal-close" onclick="closeModal('CarRaceMultiplayer')">X</button>
-			<h3>Cosmic Racer</h3>
-			<div class="video-container">
-				<video controls>
-					<source src="assets/videos/CarRaceMultiplayer.mp4" type="video/mp4" />
-					Your browser does not support the video tag.
-				</video>
+	<div class="modal" id="CarRaceMultiplayer" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Cosmic Racer">
+		<div class="modal-panel">
+			<div class="modal-head"><strong>Cosmic Racer (Multiplayer)</strong><button class="modal-close" data-close>&times;</button></div>
+			<div class="modal-body">
+				<div class="video">
+					<video controls preload="metadata" playsinline poster="assets/images/CarRaceMultiplayer.png">
+						<source src="assets/videos/CarRaceMultiplayer.mp4" type="video/mp4" />
+					</video>
+				</div>
+				<p>TDeveloped as a two-person project for my Master’s coursework, this game marked my first foray into multiplayer development. I focused on the core gameplay logic and car mechanics, leveraging Photon for real-time player connections and competitive racing. We also implemented a login/register system using PHP and phpMyAdmin, ensuring each player’s car upgrades and unlocks are securely stored and never lost. Working closely with my teammate, who handled the saving mechanics, taught me the value of collaboration and gave me hands-on experience with advanced networking and data persistence in game development.</p>
 			</div>
-			<p>
-				Developed as a two-person project for my Master’s coursework, this game marked my first foray into multiplayer development. I focused on the core gameplay logic and car mechanics, leveraging Photon for real-time player connections and competitive racing. We also implemented a login/register system using PHP and phpMyAdmin, ensuring each player’s car upgrades and unlocks are securely stored and never lost.
-				Working closely with my teammate, who handled the saving mechanics, taught me the value of collaboration and gave me hands-on experience with advanced networking and data persistence in game development.
-			</p>
 		</div>
 	</div>
 
-	<!-- Double Run -->
-	<div id="doubleRun" class="modal-overlay">
-		<div class="modal-content">
-			<button class="modal-close" onclick="closeModal('doubleRun')">X</button>
-			<h3>Double Run</h3>
-			<div class="video-container">
-				<video controls>
-					<source src="assets/videos/doubleRun.mp4" type="video/mp4" />
-					Your browser does not support the video tag.
-				</video>
+	<div class="modal" id="doubleRun" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Double Run">
+		<div class="modal-panel">
+			<div class="modal-head"><strong>Double Run</strong><button class="modal-close" data-close>&times;</button></div>
+			<div class="modal-body">
+				<div class="video">
+					<video controls preload="metadata" playsinline poster="assets/images/doubleRun.png">
+						<source src="assets/videos/doubleRun.mp4" type="video/mp4" />
+					</video>
+				</div>
+				<p>In this fast-paced obstacle-avoidance game, players must control two characters at the same time—each facing different types of obstacles. While one character may need to jump, the other might have to slide, requiring sharp focus and coordination. As players progress, both speed and difficulty increase, creating an intense and rewarding gameplay experience. Points earned during play can be used to unlock new characters, adding variety and motivation. Built in just 10 days as a fun personal project, the game showcases smooth transitions using Unity’s animation tools, physics engine, and DoTween effects.</p>
 			</div>
-			<p>
-				In this fast-paced obstacle-avoidance game, players must control two characters at the same time—each facing different types of obstacles. 
-				While one character may need to jump, the other might have to slide, requiring sharp focus and coordination. As players progress, both speed and difficulty increase, creating an intense and rewarding gameplay experience. 
-				Points earned during play can be used to unlock new characters, adding variety and motivation. Built in just 10 days as a fun personal project, the game showcases smooth transitions using Unity’s animation tools, physics engine, and DoTween effects.
-			</p>
 		</div>
 	</div>
 
-	<!-- AI Quiz Game -->
-	<div id="AIQuizGame" class="modal-overlay">
-		<div class="modal-content">
-			<button class="modal-close" onclick="closeModal('AIQuizGame')">X</button>
-			<h3>AI Quiz Game</h3>
-			<div class="video-container">
-				<video controls>
-					<source src="assets/videos/AIQuizGame.mp4" type="video/mp4" />
-					Your browser does not support the video tag.
-				</video>
+	<div class="modal" id="AIQuizGame" role="dialog" aria-modal="true" aria-hidden="true" aria-label="AI Quiz Game">
+		<div class="modal-panel">
+			<div class="modal-head"><strong>AI Quiz Game</strong><button class="modal-close" data-close>&times;</button></div>
+			<div class="modal-body">
+				<div class="video">
+					<video controls preload="metadata" playsinline poster="assets/images/AIQuizGame.png">
+						<source src="assets/videos/AIQuizGame.mp4" type="video/mp4" />
+					</video>
+				</div>
+				<p>A dynamic trivia experience powered by OpenAI’s ChatGPT and DALL·E plugins, tailored to different age groups. The game generates quiz questions, matching images, and multiple-choice options for each round. Players must answer before time runs out to advance, and future updates will allow using earned coins to buy hints—adding a strategic layer for all ages.</p>
 			</div>
-			<p>
-				A dynamic trivia experience powered by OpenAI’s ChatGPT and DALL·E plugins, tailored to different age groups. The game generates quiz questions, matching images, and multiple-choice options for each round.
-				Players must answer before time runs out to advance, and future updates will allow using earned coins to buy hints—adding a strategic layer for all ages.
-			</p>
 		</div>
 	</div>
 
-	<!-- Blockchain RPG Odyssey -->
-	<div id="blockchainRpgModal" class="modal-overlay">
-		<div class="modal-content">
-			<button class="modal-close" onclick="closeModal('blockchainRpgModal')">X</button>
-			<h3>The Blockchain RPG Odyssey</h3>
-			<div class="video-container">
-				<iframe width="640"
-						height="360"
-						src="https://www.youtube.com/embed/Tm-68s42WpY"
-						frameborder="0"
-						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-						allowfullscreen></iframe>
+	<div class="modal" id="blockchainRpgModal" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Blockchain RPG Odyssey">
+		<div class="modal-panel">
+			<div class="modal-head"><strong>The Blockchain RPG Odyssey</strong><button class="modal-close" data-close>&times;</button></div>
+			<div class="modal-body">
+				<div class="video">
+					<iframe width="100%" height="100%" src="https://www.youtube.com/embed/Tm-68s42WpY" title="Blockchain RPG Odyssey" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+				</div>
+				<p>As my final M.Sc. project, this 2D RPG explores integrating blockchain technology directly into gameplay. By using the NEAR wallet plugin, players can buy or sell NFT items—both to enhance their in-game experience and to trade in the real world. The game features a robust skill tree, including sword mastery, dodging, teleportation, and more. Players can also collect and craft resources to battle bosses and other enemies. Through this project, I gained hands-on experience with blockchain fundamentals and discovered how to seamlessly incorporate NFTs into traditional game mechanics.</p>
 			</div>
-			<p>
-				As my final M.Sc. project, this 2D RPG explores integrating blockchain technology directly into gameplay. By using the NEAR wallet plugin, players can buy or sell NFT items—both to enhance their in-game experience and to trade in the real world. The game features a robust skill tree, including sword mastery, dodging, teleportation, and more. Players can also collect and craft resources to battle bosses and other enemies.
-				Through this project, I gained hands-on experience with blockchain fundamentals and discovered how to seamlessly incorporate NFTs into traditional game mechanics.
-			</p>
 		</div>
 	</div>
 
-	<!-- Fruit Fighter -->
-	<div id="fruitfighter" class="modal-overlay">
-		<div class="modal-content">
-			<button class="modal-close" onclick="closeModal('fruitfighter')">X</button>
-			<h3>Fruit Fighter</h3>
-			<div class="video-container">
-				<video controls>
-					<source src="assets/videos/fruitfighter.mp4" type="video/mp4" />
-					Your browser does not support the video tag.
-				</video>
+	<div class="modal" id="fruitfighter" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Fruit Fighter">
+		<div class="modal-panel">
+			<div class="modal-head"><strong>Fruit Fighter</strong><button class="modal-close" data-close>&times;</button></div>
+			<div class="modal-body">
+				<div class="video">
+					<video controls preload="metadata" playsinline poster="assets/images/fruit fighter.png">
+						<source src="assets/videos/fruitfighter.mp4" type="video/mp4" />
+					</video>
+				</div>
+				<p>A fast-paced 2.5D fruit-slicing game prototype built in Unity in just 20 days for a freelance partner. Players slice fruits with a knife while avoiding bombs—one wrong slice, and it’s game over! This project introduced a fresh spin on the classic fruit-cutting genre, emphasizing quick reflexes and strategic dodges. Despite a tight deadline, it was an exciting challenge that yielded a polished, engaging result.</p>
 			</div>
-			<p>
-				A fast-paced 2.5D fruit-slicing game prototype built in Unity in just 20 days for a freelance partner. Players slice fruits with a knife while avoiding bombs—one wrong slice, and it’s game over! This project introduced a fresh spin on the classic fruit-cutting genre, emphasizing quick reflexes and strategic dodges.
-				Despite a tight deadline, it was an exciting challenge that yielded a polished, engaging result.
-			</p>
 		</div>
 	</div>
 
-	<!-- Block and Hoop -->
-	<div id="blockandHoop" class="modal-overlay">
-		<div class="modal-content">
-			<button class="modal-close" onclick="closeModal('blockandHoop')">X</button>
-			<h3>Block and Hoop</h3>
-			<div class="video-container">
-				<video controls>
-					<source src="assets/videos/blockandHoop.mp4" type="video/mp4" />
-					Your browser does not support the video tag.
-				</video>
+	<div class="modal" id="blockandHoop" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Block and Hoop">
+		<div class="modal-panel">
+			<div class="modal-head"><strong>Block and Hoop</strong><button class="modal-close" data-close>&times;</button></div>
+			<div class="modal-body">
+				<div class="video">
+					<video controls preload="metadata" playsinline poster="assets/images/blockandHoop.png">
+						<source src="assets/videos/blockandHoop.mp4" type="video/mp4" />
+					</video>
+				</div>
+				<p>A fast-paced arcade puzzle where you move or place blocks to guide a bouncing ball into the hoop. I used Unity’s Line Renderer to visualize the ball’s trajectory, making the gameplay more intuitive and satisfying. Each level ramps up in difficulty with faster ball movement and more complex layouts, challenging players to strategize quickly and adapt on the fly.</p>
 			</div>
-			<p>
-				A fast-paced arcade puzzle where you move or place blocks to guide a bouncing ball into the hoop. I used Unity’s Line Renderer to visualize the ball’s trajectory, making the gameplay more intuitive and satisfying. Each level ramps up in difficulty with faster ball movement and more complex layouts, challenging players to strategize quickly and adapt on the fly.
-			</p>
 		</div>
 	</div>
 
-	<!-- Tengo blitz -->
-	<div id="TengoBlitz" class="modal-overlay">
-		<div class="modal-content">
-			<button class="modal-close" onclick="closeModal('TengoBlitz')">X</button>
-			<h3>Tengo Blitz</h3>
-			<div class="video-container">
-				<video controls>
-					<source src="assets/videos/TengoBlitz.mp4" type="video/mp4" />
-					Your browser does not support the video tag.
-				</video>
+	<div class="modal" id="TengoBlitz" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Tengo Blitz">
+		<div class="modal-panel">
+			<div class="modal-head"><strong>Tengo Blitz</strong><button class="modal-close" data-close>&times;</button></div>
+			<div class="modal-body">
+				<div class="video">
+					<video controls preload="metadata" playsinline poster="assets/images/TengoBlitz.png">
+						<source src="assets/videos/TengoBlitz.mp4" type="video/mp4" />
+					</video>
+				</div>
+				<p>Tengo Blitz is a fast-paced puzzle game inspired by Tetris, developed in Unity using C# over a span of 20–25 days for a freelance partner. Unlike traditional match games, Tengo Blitz challenges players to strategically place and combine blocks so their total sums up to 10—clearing the stack only when the sum is exact. This adds a brain-teasing layer of math-based logic to the classic falling-block formula. I implemented a grid-based system to manage tile placement and stack control, along with smooth tile animations and visual effects powered by DoTween and Unity Animator. The game also features animated power-ups, including the Hammer (to destroy selected tiles) and Meow (a cat-themed power that clears rows or patterns). The interface is designed using Unity’s responsive UI tools, with animated feedback, timer-based gameplay, and real-time scoring. Tengo Blitz is a polished, engaging game that demonstrates my skills in logic-driven mechanics, animation, and delivering high-quality freelance projects on a tight timeline.</p>
 			</div>
-			<p>
-				Tengo Blitz is a fast-paced puzzle game inspired by Tetris, developed in Unity using C# over a span of 20–25 days for a freelance partner. Unlike traditional match games, Tengo Blitz challenges players to strategically place and combine blocks so their total sums up to 10—clearing the stack only when the sum is exact.
-				This adds a brain-teasing layer of math-based logic to the classic falling-block formula. I implemented a grid-based system to manage tile placement and stack control, along with smooth tile animations and visual effects powered by DoTween and Unity Animator.
-				The game also features animated power-ups, including the Hammer (to destroy selected tiles) and Meow (a cat-themed power that clears rows or patterns).
-				The interface is designed using Unity’s responsive UI tools, with animated feedback, timer-based gameplay, and real-time scoring. Tengo Blitz is a polished, engaging game that demonstrates my skills in logic-driven mechanics, animation, and delivering high-quality freelance projects on a tight timeline.
-			</p>
 		</div>
 	</div>
 
-	<!-- helix ball drop -->
-	<div id="helixballdrop" class="modal-overlay">
-		<div class="modal-content">
-			<button class="modal-close" onclick="closeModal('helixballdrop')">X</button>
-			<h3>Helix Ball Drop</h3>
-			<div class="video-container">
-				<video controls>
-					<source src="assets/videos/helixballdrop.mp4" type="video/mp4" />
-					Your browser does not support the video tag.
-				</video>
+	<div class="modal" id="helixballdrop" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Helix Ball Drop">
+		<div class="modal-panel">
+			<div class="modal-head"><strong>Helix Ball Drop</strong><button class="modal-close" data-close>&times;</button></div>
+			<div class="modal-body">
+				<div class="video">
+					<video controls preload="metadata" playsinline poster="assets/images/helix ball drop.png">
+						<source src="assets/videos/helixballdrop.mp4" type="video/mp4" />
+					</video>
+				</div>
+				<p>Helix Ball Drop is a highly addictive hyper-casual game developed in Unity using C#, featuring simple yet satisfying mechanics and infinite level progression. Built as a freelance project, the core gameplay revolves around guiding a bouncing ball through rotating platforms, avoiding obstacles while progressing downward. The game includes Unity Ads integration, offering rewarded video ads and interstitials, along with In-App Purchase (IAP) functionality that allows players to permanently remove ads for a smoother experience. Players can also upgrade their ball, enhancing its appearance or abilities, adding a layer of personalization and progression. The project uses Unity's animation tools for bounce and destruction effects, ensuring smooth, polished feedback. With its endless level design, progressively increasing difficulty, and quick restart loop, Helix Ball Drop keeps players engaged for long sessions. This project highlights my ability to implement monetization, in-game economy, and polish addictive gameplay loops in a short development cycle.</p>
 			</div>
-			<p>
-				Helix Ball Drop is a highly addictive hyper-casual game developed in Unity using C#, featuring simple yet satisfying mechanics and infinite level progression. Built as a freelance project, the core gameplay revolves around guiding a bouncing ball through rotating platforms, avoiding obstacles while progressing downward.
-				The game includes Unity Ads integration, offering rewarded video ads and interstitials, along with In-App Purchase (IAP) functionality that allows players to permanently remove ads for a smoother experience. Players can also upgrade their ball, enhancing its appearance or abilities, adding a layer of personalization and progression.
-				The project uses Unity's animation tools for bounce and destruction effects, ensuring smooth, polished feedback. With its endless level design, progressively increasing difficulty, and quick restart loop, Helix Ball Drop keeps players engaged for long sessions. This project highlights my ability to implement monetization, in-game economy, and polish addictive gameplay loops in a short development cycle.
-			</p>
 		</div>
 	</div>
-
-	<!-- FOOTER -->
-	<footer id="footer">
-		<p>© 2023 Monu Kumavat. All rights reserved.</p>
-		<div class="contact-links">
-			<!--<a href="mailto:monu@example.com">Email</a>-->
-			<a href="https://github.com/monu37" target="_blank" rel="noopener noreferrer">GitHub</a>
-			<a href="https://www.linkedin.com/in/monu-kumavat/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-		</div>
-	</footer>
 
 	<script>
-		// Modal open/close logic
+		// Footer year
+		document.getElementById('y').textContent = new Date().getFullYear();
+
+		// Reveal on scroll
+		const io = new IntersectionObserver((entries) => {
+			entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } });
+		}, { threshold: .1 });
+		document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
+
+		// Filters
+		const grid = document.getElementById('projectGrid');
+		const filterBtns = document.querySelectorAll('.filters button');
+		filterBtns.forEach(btn => btn.addEventListener('click', () => {
+			filterBtns.forEach(b => b.setAttribute('aria-selected', 'false'));
+			btn.setAttribute('aria-selected', 'true');
+			const tag = btn.dataset.filter;
+			[...grid.children].forEach(card => {
+				card.style.display = (tag === 'all' || card.dataset.tags.includes(tag)) ? '' : 'none';
+			});
+		}));
+
+		// Modals
+		let lastFocus;
 		function openModal(id) {
-			const modal = document.getElementById(id);
-			if (modal) {
-				modal.style.display = 'flex';
-			}
+			const m = document.getElementById(id);
+			if (!m) return;
+			lastFocus = document.activeElement;
+			m.setAttribute('aria-hidden', 'false');
+			m.querySelector('[data-close]')?.focus();
 		}
-		function closeModal(id) {
-			const modal = document.getElementById(id);
-			if (modal) {
-				modal.style.display = 'none';
-			}
+		function closeModal(m) {
+			m.setAttribute('aria-hidden', 'true');
+			lastFocus?.focus();
 		}
-
-		// Close modal on clicking outside content
-		document.querySelectorAll('.modal-overlay').forEach(modal => {
-			modal.addEventListener('click', e => {
-				if (e.target === modal) {
-					modal.style.display = 'none';
-				}
-			});
+		document.querySelectorAll('.grid [data-open]').forEach(card => {
+			card.addEventListener('click', () => openModal(card.getAttribute('data-open')));
 		});
-
-		// Scroll reveal effect
-		const revealElements = document.querySelectorAll('section, .game-item, footer');
-		function revealOnScroll() {
-			const windowHeight = window.innerHeight;
-			revealElements.forEach(el => {
-				const elementTop = el.getBoundingClientRect().top;
-				if (elementTop < windowHeight - 100) {
-					el.classList.add('active');
-				}
-			});
-		}
-		window.addEventListener('scroll', revealOnScroll);
-		window.addEventListener('load', revealOnScroll);
+		document.querySelectorAll('.modal').forEach(m => {
+			m.addEventListener('click', (e) => { if (e.target === m) closeModal(m); });
+			m.querySelector('[data-close]').addEventListener('click', () => closeModal(m));
+			m.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(m); });
+		});
 	</script>
-
 </body>
 </html>
