@@ -136,6 +136,15 @@
 						<span class="badge">Unity · C# · Maths · News · RapidAPi  </span>
 					</div>
 				</article>
+
+				<article class="card" data-tags="company" data-open="SlotGame">
+					<img class="thumb" loading="lazy" src="assets/Slot/SlotGame.jpg" alt="SlotGame thumbnail" />
+					<div class="card-body">
+						<h3>Slot Game</h3>
+						<span class="badge">Unity · C# · Maths · IAP  </span>
+					</div>
+				</article>
+
 				<!-- Freelance -->
 				<article class="card" data-tags="freelance" data-open="fruitfighter">
 					<img class="thumb" loading="lazy" src="assets/images/fruit fighter.png" alt="Fruit Fighter game thumbnail" />
@@ -319,9 +328,11 @@
 						Your browser does not support the video tag.
 					</video>
 				</div>
-				<p>Built a complete single-player Baccarat card game from scratch using Unity and C#, implementing the full game logic, betting system, and win/loss conditions. 
-				Designed an interactive lobby interface that allows players to join rooms, manage chips, and start games smoothly. 
-				Created custom animations for card dealing, betting transitions, and victory effects to enhance visual appeal and realism. Developed with a modular structure for future scalability, making it easy to extend into multiplayer or backend-connected versions later. This prototype showcases strong skills in game logic programming, UI/UX design, and state management within Unity.</p>
+				<p>
+					Built a complete single-player Baccarat card game from scratch using Unity and C#, implementing the full game logic, betting system, and win/loss conditions.
+					Designed an interactive lobby interface that allows players to join rooms, manage chips, and start games smoothly.
+					Created custom animations for card dealing, betting transitions, and victory effects to enhance visual appeal and realism. Developed with a modular structure for future scalability, making it easy to extend into multiplayer or backend-connected versions later. This prototype showcases strong skills in game logic programming, UI/UX design, and state management within Unity.
+				</p>
 			</div>
 		</div>
 	</div>
@@ -336,10 +347,56 @@
 						Your browser does not support the video tag.
 					</video>
 				</div>
-				<p>Developed a sports betting calculator that allows players to calculate potential winnings, profits, and odds across multiple bet types, including singles, doubles, accumulators, Yankees, and Goliaths. 
-					Built the entire system in Unity and C#, implementing complex mathematical algorithms to handle fractional, decimal, and American odds with high accuracy. Integrated RapidAPI to fetch live sports data and news, helping users make informed betting decisions based on current events. The app was inspired by professional-grade tools like Free Bet Calculator (UK) but customized with an interactive and intuitive UI for faster input and real-time calculations. 
+				<p>
+					Developed a sports betting calculator that allows players to calculate potential winnings, profits, and odds across multiple bet types, including singles, doubles, accumulators, Yankees, and Goliaths.
+					Built the entire system in Unity and C#, implementing complex mathematical algorithms to handle fractional, decimal, and American odds with high accuracy. Integrated RapidAPI to fetch live sports data and news, helping users make informed betting decisions based on current events. The app was inspired by professional-grade tools like Free Bet Calculator (UK) but customized with an interactive and intuitive UI for faster input and real-time calculations.
 					This project highlights strong expertise in mathematics, API integration, and gameplay tool development.
+			</div>
+		</div>
+	</div>
+	<!-- Slot Gamee Modal -->
+	<div id="SlotGame" class="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="SlotGame">
+		<div class="modal-panel">
+			<div class="modal-head">
+				<strong>Slot Game</strong>
+				<button class="modal-close" data-close aria-label="Close">&times;</button>
+			</div>
+
+			<div class="modal-body">
+				<!-- SLIDESHOW -->
+				<div class="slider" data-slider>
+					<!-- main viewer -->
+					<div class="viewer" id="SlotViewer" aria-live="polite"></div>
+
+					<!-- nav -->
+					<button class="nav prev" data-prev aria-label="Previous">&#10094;</button>
+					<button class="nav next" data-next aria-label="Next">&#10095;</button>
+
+					<!-- counter -->
+					<div class="counter" aria-hidden="true"><span data-idx>1</span>/<span data-total>1</span></div>
+
+					<!-- thumbnails track -->
+					<div class="gallery" role="tablist" aria-label="SlotGame media">
+						<!-- Each thumb declares its type & source -->
+						<!-- Video -->
+						<img role="tab" class="thumb is-active"
+							 src="assets/Slot/Slot1.png"
+							 alt="Slot1"
+							 data-type="video"
+							 data-src="assets/Slot/Slot1.mp4">
+
+						
+
 					</div>
+				</div>
+
+				<p>
+					Developed 10+ slot games from scratch using Unity and C#, each featuring unique reel logic, visual design, and payout structures (ranging from 3×3 to 6×6 grids). 
+					Implemented full In-App Purchase (IAP) systems, dynamic win tables, and engaging sound design to enhance the overall user experience. 
+					Each title was optimized for mobile performance and published on app stores under different variations to meet client and app store compliance requirements. 
+					Focused on modular architecture, making it easy to adjust win probabilities, animations, and mechanics per release — showcasing expertise in gameplay programming, system logic design, and monetization integration.
+				</p>
+			</div>
 		</div>
 	</div>
 
@@ -515,27 +572,27 @@
 
 		// Modals
 		let lastFocus;
-        function openModal(id) {
-            const m = document.getElementById(id);
-            if (!m) return;
+		function openModal(id) {
+			const m = document.getElementById(id);
+			if (!m) return;
 
-            // Close & stop any other open modals/videos
-            document.querySelectorAll('.modal[aria-hidden="false"]').forEach(openM => {
-                stopMediaIn(openM);
-                openM.setAttribute('aria-hidden', 'true');
-            });
+			// Close & stop any other open modals/videos
+			document.querySelectorAll('.modal[aria-hidden="false"]').forEach(openM => {
+				stopMediaIn(openM);
+				openM.setAttribute('aria-hidden', 'true');
+			});
 
-            lastFocus = document.activeElement;
-            m.setAttribute('aria-hidden', 'false');
-            m.querySelector('[data-close]')?.focus();
-        }
+			lastFocus = document.activeElement;
+			m.setAttribute('aria-hidden', 'false');
+			m.querySelector('[data-close]')?.focus();
+		}
 
-        function closeModal(m) {
-            // Stop media in this modal when it’s closed
-            stopMediaIn(m);
-            m.setAttribute('aria-hidden', 'true');
-            lastFocus?.focus();
-        }
+		function closeModal(m) {
+			// Stop media in this modal when it’s closed
+			stopMediaIn(m);
+			m.setAttribute('aria-hidden', 'true');
+			lastFocus?.focus();
+		}
 		document.querySelectorAll('.grid [data-open]').forEach(card => {
 			card.addEventListener('click', () => openModal(card.getAttribute('data-open')));
 		});
@@ -590,13 +647,13 @@
 					const card = document.createElement("div");
 					card.className = "apk-card";
 					card.innerHTML = `
-				<div class="apk-icon">📦</div>
-				<div><strong>${slide.dataset.filename || "Download build"}</strong></div>
-				<a href="${slide.dataset.href}" target="_blank" rel="noopener"
-				   download="${slide.dataset.filename || ""}">
-				  ${slide.dataset.href?.includes("drive.google.com") ? "Download from Drive" : "Download APK"}
-				</a>
-			  `;
+					<div class="apk-icon">📦</div>
+					<div><strong>${slide.dataset.filename || "Download build"}</strong></div>
+					<a href="${slide.dataset.href}" target="_blank" rel="noopener"
+					   download="${slide.dataset.filename || ""}">
+					  ${slide.dataset.href?.includes("drive.google.com") ? "Download from Drive" : "Download APK"}
+					</a>
+				  `;
 					return card;
 				}
 				return document.createTextNode("Unsupported media");
