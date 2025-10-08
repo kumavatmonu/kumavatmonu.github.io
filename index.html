@@ -112,7 +112,13 @@
 						<span class="badge">Unity · RapidAPI</span>
 					</div>
 				</article>
-
+				<article class="card" data-tags="company" data-open="BingoWorld">
+					<img class="thumb" loading="lazy" src="assets/images/BingoWorld.jpg" alt="Bingo World game thumbnail" />
+					<div class="card-body">
+						<h3>Bingo World Game</h3>
+						<span class="badge">Unity · C# </span>
+					</div>
+				</article>
 				<!-- Freelance -->
 				<article class="card" data-tags="freelance" data-open="fruitfighter">
 					<img class="thumb" loading="lazy" src="assets/images/fruit fighter.png" alt="Fruit Fighter game thumbnail" />
@@ -179,6 +185,98 @@
 	</div>
 
 	<!-- ===== Modals ===== -->
+	<!-- Bingo World Modal -->
+	<div id="BingoWorld" class="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Bingo World">
+		<div class="modal-panel">
+			<div class="modal-head">
+				<strong>Bingo World</strong>
+				<button class="modal-close" data-close aria-label="Close">&times;</button>
+			</div>
+
+			<div class="modal-body">
+				<!-- SLIDESHOW -->
+				<div class="slider" data-slider>
+					<!-- main viewer -->
+					<div class="viewer" id="bingoViewer" aria-live="polite"></div>
+
+					<!-- nav -->
+					<button class="nav prev" data-prev aria-label="Previous">&#10094;</button>
+					<button class="nav next" data-next aria-label="Next">&#10095;</button>
+
+					<!-- counter -->
+					<div class="counter" aria-hidden="true"><span data-idx>1</span>/<span data-total>1</span></div>
+
+					<!-- thumbnails track -->
+					<div class="gallery" role="tablist" aria-label="Bingo media">
+						<!-- Each thumb declares its type & source -->
+						<!-- Video -->
+						<img role="tab" class="thumb is-active"
+							 src="assets/bingo/Logo.jpg"
+							 alt="Win Logic + Animation + Rate us"
+							 data-type="video"
+							 data-src="assets/bingo/Win logic and animation + rate us.mp4">
+
+						<img role="tab" class="thumb"
+							 src="assets/bingo/Updategame.jpg"
+							 alt="Hourly bonus & update screen"
+							 data-type="video"
+							 data-src="assets/bingo/Hourly bonus + update game.mp4">
+
+						<img role="tab" class="thumb"
+							 src="assets/bingo/Power up function added.png"
+							 alt="Power up function added"
+							 data-type="video"
+							 data-src="assets/bingo/Power up function added.mp4">
+
+						<!-- Image -->
+						<img role="tab" class="thumb"
+							 src="assets/bingo/Limited room for event.jpg"
+							 alt="Limited room for event"
+							 data-type="image"
+							 data-src="assets/bingo/Limited room for event.jpg">
+
+						<img role="tab" class="thumb"
+							 src="assets/bingo/Newroomcomingsoon.jpg"
+							 alt="Newroomcomingsoon"
+							 data-type="image"
+							 data-src="assets/bingo/Newroomcomingsoon.jpg">
+
+						<img role="tab" class="thumb"
+							 src="assets/bingo/New Room england.jpg"
+							 alt="New Room england"
+							 data-type="image"
+							 data-src="assets/bingo/New Room england.jpg">
+
+						<img role="tab" class="thumb"
+							 src="assets/bingo/New room japan.jpg"
+							 alt="New room japan"
+							 data-type="image"
+							 data-src="assets/bingo/New room japan.jpg">
+
+						<img role="tab" class="thumb"
+							 src="assets/bingo/New Room Spooky.jpg"
+							 alt="New Room Spooky"
+							 data-type="image"
+							 data-src="assets/bingo/New Room Spooky.jpg">
+
+						<!-- APK / File -->
+						<img role="tab" class="thumb"
+							 src="assets/bingo/Logo.jpg"
+							 alt="Download APK build"
+							 data-type="file"
+							 data-href="https://drive.google.com/file/d/1Fx5Ws7GvHVYA9r_TnTFhotYvh7ugJ1Jk/view?usp=sharing"
+							 data-filename="freebingoworld.apk">
+					</div>
+				</div>
+
+				<p>
+					Bingo World: shipped features include win logic & animations, hourly bonus, update flow,
+					and more. Browse the media above or download the APK build to try it.
+				</p>
+			</div>
+		</div>
+	</div>
+
 	<div class="modal" id="TennisLiveScoreApp" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Tennis Live Score App">
 		<div class="modal-panel">
 			<div class="modal-head"><strong>Tennis Live Score App</strong><button class="modal-close" data-close>&times;</button></div>
@@ -361,6 +459,110 @@
 			m.querySelector('[data-close]').addEventListener('click', () => closeModal(m));
 			m.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(m); });
 		});
+
+		// Simple gallery switcher inside modals
+		document.querySelectorAll('.gallery img').forEach(thumb => {
+			thumb.addEventListener('click', () => {
+				const mainVideo = thumb.closest('.modal-body').querySelector('video');
+				if (thumb.dataset.src) {
+					// switch video source
+					mainVideo.src = thumb.dataset.src;
+					mainVideo.poster = thumb.src;
+					mainVideo.load();
+					mainVideo.play();
+				} else if (thumb.dataset.img) {
+					// replace video with static image
+					mainVideo.pause();
+					mainVideo.outerHTML = `<img class="gallery-view" src="${thumb.dataset.img}" alt="Project Screenshot">`;
+				}
+			});
+		});
 	</script>
+
+	<script>
+		(function () {
+			function createMediaEl(slide) {
+				const type = slide.dataset.type;
+				if (type === 'video') {
+					const v = document.createElement('video');
+					v.controls = true; v.playsInline = true; v.preload = 'metadata';
+					v.src = slide.dataset.src;
+					v.poster = slide.getAttribute('src'); // use thumb as poster
+					return v;
+				}
+				if (type === 'image') {
+					const img = new Image();
+					img.src = slide.dataset.src || slide.getAttribute('src');
+					img.alt = slide.alt || 'Project image';
+					return img;
+				}
+				if (type === 'file') {
+					const card = document.createElement('div');
+					card.className = 'apk-card';
+					card.innerHTML = `
+			<div class="apk-icon">📦</div>
+			<div><strong>${slide.dataset.filename || 'Download build'}</strong></div>
+			<a href="${slide.dataset.href}" download="${slide.dataset.filename || ''}">Download APK</a>
+		  `;
+					return card;
+				}
+				return document.createTextNode('Unsupported media');
+			}
+
+			function initSlider(root) {
+				const slider = root.querySelector('[data-slider]');
+				if (!slider || slider.__inited) return;
+				slider.__inited = true;
+
+				const viewer = slider.querySelector('.viewer');
+				const thumbs = [...slider.querySelectorAll('.gallery .thumb')];
+				const btnPrev = slider.querySelector('[data-prev]');
+				const btnNext = slider.querySelector('[data-next]');
+				const idxEl = slider.querySelector('[data-idx]');
+				const totalEl = slider.querySelector('[data-total]');
+
+				let i = 0; const total = thumbs.length;
+				totalEl.textContent = total;
+
+				function render(index) {
+					i = (index + total) % total; // wrap
+					viewer.innerHTML = '';
+					viewer.appendChild(createMediaEl(thumbs[i]));
+					thumbs.forEach(t => t.classList.remove('is-active'));
+					thumbs[i].classList.add('is-active');
+					idxEl.textContent = i + 1;
+				}
+
+				// events
+				btnPrev.addEventListener('click', () => render(i - 1));
+				btnNext.addEventListener('click', () => render(i + 1));
+				thumbs.forEach((t, ti) => t.addEventListener('click', () => render(ti)));
+
+				// keyboard & swipe inside modal
+				const modal = root;
+				modal.addEventListener('keydown', (e) => {
+					if (e.key === 'ArrowLeft') render(i - 1);
+					if (e.key === 'ArrowRight') render(i + 1);
+				});
+				let sx = 0; viewer.addEventListener('touchstart', e => sx = e.changedTouches[0].clientX, { passive: true });
+				viewer.addEventListener('touchend', e => {
+					const dx = e.changedTouches[0].clientX - sx;
+					if (Math.abs(dx) > 40) render(i + (dx < 0 ? 1 : -1));
+				});
+
+				// initial render
+				render(0);
+			}
+
+			// Initialize when the modal opens
+			document.querySelectorAll('.modal').forEach(m => {
+				m.addEventListener('click', e => {
+					// when overlay gets opened by your existing openModal() we run init once
+					if (m.getAttribute('aria-hidden') === 'false') initSlider(m);
+				});
+			});
+		})();
+	</script>
+
 </body>
 </html>
