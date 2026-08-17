@@ -11,7 +11,11 @@
 	<meta property="og:type" content="website" />
 	<meta property="og:image" content="assets/images/VRSpaceShooter.png" />
 	<meta name="theme-color" content="#0b1220" />
+	<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230b1220'/%3E%3Cpath d='M20 55 h8 v-8 h8 v8 h8 v8 h-8 v8 h-8 v-8 h-8 z' fill='%234f9cff'/%3E%3Ccircle cx='72' cy='42' r='6' fill='%232dd4bf'/%3E%3Ccircle cx='58' cy='58' r='6' fill='%232dd4bf'/%3E%3C/svg%3E" />
 	<link rel="preload" href="assets/images/VRSpaceShooter.png" as="image" />
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=Rajdhani:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 	<link rel="stylesheet" href="styles.css" />
 	<script type="application/ld+json">
 		{
@@ -30,55 +34,131 @@
 	</script>
 </head>
 <body>
+	<div class="scroll-bar" aria-hidden="true"><span id="scrollFill"></span></div>
+
+	<nav class="hud-nav" data-reveal>
+		<a class="hud-brand" href="#top">
+			<span class="hud-brand-mark">MK</span>
+			<span class="hud-brand-text">Monu<em>.dev</em></span>
+		</a>
+		<button class="hud-toggle" id="navToggle" aria-expanded="false" aria-controls="hudLinks" aria-label="Toggle menu">
+			<span></span><span></span><span></span>
+		</button>
+		<div class="hud-links" id="hudLinks">
+			<a href="#about" data-nav>Player</a>
+			<a href="#experience" data-nav>Quest Log</a>
+			<a href="#projects" data-nav>Projects</a>
+			<a href="#contact" data-nav>Co-op</a>
+		</div>
+	</nav>
+
 	<div class="wrap">
-		<header data-reveal>
-			<span class="pill">Experienced Game Developer · Unity · AR/VR · Multiplayer</span>
-			<h1>Monu Kumavat</h1>
-			<p>
-				4+ years crafting games and interactive apps in Unity (50+ shipped prototypes & client projects).
-				Led features for <strong>Bingo Free World (10M+)</strong>, built AR/VR experiences, live-ops and in-game economies, and mentored teams to deliver high-polish gameplay.
-			</p>
-			<div class="cta">
-				<a class="btn" href="https://play.google.com/store/apps/dev?id=6744072743439253685">LiveGames</a>
-				<a class="btn" href="mailto:monukumavat37@gmail.com?subject=Game%20Developer%20Opportunity">Contact Me</a>
-				<a class="btn" href="assets/MonuKumavatResume.pdf" download>Download CV</a>
+		<header id="top" data-reveal>
+			<canvas class="hero-fx" id="heroCanvas" aria-hidden="true"></canvas>
+			<div class="hero-inner">
+				<span class="pill">🎮 Experienced Game Developer · Unity · AR/VR · Multiplayer</span>
+				<h1>Monu Kumavat</h1>
+				<p class="hero-tagline" id="heroTagline" aria-hidden="true"></p>
+				<p>
+					4+ years crafting games and interactive apps in Unity (50+ shipped prototypes & client projects).
+					Led features for <strong>Bingo Free World (10M+)</strong>, built AR/VR experiences, live-ops and in-game economies, and mentored teams to deliver high-polish gameplay.
+				</p>
+				<div class="cta">
+					<a class="btn" href="https://play.google.com/store/apps/dev?id=6744072743439253685">▶ Play LiveGames</a>
+					<a class="btn secondary" href="mailto:monukumavat37@gmail.com?subject=Game%20Developer%20Opportunity">✉ Contact Me</a>
+				</div>
+
+				<div class="stat-hud" role="group" aria-label="Career stats">
+					<div class="stat-tile">
+						<span class="stat-icon">⏱</span>
+						<span class="stat-num" data-count="4">0</span><span class="stat-suffix">+</span>
+						<span class="stat-label">Years XP</span>
+					</div>
+					<div class="stat-tile">
+						<span class="stat-icon">🕹</span>
+						<span class="stat-num" data-count="50">0</span><span class="stat-suffix">+</span>
+						<span class="stat-label">Projects Shipped</span>
+					</div>
+					<div class="stat-tile">
+						<span class="stat-icon">⬇</span>
+						<span class="stat-num" data-count="10">0</span><span class="stat-suffix">M+</span>
+						<span class="stat-label">Downloads</span>
+					</div>
+					<div class="stat-tile">
+						<span class="stat-icon">🏆</span>
+						<span class="stat-num" data-count="20">0</span><span class="stat-suffix">+</span>
+						<span class="stat-label">Client Titles</span>
+					</div>
+				</div>
 			</div>
 		</header>
 
 		<!-- About -->
-		<section id="about">
+		<section id="about" data-reveal>
+			<span class="eyebrow">01 // PLAYER PROFILE</span>
 			<h2>About</h2>
 			<p>Unity specialist with hands-on experience in building high-performance games, tools, and interactive systems across mobile, AR/VR, and multiplayer platforms. Focused on gameplay feel, optimization, and rapid delivery.</p>
 
-			<div class="skills-tags">
-				<span>Unity · C# · C++</span>
-				<span>Game Mechanics · OOP · Physics</span>
-				<span>Scriptable Objects · Event Systems</span>
-				<span>Multiplayer (Photon · Mirror)</span>
-				<span>Mobile (iOS/Android · WebGL)</span>
-				<span>AR/VR (XR Toolkit · Oculus SDK)</span>
-				<span>Cinemachine · DoTween · Timeline</span>
-				<span>Shaders · Shader Graph · VFX Graph</span>
-				<span>Particle Effects · Post Processing</span>
-				<span>Firebase (Auth · DB · Remote Config)</span>
-				<span>PlayFab · RapidAPI · RESTful APIs</span>
-				<span>phpMyAdmin · Cloud Storage</span>
-				<span>Ads · IAP · Rewarded Ads · Live Ops</span>
-				<span>Analytics · A/B Testing · Player Data</span>
-				<span>Unity Profiler · Optimization · Memory</span>
-				<span>Object Pooling · Performance Tuning</span>
-				<span>Git · Bitbucket · Plastic SCM</span>
-				<span>CI/CD · Build Automation · Crashlytics</span>
-				<span>Figma · UI Toolkit · Responsive UI</span>
-				<span>Shader Effects · Interactive HUDs</span>
-				<span>Trello · Monday · Slack · Jira</span>
-				<span>Agile Workflow · Team Leadership</span>
-				<span>Probability Logic · Betting Systems</span>
-				<span>Procedural Generation · Balancing</span>
+			<div class="loadout">
+				<div class="loadout-slot">
+					<h4><span class="slot-icon">⌨</span> Core Dev</h4>
+					<div class="skills-tags">
+						<span>Unity · C# · C++</span>
+						<span>Game Mechanics · OOP · Physics</span>
+						<span>Scriptable Objects · Event Systems</span>
+					</div>
+				</div>
+				<div class="loadout-slot">
+					<h4><span class="slot-icon">🌐</span> Multiplayer &amp; Backend</h4>
+					<div class="skills-tags">
+						<span>Multiplayer (Photon · Mirror)</span>
+						<span>Firebase (Auth · DB · Remote Config)</span>
+						<span>PlayFab · RapidAPI · RESTful APIs</span>
+						<span>phpMyAdmin · Cloud Storage</span>
+					</div>
+				</div>
+				<div class="loadout-slot">
+					<h4><span class="slot-icon">📱</span> Platforms</h4>
+					<div class="skills-tags">
+						<span>Mobile (iOS/Android · WebGL)</span>
+						<span>AR/VR (XR Toolkit · Oculus SDK)</span>
+					</div>
+				</div>
+				<div class="loadout-slot">
+					<h4><span class="slot-icon">✨</span> Visual &amp; FX</h4>
+					<div class="skills-tags">
+						<span>Cinemachine · DoTween · Timeline</span>
+						<span>Shaders · Shader Graph · VFX Graph</span>
+						<span>Particle Effects · Post Processing</span>
+						<span>Shader Effects · Interactive HUDs</span>
+						<span>Figma · UI Toolkit · Responsive UI</span>
+					</div>
+				</div>
+				<div class="loadout-slot">
+					<h4><span class="slot-icon">💰</span> Live Ops &amp; Monetization</h4>
+					<div class="skills-tags">
+						<span>Ads · IAP · Rewarded Ads · Live Ops</span>
+						<span>Analytics · A/B Testing · Player Data</span>
+						<span>Probability Logic · Betting Systems</span>
+						<span>Procedural Generation · Balancing</span>
+					</div>
+				</div>
+				<div class="loadout-slot">
+					<h4><span class="slot-icon">🛠</span> Tools &amp; Pipeline</h4>
+					<div class="skills-tags">
+						<span>Unity Profiler · Optimization · Memory</span>
+						<span>Object Pooling · Performance Tuning</span>
+						<span>Git · Bitbucket · Plastic SCM</span>
+						<span>CI/CD · Build Automation · Crashlytics</span>
+						<span>Trello · Monday · Slack · Jira</span>
+						<span>Agile Workflow · Team Leadership</span>
+					</div>
+				</div>
 			</div>
 		</section>
 		<!-- Experience -->
 		<section id="experience" data-reveal>
+			<span class="eyebrow">02 // QUEST LOG</span>
 			<h2>Experience</h2>
 			<div class="xp">
 				<!--<article class="xp-item">
@@ -91,6 +171,7 @@
 					</ul>
 				</article>-->
 				<article class="xp-item">
+					<div class="xp-quest">QUEST 02 · COMPLETE</div>
 					<h3>Game Developer · Zapplogics Solutions</h3>
 					<div class="xp-meta">May 2022 – May 2023 · Remote</div>
 					<ul class="xp-bullets">
@@ -99,6 +180,7 @@
 					</ul>
 				</article>
 				<article class="xp-item">
+					<div class="xp-quest">QUEST 01 · COMPLETE</div>
 					<h3>Game Developer · CODESOFT INFOTECH</h3>
 					<div class="xp-meta">Dec 2018 – Apr 2022 · Surat (Hybrid)</div>
 					<ul class="xp-bullets">
@@ -111,18 +193,22 @@
 
 		<!-- Projects -->
 		<section id="projects" data-reveal>
+			<span class="eyebrow">03 // PROJECT VAULT</span>
 			<h2>Projects</h2>
 			<p class="sub">Filter by type</p>
 			<div class="filters" role="tablist" aria-label="Project filters">
-				<button role="tab" aria-selected="true" data-filter="all">All</button>
-				<button role="tab" data-filter="company">Company</button>
-				<button role="tab" data-filter="freelance">Freelance</button>
-				<button role="tab" data-filter="personal">Personal</button>
+				<button role="tab" aria-selected="true" data-filter="all">🗂 All</button>
+				<button role="tab" data-filter="company">🏢 Company</button>
+				<button role="tab" data-filter="freelance">🤝 Freelance</button>
+				<button role="tab" data-filter="personal">🚀 Personal</button>
 			</div>
 			<div class="grid" id="projectGrid">
 				<!-- Company -->
 				<article class="card" data-tags="company" data-open="BingoWorld">
-					<img class="thumb" loading="lazy" src="assets/images/BingoWorld.jpg" alt="Bingo World game thumbnail" />
+					<div class="thumb-wrap">
+						<span class="ribbon">🏆 10M+ Downloads</span>
+						<img class="thumb" loading="lazy" src="assets/images/BingoWorld.jpg" alt="Bingo World game thumbnail" />
+					</div>
 					<div class="card-body">
 						<h3>Bingo World Game</h3>
 						<span class="badge">Unity · C# </span>
@@ -130,7 +216,7 @@
 				</article>
 
 				<article class="card" data-tags="company" data-open="TennisLiveScoreApp">
-					<img class="thumb" loading="lazy" src="assets/images/Tennis Live app.jpg" alt="Tennis Live Score App thumbnail" />
+					<div class="thumb-wrap"><img class="thumb" loading="lazy" src="assets/images/Tennis Live app.jpg" alt="Tennis Live Score App thumbnail" /></div>
 					<div class="card-body">
 						<h3>Tennis Live Score App</h3>
 						<span class="badge">Unity · RapidAPI</span>
@@ -138,7 +224,7 @@
 				</article>
 
 				<article class="card" data-tags="company" data-open="Baccart">
-					<img class="thumb" loading="lazy" src="assets/zapplogics/Baccarat_lobby.png" alt="Baccarat_lobby game thumbnail" />
+					<div class="thumb-wrap"><img class="thumb" loading="lazy" src="assets/zapplogics/Baccarat_lobby.png" alt="Baccarat_lobby game thumbnail" /></div>
 					<div class="card-body">
 						<h3>Baccart Game</h3>
 						<span class="badge">Unity · C# · Casino</span>
@@ -146,7 +232,7 @@
 				</article>
 
 				<article class="card" data-tags="company" data-open="BetCalculator">
-					<img class="thumb" loading="lazy" src="assets/zapplogics/BetCalculator.jpg" alt="BetCalculator app thumbnail" />
+					<div class="thumb-wrap"><img class="thumb" loading="lazy" src="assets/zapplogics/BetCalculator.jpg" alt="BetCalculator app thumbnail" /></div>
 					<div class="card-body">
 						<h3>BetCalculator App</h3>
 						<span class="badge">Unity · C# · Maths · News · RapidAPi  </span>
@@ -154,7 +240,7 @@
 				</article>
 
 				<article class="card" data-tags="company" data-open="SlotGame">
-					<img class="thumb" loading="lazy" src="assets/Slot/SlotGame.jpg" alt="SlotGame thumbnail" />
+					<div class="thumb-wrap"><img class="thumb" loading="lazy" src="assets/Slot/SlotGame.jpg" alt="SlotGame thumbnail" /></div>
 					<div class="card-body">
 						<h3>Slot Game</h3>
 						<span class="badge">Unity · C# · Maths · IAP  </span>
@@ -162,7 +248,7 @@
 				</article>
 
 				<article class="card" data-tags="company" data-open="spaceshooter">
-					<img class="thumb" loading="lazy" src="assets/zapplogics/spaceshooter.png" alt="spaceshooter thumbnail" />
+					<div class="thumb-wrap"><img class="thumb" loading="lazy" src="assets/zapplogics/spaceshooter.png" alt="spaceshooter thumbnail" /></div>
 					<div class="card-body">
 						<h3>2D Space Shooter</h3>
 						<span class="badge">Unity · C# · Ads · IAP  </span>
@@ -170,7 +256,7 @@
 				</article>
 
 				<article class="card" data-tags="company" data-open="Aviator">
-					<img class="thumb" loading="lazy" src="assets/zapplogics/Aviator.png" alt="Aviator thumbnail" />
+					<div class="thumb-wrap"><img class="thumb" loading="lazy" src="assets/zapplogics/Aviator.png" alt="Aviator thumbnail" /></div>
 					<div class="card-body">
 						<h3>Aviator Game</h3>
 						<span class="badge">Unity · C# · Line Renderer · Rewarded Ads  </span>
@@ -179,41 +265,41 @@
 
 				<!-- Freelance -->
 				<article class="card" data-tags="freelance" data-open="fruitfighter">
-					<img class="thumb" loading="lazy" src="assets/images/fruit fighter.png" alt="Fruit Fighter game thumbnail" />
+					<div class="thumb-wrap"><img class="thumb" loading="lazy" src="assets/images/fruit fighter.png" alt="Fruit Fighter game thumbnail" /></div>
 					<div class="card-body"><h3>Fruit Fighter</h3><span class="badge">Freelance</span></div>
 				</article>
 				<article class="card" data-tags="freelance" data-open="TengoBlitz">
-					<img class="thumb" loading="lazy" src="assets/images/TengoBlitz.png" alt="Tengo Blitz puzzle game thumbnail" />
+					<div class="thumb-wrap"><img class="thumb" loading="lazy" src="assets/images/TengoBlitz.png" alt="Tengo Blitz puzzle game thumbnail" /></div>
 					<div class="card-body"><h3>Tengo Blitz</h3><span class="badge">Freelance</span></div>
 				</article>
 				<article class="card" data-tags="freelance" data-open="helixballdrop">
-					<img class="thumb" loading="lazy" src="assets/images/helix ball drop.png" alt="Helix Ball Drop hyper-casual game thumbnail" />
+					<div class="thumb-wrap"><img class="thumb" loading="lazy" src="assets/images/helix ball drop.png" alt="Helix Ball Drop hyper-casual game thumbnail" /></div>
 					<div class="card-body"><h3>Helix Ball Drop</h3><span class="badge">Ads · IAP</span></div>
 				</article>
 				<article class="card" data-tags="freelance" data-open="blockandHoop">
-					<img class="thumb" loading="lazy" src="assets/images/blockandHoop.png" alt="Block and Hoop puzzle game thumbnail" />
+					<div class="thumb-wrap"><img class="thumb" loading="lazy" src="assets/images/blockandHoop.png" alt="Block and Hoop puzzle game thumbnail" /></div>
 					<div class="card-body"><h3>Block & Hoop</h3><span class="badge">Physics</span></div>
 				</article>
 
 				<!-- Personal -->
 				<article class="card" data-tags="personal" data-open="blockchainRpgModal">
-					<img class="thumb" loading="lazy" src="assets/images/RPGOdyssey.png" alt="Blockchain RPG Odyssey thumbnail" />
+					<div class="thumb-wrap"><img class="thumb" loading="lazy" src="assets/images/RPGOdyssey.png" alt="Blockchain RPG Odyssey thumbnail" /></div>
 					<div class="card-body"><h3>Blockchain RPG Odyssey</h3><span class="badge">NEAR · NFTs</span></div>
 				</article>
 				<article class="card" data-tags="personal" data-open="VRSpaceShooter">
-					<img class="thumb" loading="lazy" src="assets/images/VRSpaceShooter.png" alt="VR Space Shooter thumbnail" />
+					<div class="thumb-wrap"><img class="thumb" loading="lazy" src="assets/images/VRSpaceShooter.png" alt="VR Space Shooter thumbnail" /></div>
 					<div class="card-body"><h3>VR Space Shooter</h3><span class="badge">XR Toolkit</span></div>
 				</article>
 				<article class="card" data-tags="personal" data-open="AIQuizGame">
-					<img class="thumb" loading="lazy" src="assets/images/AIQuizGame.png" alt="AI Quiz Game thumbnail" />
+					<div class="thumb-wrap"><img class="thumb" loading="lazy" src="assets/images/AIQuizGame.png" alt="AI Quiz Game thumbnail" /></div>
 					<div class="card-body"><h3>AI Quiz Game</h3><span class="badge">OpenAI · GenAI</span></div>
 				</article>
 				<article class="card" data-tags="personal" data-open="CarRaceMultiplayer">
-					<img class="thumb" loading="lazy" src="assets/images/CarRaceMultiplayer.png" alt="Multiplayer car race thumbnail" />
+					<div class="thumb-wrap"><img class="thumb" loading="lazy" src="assets/images/CarRaceMultiplayer.png" alt="Multiplayer car race thumbnail" /></div>
 					<div class="card-body"><h3>Cosmic Racer (Multiplayer)</h3><span class="badge">Photon</span></div>
 				</article>
 				<article class="card" data-tags="personal" data-open="doubleRun">
-					<img class="thumb" loading="lazy" src="assets/images/doubleRun.png" alt="Double Run dual-control runner thumbnail" />
+					<div class="thumb-wrap"><img class="thumb" loading="lazy" src="assets/images/doubleRun.png" alt="Double Run dual-control runner thumbnail" /></div>
 					<div class="card-body"><h3>Double Run</h3><span class="badge">Hyper-casual-game</span></div>
 				</article>
 			</div>
@@ -232,13 +318,19 @@
 		</section>-->
 
 		<!-- Contact / Footer -->
-		<footer>
-			<p>© <span id="y"></span> Monu Kumavat. All rights reserved.</p>
+		<footer id="contact" data-reveal>
+			<span class="eyebrow">04 // CO-OP</span>
+			<h2 class="footer-title">Ready Player Two?</h2>
+			<p class="footer-sub">Open to full-time roles, contract work, and interesting side quests. Let's build something players remember.</p>
+			<div class="cta">
+				<a class="btn" href="mailto:monukumavat37@gmail.com?subject=Game%20Developer%20Opportunity">✉ Start a Conversation</a>
+			</div>
 			<div class="links">
 				<a rel="noopener" target="_blank" href="https://github.com/monu37">GitHub</a>
 				<a rel="noopener" target="_blank" href="https://www.linkedin.com/in/monu-kumavat/">LinkedIn</a>
-				<a href="monukumavat37@gmail.com">Email</a>
+				<a href="mailto:monukumavat37@gmail.com">Email</a>
 			</div>
+			<p class="copyright">© <span id="y"></span> Monu Kumavat. All rights reserved.</p>
 		</footer>
 	</div>
 
@@ -481,6 +573,28 @@
 					(Note: The in-game title “Avaitor” appears due to an early prototype build; the updated version was not recorded.)
 					This project demonstrates advanced skills in real-time probability systems, Unity animation, responsive UI design, and mobile optimization.
 				</p>
+
+				<!-- Live crash-math demo: the actual RNG/cashout logic, running client-side -->
+				<div class="demo-widget" id="crashDemo">
+					<div class="demo-head">
+						<span class="demo-tag">▶ LIVE DEMO — the real crash math, running in your browser</span>
+						<span class="demo-balance">💰 <span id="crashBalance">1000</span> coins <button class="demo-reset" id="crashReset" title="Reset demo balance">↻</button></span>
+					</div>
+					<div class="demo-stage">
+						<div class="demo-multiplier" id="crashMultiplier">1.00x</div>
+						<div class="demo-status" id="crashStatus">Pick a bet and launch the plane</div>
+					</div>
+					<div class="demo-controls">
+						<div class="chip-row" id="chipRow">
+							<button class="chip is-active" data-bet="10">10</button>
+							<button class="chip" data-bet="50">50</button>
+							<button class="chip" data-bet="100">100</button>
+						</div>
+						<button class="demo-btn" id="crashLaunchBtn">🚀 Place Bet &amp; Launch</button>
+						<button class="demo-btn cashout" id="crashCashoutBtn" disabled>💸 Cash Out</button>
+					</div>
+					<div class="demo-log" id="crashLog" aria-live="polite"></div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -643,6 +757,167 @@
 			entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } });
 		}, { threshold: .1 });
 		document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
+
+		// Scroll progress bar
+		const scrollFill = document.getElementById('scrollFill');
+		function updateScrollBar() {
+			const h = document.documentElement;
+			const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+			if (scrollFill) scrollFill.style.width = scrolled + '%';
+		}
+		document.addEventListener('scroll', updateScrollBar, { passive: true });
+		updateScrollBar();
+
+		// HUD nav: shrink on scroll + mobile toggle
+		const hudNav = document.querySelector('.hud-nav');
+		document.addEventListener('scroll', () => {
+			hudNav?.classList.toggle('is-scrolled', window.scrollY > 40);
+		}, { passive: true });
+
+		const navToggle = document.getElementById('navToggle');
+		const hudLinks = document.getElementById('hudLinks');
+		navToggle?.addEventListener('click', () => {
+			const open = hudLinks.classList.toggle('is-open');
+			navToggle.setAttribute('aria-expanded', String(open));
+		});
+		document.querySelectorAll('#hudLinks a').forEach(a => a.addEventListener('click', () => {
+			hudLinks.classList.remove('is-open');
+			navToggle?.setAttribute('aria-expanded', 'false');
+		}));
+
+		// Scroll-spy: highlight active nav link
+		const navLinks = document.querySelectorAll('[data-nav]');
+		const spySections = ['about', 'experience', 'projects', 'contact']
+			.map(id => document.getElementById(id))
+			.filter(Boolean);
+		const spyIO = new IntersectionObserver((entries) => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					navLinks.forEach(l => l.classList.remove('is-active'));
+					const match = document.querySelector(`[data-nav][href="#${entry.target.id}"]`);
+					match?.classList.add('is-active');
+				}
+			});
+		}, { rootMargin: '-45% 0px -50% 0px' });
+		spySections.forEach(s => spyIO.observe(s));
+
+		// Animated stat counters (count up once in view)
+		const statNums = document.querySelectorAll('.stat-num');
+		const statIO = new IntersectionObserver((entries) => {
+			entries.forEach(entry => {
+				if (!entry.isIntersecting) return;
+				const el = entry.target;
+				const target = parseInt(el.dataset.count, 10) || 0;
+				const duration = 1200;
+				const start = performance.now();
+				function tick(now) {
+					const p = Math.min((now - start) / duration, 1);
+					el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
+					if (p < 1) requestAnimationFrame(tick);
+				}
+				requestAnimationFrame(tick);
+				statIO.unobserve(el);
+			});
+		}, { threshold: .5 });
+		statNums.forEach(el => statIO.observe(el));
+
+		// Hero tagline typewriter
+		const taglineEl = document.getElementById('heroTagline');
+		const taglines = ['Unity Developer', 'AR / VR Builder', 'Multiplayer Engineer', 'Live-Ops Designer'];
+		const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		if (taglineEl && !reduceMotion) {
+			let tIdx = 0, cIdx = 0, deleting = false;
+			function typeTick() {
+				const full = taglines[tIdx];
+				cIdx += deleting ? -1 : 1;
+				taglineEl.textContent = full.slice(0, cIdx);
+				let delay = deleting ? 40 : 80;
+				if (!deleting && cIdx === full.length) { delay = 1400; deleting = true; }
+				else if (deleting && cIdx === 0) { deleting = false; tIdx = (tIdx + 1) % taglines.length; delay = 300; }
+				setTimeout(typeTick, delay);
+			}
+			typeTick();
+		} else if (taglineEl) {
+			taglineEl.textContent = taglines[0];
+		}
+
+		// Hero canvas: lightweight starfield/particle FX
+		(function () {
+			const canvas = document.getElementById('heroCanvas');
+			const header = document.getElementById('top');
+			if (!canvas || !header || reduceMotion) return;
+			const ctx = canvas.getContext('2d');
+			let w, h, particles, running = false, raf;
+			const mouse = { x: -9999, y: -9999 };
+
+			function resize() {
+				const rect = header.getBoundingClientRect();
+				w = canvas.width = rect.width;
+				h = canvas.height = rect.height;
+				const count = Math.min(90, Math.floor((w * h) / 14000));
+				particles = Array.from({ length: count }, () => ({
+					x: Math.random() * w,
+					y: Math.random() * h,
+					r: Math.random() * 1.6 + 0.4,
+					vx: (Math.random() - 0.5) * 0.25,
+					vy: (Math.random() - 0.5) * 0.25,
+				}));
+			}
+
+			function draw() {
+				ctx.clearRect(0, 0, w, h);
+				for (const p of particles) {
+					p.x += p.vx; p.y += p.vy;
+					if (p.x < 0 || p.x > w) p.vx *= -1;
+					if (p.y < 0 || p.y > h) p.vy *= -1;
+					const dx = p.x - mouse.x, dy = p.y - mouse.y;
+					const dist = Math.sqrt(dx * dx + dy * dy);
+					if (dist < 120) { p.x += dx / dist * 0.6; p.y += dy / dist * 0.6; }
+					ctx.beginPath();
+					ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+					ctx.fillStyle = 'rgba(150,190,255,.55)';
+					ctx.fill();
+				}
+				for (let i = 0; i < particles.length; i++) {
+					for (let j = i + 1; j < particles.length; j++) {
+						const a = particles[i], b = particles[j];
+						const dx = a.x - b.x, dy = a.y - b.y;
+						const d2 = dx * dx + dy * dy;
+						if (d2 < 120 * 120) {
+							ctx.strokeStyle = `rgba(79,156,255,${0.12 * (1 - d2 / (120 * 120))})`;
+							ctx.lineWidth = 1;
+							ctx.beginPath();
+							ctx.moveTo(a.x, a.y);
+							ctx.lineTo(b.x, b.y);
+							ctx.stroke();
+						}
+					}
+				}
+				raf = requestAnimationFrame(draw);
+			}
+
+			function start() { if (!running) { running = true; raf = requestAnimationFrame(draw); } }
+			function stop() { running = false; cancelAnimationFrame(raf); }
+
+			header.addEventListener('mousemove', (e) => {
+				const rect = header.getBoundingClientRect();
+				mouse.x = e.clientX - rect.left;
+				mouse.y = e.clientY - rect.top;
+				header.style.setProperty('--mx', mouse.x + 'px');
+				header.style.setProperty('--my', mouse.y + 'px');
+			});
+			header.addEventListener('mouseleave', () => { mouse.x = -9999; mouse.y = -9999; });
+
+			const visIO = new IntersectionObserver((entries) => {
+				entries.forEach(e => e.isIntersecting ? start() : stop());
+			}, { threshold: 0 });
+			visIO.observe(header);
+
+			resize();
+			window.addEventListener('resize', resize);
+			if (document.fonts && document.fonts.ready) document.fonts.ready.then(resize);
+			if (window.ResizeObserver) new ResizeObserver(resize).observe(header);
+		})();
 
 		// Filters
 		const grid = document.getElementById('projectGrid');
@@ -821,6 +1096,143 @@
 		})();
 	</script>
 
+	<!-- ===== Live Crash-Math Demo (Aviator) ===== -->
+	<script>
+		(function () {
+			const root = document.getElementById('crashDemo');
+			if (!root) return;
+
+			const balanceEl = document.getElementById('crashBalance');
+			const multEl = document.getElementById('crashMultiplier');
+			const statusEl = document.getElementById('crashStatus');
+			const launchBtn = document.getElementById('crashLaunchBtn');
+			const cashoutBtn = document.getElementById('crashCashoutBtn');
+			const resetBtn = document.getElementById('crashReset');
+			const logEl = document.getElementById('crashLog');
+			const chips = Array.from(root.querySelectorAll('.chip'));
+
+			const STORE_KEY = 'mk_crash_demo_balance';
+			let balance = parseInt(localStorage.getItem(STORE_KEY), 10);
+			if (!Number.isFinite(balance) || balance < 0) balance = 1000;
+
+			let bet = 10;
+			let phase = 'idle'; // idle | flying | crashed
+			let crashPoint = 1;
+			let startTime = 0;
+			let tickHandle = null;
+			let currentMultiplier = 1;
+
+			function saveBalance() {
+				try { localStorage.setItem(STORE_KEY, String(balance)); } catch (e) { }
+			}
+
+			function renderBalance() {
+				balanceEl.textContent = balance;
+			}
+
+			function log(kind, text) {
+				const row = document.createElement('div');
+				row.className = 'demo-log-row ' + kind;
+				row.textContent = text;
+				logEl.prepend(row);
+				while (logEl.children.length > 5) logEl.removeChild(logEl.lastChild);
+			}
+
+			// Fair-ish crash curve: 99% RTP style long-tail distribution, clamped for demo sanity.
+			function rollCrashPoint() {
+				const r = Math.max(Math.random(), 1e-6);
+				const point = 0.99 / r;
+				return Math.max(1.01, Math.min(point, 25));
+			}
+
+			chips.forEach(chip => {
+				chip.addEventListener('click', () => {
+					if (phase !== 'idle') return;
+					chips.forEach(c => c.classList.remove('is-active'));
+					chip.classList.add('is-active');
+					bet = parseInt(chip.dataset.bet, 10);
+				});
+			});
+
+			function setMultiplierDisplay(m) {
+				multEl.textContent = m.toFixed(2) + 'x';
+				multEl.classList.toggle('is-hot', m >= 2);
+				multEl.classList.toggle('is-danger', m >= 5);
+			}
+
+			function endRound(resetDelay) {
+				clearInterval(tickHandle);
+				launchBtn.disabled = false;
+				cashoutBtn.disabled = true;
+				chips.forEach(c => c.disabled = false);
+				setTimeout(() => {
+					phase = 'idle';
+					setMultiplierDisplay(1);
+					statusEl.textContent = 'Pick a bet and launch the plane';
+				}, resetDelay);
+			}
+
+			launchBtn.addEventListener('click', () => {
+				if (phase !== 'idle') return;
+				if (balance < bet) {
+					statusEl.textContent = "Not enough coins — hit ↻ to reset the demo balance";
+					return;
+				}
+				balance -= bet;
+				renderBalance();
+				saveBalance();
+
+				phase = 'flying';
+				crashPoint = rollCrashPoint();
+				startTime = performance.now();
+				currentMultiplier = 1;
+				setMultiplierDisplay(1);
+				statusEl.textContent = 'Flying… cash out before it crashes!';
+				launchBtn.disabled = true;
+				cashoutBtn.disabled = false;
+				chips.forEach(c => c.disabled = true);
+
+				tickHandle = setInterval(() => {
+					const elapsed = (performance.now() - startTime) / 1000;
+					currentMultiplier = Math.exp(elapsed * 0.16);
+					if (currentMultiplier >= crashPoint) {
+						currentMultiplier = crashPoint;
+						setMultiplierDisplay(currentMultiplier);
+						statusEl.textContent = '💥 Crashed at ' + currentMultiplier.toFixed(2) + 'x — bet lost';
+						log('lost', 'Crashed @ ' + currentMultiplier.toFixed(2) + 'x · -' + bet);
+						phase = 'crashed';
+						endRound(1400);
+						return;
+					}
+					setMultiplierDisplay(currentMultiplier);
+				}, 60);
+			});
+
+			cashoutBtn.addEventListener('click', () => {
+				if (phase !== 'flying') return;
+				clearInterval(tickHandle);
+				const winnings = Math.round(bet * currentMultiplier);
+				balance += winnings;
+				renderBalance();
+				saveBalance();
+				statusEl.textContent = '✅ Cashed out at ' + currentMultiplier.toFixed(2) + 'x — +' + winnings + ' coins';
+				log('won', 'Cashed out @ ' + currentMultiplier.toFixed(2) + 'x · +' + winnings);
+				phase = 'crashed';
+				endRound(1000);
+			});
+
+			resetBtn.addEventListener('click', () => {
+				if (phase !== 'idle') return;
+				balance = 1000;
+				renderBalance();
+				saveBalance();
+				statusEl.textContent = 'Balance reset — pick a bet and launch';
+				logEl.innerHTML = '';
+			});
+
+			renderBalance();
+		})();
+	</script>
 
 </body>
 </html>
