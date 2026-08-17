@@ -452,6 +452,26 @@ section {
 	font-weight: 700;
 }
 
+	.xp-quest.is-active {
+		background: linear-gradient(90deg,var(--brand),#7aa9ff);
+		display: inline-flex;
+		align-items: center;
+		gap: 6px;
+	}
+
+		.xp-quest.is-active::before {
+			content: "";
+			width: 6px; height: 6px;
+			border-radius: 50%;
+			background: #06101f;
+			animation: questPulse 1.4s ease-in-out infinite;
+		}
+
+@keyframes questPulse {
+	0%, 100% { opacity: 1 }
+	50% { opacity: .25 }
+}
+
 .xp-meta {
 	color: var(--muted);
 	font-size: 14px;
