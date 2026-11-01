@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#090b13">
+	<title>Double Run — Browser Preview</title>
+	<style>
+		:root {
+			color-scheme: dark;
+			font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+			background: #090b13;
+			color: #f7f7fb;
+			font-synthesis: none;
+			--muted: #9da2b4;
+			--line: rgba(255,255,255,.1);
+			--pink: #ff657e;
+			--cyan: #62ddff;
+		}
+
+		* { box-sizing: border-box }
+		body { margin: 0; min-height: 100vh; background: radial-gradient(ellipse at 50% 0, rgba(76,104,197,.18), transparent 48%), #090b13 }
+		button { font: inherit }
+		button:focus-visible { outline: 2px solid #fff; outline-offset: 3px }
+		.app { width: min(820px, 100%); min-height: 100vh; margin: auto; padding: 14px clamp(12px, 3vw, 22px) 18px }
+		.topbar, .hud, .lane-labels, .controls, .overlay-actions { display: flex; align-items: center; justify-content: space-between; gap: 12px }
+		.topbar { padding-bottom: 11px; border-bottom: 1px solid var(--line) }
+		.brand { display: flex; align-items: center; gap: 9px; font-size: 11px; font-weight: 850; letter-spacing: .14em }
+		.brand-mark { display: grid; width: 30px; height: 30px; place-items: center; border-radius: 9px; background: linear-gradient(145deg, var(--pink), #9b53ff); font-size: 15px }
+		.preview-label, .eyebrow { color: #aeb8d3; font-size: 9px; font-weight: 750; letter-spacing: .14em; text-transform: uppercase }
+		.hud { margin: 11px 1px 9px; color: var(--muted); font-size: 11px }
+		.score { color: white; font-size: 18px; font-weight: 850 }
+		.best { color: #bac1d1 }
+		.game-frame { position: relative; overflow: hidden; border: 1px solid rgba(255,255,255,.12); border-radius: 15px; background: #10172a; box-shadow: 0 16px 48px rgba(0,0,0,.35) }
+		canvas { display: block; width: 100%; aspect-ratio: 16 / 8.6; min-height: 220px; max-height: 400px; touch-action: none }
+		.overlay { position: absolute; inset: 0; display: grid; place-items: center; padding: 16px; background: rgba(6,9,18,.48); backdrop-filter: blur(5px); text-align: center }
+		.overlay[hidden] { display: none }
+		.overlay-card { width: min(390px, 100%); padding: clamp(18px, 4vw, 26px); border: 1px solid rgba(255,255,255,.14); border-radius: 15px; background: linear-gradient(145deg, rgba(22,28,47,.96), rgba(13,16,29,.96)); box-shadow: 0 18px 56px rgba(0,0,0,.35) }
+		.overlay-card .eyebrow { margin-bottom: 9px; color: #ff8ca1 }
+		h1 { margin: 0; font-size: clamp(24px, 5vw, 34px); line-height: 1.05; letter-spacing: -.05em }
+		.overlay-card p { margin: 11px 0 16px; color: #b7bdcd; font-size: 12px; line-height: 1.55 }
+		.overlay-actions { justify-content: center; flex-wrap: wrap }
+		.primary { min-height: 42px; padding: 0 20px; border: 0; border-radius: 9px; background: linear-gradient(100deg, #ff5364, #c44fff); color: white; font-size: 12px; font-weight: 850; cursor: pointer; transition: filter .15s ease, transform .15s ease }
+		.primary:hover { transform: translateY(-1px); filter: brightness(1.12) }
+		.lane-labels { gap: 8px; margin: 10px 0 7px }
+		.lane-label { display: flex; min-width: 0; flex: 1; align-items: center; gap: 8px; padding: 8px 10px; border: 1px solid var(--line); border-radius: 9px; background: rgba(255,255,255,.03); color: #dce1ec; font-size: 10px }
+		.lane-label b { font-size: 11px; letter-spacing: .04em }
+		.lane-label.jump b { color: var(--pink) }
+		.lane-label.slide b { color: var(--cyan) }
+		.key { display: inline-grid; min-width: 24px; height: 23px; place-items: center; padding: 0 5px; border: 1px solid rgba(255,255,255,.14); border-radius: 6px; background: rgba(255,255,255,.06); color: #fff; font-size: 10px; font-weight: 800 }
+		.controls { gap: 8px }
+		.action {
+			display: flex; flex: 1; min-height: 43px; align-items: center; justify-content: center; gap: 9px;
+			border: 1px solid var(--line); border-radius: 9px; background: rgba(255,255,255,.045); color: #f2f4fa;
+			font-size: 11px; font-weight: 800; cursor: pointer; user-select: none; -webkit-user-select: none;
+			touch-action: manipulation; transition: background .14s ease, border-color .14s ease, transform .1s ease;
+		}
+		.action.jump { border-color: rgba(255,101,126,.25) }
+		.action.slide { border-color: rgba(98,221,255,.25) }
+		.action.jump.is-active, .action.jump:active { transform: scale(.98); border-color: var(--pink); background: rgba(255,101,126,.16) }
+		.action.slide.is-active, .action.slide:active { transform: scale(.98); border-color: var(--cyan); background: rgba(98,221,255,.15) }
+		.action[disabled] { opacity: .45; cursor: default }
+		.instructions { margin: 10px 0 0; color: #858da0; font-size: 10px; line-height: 1.5; text-align: center }
+		@media (max-width: 480px) {
+			.app { padding: 10px 10px 14px }
+			canvas { min-height: 260px }
+			.overlay { padding: 10px }
+			.overlay-card { padding: 14px }
+			.overlay-card .eyebrow { margin-bottom: 6px; font-size: 8px }
+			h1 { font-size: clamp(21px, 7vw, 27px) }
+			.overlay-card p { margin: 8px 0 12px; font-size: 11px; line-height: 1.4 }
+			.overlay-card .primary { min-height: 38px }
+			.lane-label { justify-content: center; gap: 5px; padding: 7px 5px; font-size: 9px }
+			.lane-label span:last-child { display: none }
+			.controls { gap: 6px }
+			.action { min-height: 48px; gap: 6px; font-size: 10px }
+		}
+		@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important } }
+	</style>
+</head>
+<body>
+	<main class="app">
+		<header class="topbar">
+			<div class="brand"><span class="brand-mark" aria-hidden="true">Ⅱ</span><span>DOUBLE RUN</span></div>
+			<span class="preview-label">Portfolio play test</span>
+		</header>
+		<div class="hud" aria-live="polite">
+			<span>SCORE <strong class="score" id="score">0</strong></span>
+			<span>BEST <strong class="best" id="best">0</strong></span>
+		</div>
+		<div class="game-frame">
+			<canvas id="game" aria-label="Double Run game field"></canvas>
+			<section class="overlay" id="overlay" aria-labelledby="overlayTitle">
+				<div class="overlay-card">
+					<p class="eyebrow" id="overlayEyebrow">Two runners. One brain.</p>
+					<h1 id="overlayTitle">Can you keep both moving?</h1>
+					<p id="overlayCopy">Left runner: jump barriers. Right runner: slide under gates. React fast as the pace builds.</p>
+					<div class="overlay-actions"><button class="primary" id="startButton" type="button">Start running&nbsp; →</button></div>
+				</div>
+			</section>
+		</div>
+		<div class="lane-labels" aria-hidden="true">
+			<div class="lane-label jump"><span class="key">W</span><span class="key">↑</span><b>JUMP</b><span>Left runner</span></div>
+			<div class="lane-label slide"><span class="key">S</span><span class="key">↓</span><b>SLIDE</b><span>Right runner</span></div>
+		</div>
+		<div class="controls">
+			<button class="action jump" id="jumpButton" type="button" aria-label="Jump with the left runner"><span class="key">↑</span> LEFT · JUMP</button>
+			<button class="action slide" id="slideButton" type="button" aria-label="Slide with the right runner"><span class="key">↓</span> RIGHT · SLIDE</button>
+		</div>
+		<p class="instructions">Keyboard: W / ↑ to jump · S / ↓ to slide &nbsp;•&nbsp; Touch: use the buttons above</p>
+	</main>
+	<script>
+		(() => {
+			const canvas = document.getElementById("game");
+			const ctx = canvas.getContext("2d");
+			const overlay = document.getElementById("overlay");
+			const overlayTitle = document.getElementById("overlayTitle");
+			const overlayCopy = document.getElementById("overlayCopy");
+			const overlayEyebrow = document.getElementById("overlayEyebrow");
+			const startButton = document.getElementById("startButton");
+			const scoreEl = document.getElementById("score");
+			const bestEl = document.getElementById("best");
+			const jumpButton = document.getElementById("jumpButton");
+			const slideButton = document.getElementById("slideButton");
+			const lanes = ["jump", "slide"];
+			let width = 0, height = 0, dpr = 1;
+			let active = false, score = 0, speed = 0.29, spawnIn = 1;
+			let lastTime = 0, animationFrame = 0, obstacles = [];
+			let jumpUntil = 0, slideUntil = 0;
+			let best = 0;
+			try { best = Number(localStorage.getItem("mk_double_run_best")) || 0; } catch (error) { best = 0; }
+			bestEl.textContent = String(best);
+
+			function resize() {
+				const rect = canvas.getBoundingClientRect();
+				if (!rect.width || !rect.height) return;
+				dpr = Math.min(window.devicePixelRatio || 1, 2);
+				width = rect.width;
+				height = rect.height;
+				canvas.width = Math.round(width * dpr);
+				canvas.height = Math.round(height * dpr);
+				ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+				draw();
+			}
+
+			function roundedRect(x, y, w, h, r) {
+				const radius = Math.min(r, w / 2, h / 2);
+				ctx.beginPath();
+				ctx.roundRect(x, y, w, h, radius);
+			}
+
+			function drawRunner(x, y, color, type, moving) {
+				const jumping = type === "jump" && moving;
+				const sliding = type === "slide" && moving;
+				const bob = moving && !jumping && !sliding ? Math.sin(performance.now() / 90 + x) * 2 : 0;
+				const bodyY = jumping ? y - 25 : sliding ? y + 7 : y + bob;
+				ctx.save();
+				ctx.shadowColor = color;
+				ctx.shadowBlur = 13;
+				ctx.fillStyle = color;
+				ctx.beginPath();
+				ctx.arc(x, bodyY - (sliding ? 1 : 13), sliding ? 8 : 9, 0, Math.PI * 2);
+				ctx.fill();
+				ctx.shadowBlur = 0;
+				ctx.globalAlpha = .9;
+				ctx.fillStyle = "#f5f7ff";
+				if (sliding) {
+					roundedRect(x - 19, bodyY - 5, 39, 11, 6);
+					ctx.fill();
+					ctx.fillStyle = color;
+					roundedRect(x - 8, bodyY - 9, 20, 7, 4);
+					ctx.fill();
+				} else {
+					roundedRect(x - 9, bodyY - 3, 18, 30, 8);
+					ctx.fill();
+					ctx.strokeStyle = color;
+					ctx.lineWidth = 5;
+					ctx.lineCap = "round";
+					ctx.beginPath();
+					ctx.moveTo(x - 4, bodyY + 22); ctx.lineTo(x - 8, bodyY + 32);
+					ctx.moveTo(x + 4, bodyY + 22); ctx.lineTo(x + 9, bodyY + 31);
+					ctx.stroke();
+				}
+				ctx.restore();
+			}
+
+			function drawObstacle(item) {
+				const t = item.progress;
+				const horizon = height * .22;
+				const ground = height * .84;
+				const y = horizon + Math.pow(t, 1.65) * (ground - horizon);
+				const centerX = item.lane === "jump" ? width * .28 : width * .72;
+				const scale = .34 + t * 1.5;
+				const w = (item.lane === "jump" ? 45 : 56) * scale;
+				const h = (item.lane === "jump" ? 23 : 15) * scale;
+				const color = item.lane === "jump" ? "#ff657e" : "#62ddff";
+				ctx.save();
+				ctx.globalAlpha = .55 + t * .45;
+				ctx.shadowColor = color;
+				ctx.shadowBlur = 12 * t;
+				ctx.fillStyle = color;
+				if (item.lane === "jump") {
+					ctx.beginPath();
+					ctx.moveTo(centerX - w / 2, y + h / 2);
+					ctx.lineTo(centerX - w * .32, y - h / 2);
+					ctx.lineTo(centerX + w * .32, y - h / 2);
+					ctx.lineTo(centerX + w / 2, y + h / 2);
+					ctx.closePath();
+					ctx.fill();
+				} else {
+					roundedRect(centerX - w / 2, y - h / 2, w, h, h / 2);
+					ctx.fill();
+					ctx.fillStyle = "rgba(255,255,255,.86)";
+					ctx.fillRect(centerX - w * .34, y - h * .12, w * .68, Math.max(2, h * .16));
+				}
+				ctx.restore();
+			}
+
+			function draw() {
+				if (!width || !height) return;
+				ctx.clearRect(0, 0, width, height);
+				const bg = ctx.createLinearGradient(0, 0, 0, height);
+				bg.addColorStop(0, "#111b34");
+				bg.addColorStop(.58, "#182039");
+				bg.addColorStop(1, "#101524");
+				ctx.fillStyle = bg;
+				ctx.fillRect(0, 0, width, height);
+				const horizon = height * .22;
+				ctx.fillStyle = "rgba(180,202,255,.08)";
+				ctx.fillRect(0, horizon, width, 1);
+				const time = performance.now() / 1000;
+				for (let i = 0; i < 13; i++) {
+					const x = (i * 97 + 31) % width;
+					const y = (i * 47 + 13) % Math.max(1, horizon);
+					ctx.fillStyle = `rgba(208,221,255,${.14 + ((i % 3) * .06)})`;
+					ctx.fillRect(x, y, 1.5, 1.5);
+				}
+
+				for (let lane = 0; lane < 2; lane++) {
+					const cx = lane === 0 ? width * .28 : width * .72;
+					const laneWidth = width * .38;
+					ctx.beginPath();
+					ctx.moveTo(cx - laneWidth * .12, horizon);
+					ctx.lineTo(cx + laneWidth * .12, horizon);
+					ctx.lineTo(cx + laneWidth * .5, height * .96);
+					ctx.lineTo(cx - laneWidth * .5, height * .96);
+					ctx.closePath();
+					ctx.fillStyle = lane === 0 ? "rgba(255,101,126,.055)" : "rgba(98,221,255,.055)";
+					ctx.fill();
+					ctx.strokeStyle = lane === 0 ? "rgba(255,101,126,.16)" : "rgba(98,221,255,.16)";
+					ctx.lineWidth = 1;
+					ctx.beginPath();
+					ctx.moveTo(cx - laneWidth * .12, horizon);
+					ctx.lineTo(cx - laneWidth * .5, height * .96);
+					ctx.moveTo(cx + laneWidth * .12, horizon);
+					ctx.lineTo(cx + laneWidth * .5, height * .96);
+					ctx.stroke();
+					for (let i = 0; i < 7; i++) {
+						const t = ((i / 7) + time * (active ? speed * .42 : .08)) % 1;
+						const yy = horizon + Math.pow(t, 1.65) * (height * .96 - horizon);
+						const ww = 2 + t * 5;
+						ctx.fillStyle = lane === 0 ? "rgba(255,101,126,.18)" : "rgba(98,221,255,.18)";
+						ctx.fillRect(cx - ww / 2, yy, ww, 2 + t * 2);
+					}
+				}
+
+				obstacles.forEach(drawObstacle);
+				const playerY = height * .77;
+				drawRunner(width * .28, playerY, "#ff657e", "jump", active && time < jumpUntil);
+				drawRunner(width * .72, playerY, "#62ddff", "slide", active && time < slideUntil);
+			}
+
+			function update(time) {
+				if (!active) return;
+				if (!lastTime) lastTime = time;
+				const dt = Math.min((time - lastTime) / 1000, .04);
+				lastTime = time;
+				const elapsed = score;
+				speed = Math.min(.29 + elapsed * .0035, .62);
+				spawnIn -= dt;
+				if (spawnIn <= 0) {
+					const lane = lanes[Math.floor(Math.random() * lanes.length)];
+					obstacles.push({ lane, progress: 0, passed: false });
+					if (score > 5 && Math.random() < .24) {
+						obstacles.push({ lane: lane === "jump" ? "slide" : "jump", progress: .12, passed: false });
+					}
+					spawnIn = Math.max(.74, 1.45 - score * .014) + Math.random() * .32;
+				}
+				const now = time / 1000;
+				for (const obstacle of obstacles) {
+					obstacle.progress += speed * dt;
+					if (!obstacle.passed && obstacle.progress >= .88) {
+						obstacle.passed = true;
+						const dodged = obstacle.lane === "jump" ? now < jumpUntil : now < slideUntil;
+						if (!dodged) { endRound(); return; }
+						score++;
+						scoreEl.textContent = String(score);
+					}
+				}
+				obstacles = obstacles.filter(item => item.progress < 1.08);
+				draw();
+				animationFrame = requestAnimationFrame(update);
+			}
+
+			function startRound() {
+				cancelAnimationFrame(animationFrame);
+				score = 0;
+				speed = .29;
+				spawnIn = 1.15;
+				lastTime = 0;
+				jumpUntil = 0;
+				slideUntil = 0;
+				obstacles = [];
+				active = true;
+				scoreEl.textContent = "0";
+				jumpButton.disabled = false;
+				slideButton.disabled = false;
+				overlay.hidden = true;
+				animationFrame = requestAnimationFrame(update);
+			}
+
+			function endRound() {
+				active = false;
+				jumpButton.disabled = true;
+				slideButton.disabled = true;
+				if (score > best) {
+					best = score;
+					bestEl.textContent = String(best);
+					try { localStorage.setItem("mk_double_run_best", String(best)); } catch (error) { /* storage is optional */ }
+				}
+				overlayEyebrow.textContent = "Run complete";
+				overlayTitle.textContent = "One more run?";
+				overlayCopy.textContent = `You dodged ${score} ${score === 1 ? "obstacle" : "obstacles"}. Try again and keep both runners in sync.`;
+				startButton.textContent = "Run it back  ↻";
+				overlay.hidden = false;
+				draw();
+			}
+
+			function act(type) {
+				if (!active) return;
+				const now = performance.now() / 1000;
+				if (type === "jump") jumpUntil = now + .62;
+				else slideUntil = now + .62;
+				const button = type === "jump" ? jumpButton : slideButton;
+				button.classList.add("is-active");
+				window.setTimeout(() => button.classList.remove("is-active"), 130);
+			}
+
+			window.addEventListener("keydown", event => {
+				if (event.repeat) return;
+				if (["ArrowUp", "w", "W"].includes(event.key)) { event.preventDefault(); act("jump"); }
+				if (["ArrowDown", "s", "S"].includes(event.key)) { event.preventDefault(); act("slide"); }
+				if (event.key === " " && !active) { event.preventDefault(); startRound(); }
+			});
+			jumpButton.addEventListener("pointerdown", event => { event.preventDefault(); act("jump"); });
+			slideButton.addEventListener("pointerdown", event => { event.preventDefault(); act("slide"); });
+			startButton.addEventListener("click", startRound);
+			window.addEventListener("resize", resize);
+			if (window.ResizeObserver) new ResizeObserver(resize).observe(canvas);
+			resize();
+		})();
+	</script>
+</body>
+</html>

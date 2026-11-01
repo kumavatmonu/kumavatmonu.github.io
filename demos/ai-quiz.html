@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#090b13">
+	<title>AI Quiz Game — Browser Preview</title>
+	<style>
+		:root {
+			color-scheme: dark;
+			font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+			background: #090b13;
+			color: #f7f7fb;
+			font-synthesis: none;
+			text-rendering: optimizeLegibility;
+			--muted: #9da2b4;
+			--line: rgba(255,255,255,.1);
+			--accent: #ff5364;
+			--panel: #111522;
+		}
+
+		* { box-sizing: border-box }
+		body { margin: 0; min-height: 100vh; background: radial-gradient(ellipse at 82% 0, rgba(103,64,203,.2), transparent 42%), #090b13 }
+		button { font: inherit }
+		button:focus-visible { outline: 2px solid #fff; outline-offset: 3px }
+		.app { width: min(760px, 100%); min-height: 100vh; margin: auto; padding: 18px clamp(14px, 4vw, 30px) 24px }
+		.topbar, .scorebar, .question-meta, .quiz-footer, .result-actions { display: flex; align-items: center; justify-content: space-between; gap: 12px }
+		.topbar { padding-bottom: 15px; border-bottom: 1px solid var(--line) }
+		.brand { display: flex; align-items: center; gap: 10px; font-size: 11px; font-weight: 800; letter-spacing: .14em }
+		.brand-mark { display: grid; width: 34px; height: 34px; place-items: center; border-radius: 10px; background: linear-gradient(145deg, #ff5364, #a326e8); font-size: 17px }
+		.preview-label, .eyebrow { color: #ff8792; font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase }
+		.screen { padding-top: 20px }
+		.screen[hidden] { display: none }
+		h1, h2, p { margin-top: 0 }
+		h1 { margin-bottom: 10px; font-size: clamp(29px, 6vw, 44px); line-height: 1.06; letter-spacing: -.05em }
+		h2 { margin: 0; font-size: 22px; letter-spacing: -.03em }
+		.intro { max-width: 520px; margin-bottom: 21px; color: #b6bbca; font-size: 14px; line-height: 1.6 }
+		.category-label { display: block; margin-bottom: 9px; color: var(--muted); font-size: 11px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase }
+		.categories { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 9px; margin-bottom: 18px }
+		.category {
+			min-height: 68px; padding: 10px; border: 1px solid var(--line); border-radius: 12px;
+			background: rgba(255,255,255,.035); color: #dce0eb; text-align: left; cursor: pointer;
+		}
+		.category span { display: block; margin-bottom: 4px; font-size: 20px }
+		.category[aria-pressed="true"] { border-color: rgba(255,83,100,.72); background: rgba(255,83,100,.1); color: #fff }
+		.primary, .secondary {
+			min-height: 44px; padding: 0 17px; border: 0; border-radius: 10px;
+			font-size: 13px; font-weight: 800; cursor: pointer; transition: transform .16s ease, filter .16s ease;
+		}
+		.primary { background: linear-gradient(100deg, #ff5364, #d738a9); color: #fff; box-shadow: 0 7px 24px rgba(212,56,169,.2) }
+		.secondary { border: 1px solid var(--line); background: rgba(255,255,255,.04); color: #f5f5f8 }
+		.primary:hover, .secondary:hover { transform: translateY(-1px); filter: brightness(1.12) }
+		.primary:disabled, .secondary:disabled { opacity: .45; cursor: default; transform: none }
+		.play-note { margin: 12px 0 0; color: #858b9d; font-size: 11px; line-height: 1.55 }
+		.scorebar { margin-bottom: 12px; color: #b9becc; font-size: 12px }
+		.scorebar strong { color: #fff }
+		.progress { height: 5px; margin-bottom: 16px; overflow: hidden; border-radius: 9px; background: rgba(255,255,255,.09) }
+		.progress span { display: block; width: 0; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #ff5364, #bf5bff); transition: width .3s ease }
+		.question-card {
+			position: relative; display: grid; min-height: 144px; align-content: end; gap: 10px;
+			margin-bottom: 14px; padding: 19px; overflow: hidden; border: 1px solid var(--line); border-radius: 15px;
+			background: radial-gradient(circle at 85% 22%, rgba(181,79,255,.3), transparent 30%), linear-gradient(135deg, #1d2032, #121523 75%);
+		}
+		.question-card::after { position: absolute; top: -34px; right: 12px; content: attr(data-art); opacity: .14; font-size: 118px; line-height: 1 }
+		.question-card > * { position: relative; z-index: 1 }
+		.question-meta { justify-content: flex-start; color: #b7bbca; font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase }
+		.question-text { max-width: 590px; margin: 0; font-size: clamp(17px, 3.2vw, 22px); font-weight: 750; line-height: 1.35; letter-spacing: -.025em }
+		.answers { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px }
+		.answer {
+			display: flex; min-height: 52px; align-items: center; gap: 10px; padding: 9px 11px;
+			border: 1px solid var(--line); border-radius: 11px; background: var(--panel); color: #e8eaf1;
+			text-align: left; cursor: pointer; transition: border-color .16s ease, background .16s ease, transform .16s ease;
+		}
+		.answer:hover:not(:disabled) { transform: translateY(-1px); border-color: rgba(255,255,255,.34); background: #191e2d }
+		.answer:disabled { cursor: default }
+		.answer-letter { display: grid; width: 25px; height: 25px; flex: 0 0 25px; place-items: center; border: 1px solid var(--line); border-radius: 7px; color: #aeb3c3; font-size: 11px; font-weight: 800 }
+		.answer.is-correct { border-color: rgba(77,214,155,.7); background: rgba(77,214,155,.13) }
+		.answer.is-correct .answer-letter { border-color: #4dd69b; color: #80f3bd }
+		.answer.is-wrong { border-color: rgba(255,83,100,.7); background: rgba(255,83,100,.11) }
+		.answer.is-removed { display: none }
+		.quiz-footer { min-height: 52px; margin-top: 11px }
+		.feedback { flex: 1; margin: 0; color: #b7bbca; font-size: 12px; line-height: 1.45 }
+		.feedback.is-correct { color: #7de8b5 }
+		.feedback.is-wrong { color: #ff929c }
+		.footer-actions { display: flex; gap: 8px }
+		.footer-actions button { min-height: 36px; padding-inline: 12px; font-size: 11px }
+		.result-card { padding: clamp(20px, 5vw, 34px); border: 1px solid var(--line); border-radius: 16px; background: linear-gradient(145deg, rgba(255,83,100,.1), rgba(181,79,255,.09) 60%, rgba(255,255,255,.025)) }
+		.result-score { margin: 13px 0 4px; font-size: clamp(44px, 12vw, 70px); font-weight: 850; line-height: 1; letter-spacing: -.07em }
+		.result-copy { margin: 10px 0 20px; color: #b8bdca; font-size: 13px; line-height: 1.55 }
+		.result-actions { justify-content: flex-start; flex-wrap: wrap }
+		@media (max-width: 480px) {
+			.app { padding-top: 13px }
+			.preview-label { font-size: 9px }
+			.categories { gap: 6px }
+			.category { padding: 8px; font-size: 11px }
+			.answers { grid-template-columns: 1fr }
+			.answer { min-height: 46px }
+			.question-card { min-height: 128px; padding: 15px }
+			.quiz-footer { align-items: flex-start; flex-wrap: wrap }
+			.feedback { flex-basis: 100% }
+			.footer-actions { width: 100% }
+			.footer-actions button { flex: 1 }
+		}
+		@media (prefers-reduced-motion: reduce) {
+			*, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important }
+		}
+	</style>
+</head>
+<body>
+	<main class="app">
+		<header class="topbar">
+			<div class="brand"><span class="brand-mark" aria-hidden="true">✦</span><span>AI QUIZ</span></div>
+			<span class="preview-label">Portfolio play test</span>
+		</header>
+
+		<section class="screen" id="startScreen" aria-labelledby="welcomeTitle">
+			<p class="eyebrow">01 / Choose your challenge</p>
+			<h1 id="welcomeTitle">Ready to test your brain?</h1>
+			<p class="intro">Pick a topic, answer five questions and see how high you can score. Use a hint when you get stuck.</p>
+			<span class="category-label">Select a question pack</span>
+			<div class="categories" role="group" aria-label="Question pack">
+				<button class="category" type="button" data-category="dev" aria-pressed="true"><span aria-hidden="true">🧩</span>Game dev</button>
+				<button class="category" type="button" data-category="play" aria-pressed="false"><span aria-hidden="true">🎮</span>Gaming</button>
+				<button class="category" type="button" data-category="facts" aria-pressed="false"><span aria-hidden="true">🌍</span>Quick facts</button>
+			</div>
+			<button class="primary" id="startButton" type="button">Start quiz <span aria-hidden="true">→</span></button>
+			<p class="play-note">This browser preview uses a curated question pack. The Unity project generates questions and matching images with AI services.</p>
+		</section>
+
+		<section class="screen" id="quizScreen" aria-label="Quiz" hidden>
+			<div class="scorebar"><span id="questionCount">Question 1 / 5</span><span>Score <strong id="score">0</strong></span></div>
+			<div class="progress" role="progressbar" aria-label="Quiz progress" aria-valuemin="0" aria-valuemax="5" aria-valuenow="0"><span id="progressFill"></span></div>
+			<article class="question-card" id="questionCard" data-art="✦">
+				<div class="question-meta"><span id="questionCategory">Game dev</span><span aria-hidden="true">·</span><span id="streak">0 streak</span></div>
+				<h2 class="question-text" id="questionText"></h2>
+			</article>
+			<div class="answers" id="answers" role="group" aria-label="Choose your answer"></div>
+			<div class="quiz-footer">
+				<p class="feedback" id="feedback" aria-live="polite">Choose the best answer.</p>
+				<div class="footer-actions">
+					<button class="secondary" id="hintButton" type="button">✦ Hint <span id="hintCount">1</span></button>
+					<button class="primary" id="nextButton" type="button" hidden>Continue →</button>
+				</div>
+			</div>
+		</section>
+
+		<section class="screen" id="resultScreen" aria-labelledby="resultTitle" hidden>
+			<p class="eyebrow">02 / Round complete</p>
+			<div class="result-card">
+				<h2 id="resultTitle">Nice run!</h2>
+				<p class="result-score"><span id="finalScore">0</span><span style="font-size:.34em;letter-spacing:0"> pts</span></p>
+				<p class="result-copy" id="resultCopy"></p>
+				<div class="result-actions">
+					<button class="primary" id="playAgainButton" type="button">Play again ↻</button>
+					<button class="secondary" id="changePackButton" type="button">Change topic</button>
+				</div>
+			</div>
+		</section>
+	</main>
+	<script>
+		(() => {
+			const packs = {
+				dev: {
+					label: "Game dev",
+					questions: [
+						{ art: "🎮", text: "Which language is most commonly used for scripting gameplay in Unity?", options: ["Java", "C#", "Swift", "Ruby"], answer: 1, explain: "C# is Unity's primary gameplay scripting language." },
+						{ art: "🧱", text: "Which Unity component gives a 3D object physics-based movement?", options: ["Rigidbody", "Canvas", "Animator", "Audio Listener"], answer: 0, explain: "A Rigidbody lets Unity's physics system move and simulate the object." },
+						{ art: "⏱️", text: "Which Unity method is designed for physics updates?", options: ["LateUpdate", "OnGUI", "FixedUpdate", "Start"], answer: 2, explain: "FixedUpdate runs on the fixed timestep used by the physics simulation." },
+						{ art: "🖼️", text: "Which component displays a 2D sprite in a Unity scene?", options: ["Mesh Collider", "Sprite Renderer", "Light Probe", "Nav Mesh Agent"], answer: 1, explain: "Sprite Renderer draws a sprite in the 2D scene." },
+						{ art: "🚀", text: "Which Unity callback runs after Awake and before the first Update?", options: ["OnDestroy", "OnDisable", "Start", "OnApplicationQuit"], answer: 2, explain: "Start runs before the first frame update, after Awake." },
+						{ art: "🧰", text: "What does a prefab let a Unity developer do?", options: ["Save reusable GameObject setups", "Compile C# to Java", "Bake audio into textures", "Replace the scene camera"], answer: 0, explain: "Prefabs are reusable templates for configured GameObjects." }
+					]
+				},
+				play: {
+					label: "Gaming",
+					questions: [
+						{ art: "🍄", text: "Which character is the famous plumber in Nintendo's Super Mario series?", options: ["Link", "Kirby", "Mario", "Fox"], answer: 2, explain: "Mario is the mustachioed hero of Nintendo's flagship platform series." },
+						{ art: "♟️", text: "Which chess piece moves in an L shape?", options: ["Bishop", "Knight", "Rook", "Queen"], answer: 1, explain: "The knight moves two squares in one direction and one perpendicular." },
+						{ art: "🟩", text: "What do you use to craft items in Minecraft?", options: ["Crafting table", "Ender chest", "Compass", "Beacon"], answer: 0, explain: "The crafting table opens the full 3×3 crafting grid." },
+						{ art: "👾", text: "How many ghosts chase Pac-Man in the original arcade game?", options: ["Two", "Three", "Four", "Five"], answer: 2, explain: "Blinky, Pinky, Inky and Clyde make up the quartet." },
+						{ art: "🧩", text: "In Tetris, what clears a completed horizontal row?", options: ["A hard drop", "Filling every cell in the row", "Matching four colours", "Rotating a T piece"], answer: 1, explain: "A line clears when every cell in that horizontal row is occupied." },
+						{ art: "🌀", text: "Which game series features portals as its central puzzle mechanic?", options: ["Half-Life", "Portal", "Dota", "Left 4 Dead"], answer: 1, explain: "Valve's Portal series is built around solving puzzles with a portal gun." }
+					]
+				},
+				facts: {
+					label: "Quick facts",
+					questions: [
+						{ art: "🪐", text: "Which planet is the largest in our solar system?", options: ["Saturn", "Earth", "Jupiter", "Neptune"], answer: 2, explain: "Jupiter is the solar system's largest planet by both mass and diameter." },
+						{ art: "🗼", text: "What is the capital city of Japan?", options: ["Kyoto", "Tokyo", "Osaka", "Nagoya"], answer: 1, explain: "Tokyo is Japan's capital and its most populous metropolitan area." },
+						{ art: "🌡️", text: "At sea level, water boils at approximately what temperature?", options: ["50°C", "80°C", "100°C", "120°C"], answer: 2, explain: "At standard atmospheric pressure, water boils at 100°C." },
+						{ art: "🔴", text: "Which planet is often called the Red Planet?", options: ["Venus", "Mars", "Mercury", "Uranus"], answer: 1, explain: "Iron minerals in Martian soil give the planet its reddish appearance." },
+						{ art: "💧", text: "Which chemical formula represents water?", options: ["CO₂", "O₂", "H₂O", "NaCl"], answer: 2, explain: "A water molecule has two hydrogen atoms bonded to one oxygen atom." },
+						{ art: "🌎", text: "How many continents are commonly taught in the seven-continent model?", options: ["Five", "Six", "Seven", "Eight"], answer: 2, explain: "The commonly taught model counts seven continents." }
+					]
+				}
+			};
+
+			const startScreen = document.getElementById("startScreen");
+			const quizScreen = document.getElementById("quizScreen");
+			const resultScreen = document.getElementById("resultScreen");
+			const questionCount = document.getElementById("questionCount");
+			const progress = document.querySelector('[role="progressbar"]');
+			const progressFill = document.getElementById("progressFill");
+			const scoreEl = document.getElementById("score");
+			const questionText = document.getElementById("questionText");
+			const questionCategory = document.getElementById("questionCategory");
+			const questionCard = document.getElementById("questionCard");
+			const streakEl = document.getElementById("streak");
+			const answersEl = document.getElementById("answers");
+			const feedback = document.getElementById("feedback");
+			const hintButton = document.getElementById("hintButton");
+			const hintCount = document.getElementById("hintCount");
+			const nextButton = document.getElementById("nextButton");
+			const categories = [...document.querySelectorAll("[data-category]")];
+			const totalQuestions = 5;
+			let selectedPack = "dev";
+			let round = [];
+			let current = 0;
+			let score = 0;
+			let streak = 0;
+			let hintAvailable = true;
+			let answered = false;
+
+			function shuffle(items) {
+				const copy = [...items];
+				for (let i = copy.length - 1; i > 0; i--) {
+					const j = Math.floor(Math.random() * (i + 1));
+					[copy[i], copy[j]] = [copy[j], copy[i]];
+				}
+				return copy;
+			}
+
+			function showScreen(screen) {
+				[startScreen, quizScreen, resultScreen].forEach(item => { item.hidden = item !== screen; });
+			}
+
+			function startRound() {
+				round = shuffle(packs[selectedPack].questions).slice(0, totalQuestions);
+				current = 0;
+				score = 0;
+				streak = 0;
+				hintAvailable = true;
+				answered = false;
+				scoreEl.textContent = "0";
+				hintCount.textContent = "1";
+				hintButton.disabled = false;
+				showScreen(quizScreen);
+				renderQuestion();
+			}
+
+			function renderQuestion() {
+				const item = round[current];
+				answered = false;
+				questionCount.textContent = `Question ${current + 1} / ${round.length}`;
+				progress.setAttribute("aria-valuemax", String(round.length));
+				progress.setAttribute("aria-valuenow", String(current));
+				progressFill.style.width = `${current / round.length * 100}%`;
+				questionCategory.textContent = packs[selectedPack].label;
+				questionCard.dataset.art = item.art;
+				questionText.textContent = item.text;
+				streakEl.textContent = `${streak} streak`;
+				feedback.textContent = "Choose the best answer.";
+				feedback.className = "feedback";
+				nextButton.hidden = true;
+				hintButton.disabled = !hintAvailable;
+				answersEl.replaceChildren();
+
+				item.options.forEach((option, index) => {
+					const button = document.createElement("button");
+					button.type = "button";
+					button.className = "answer";
+					button.dataset.answer = String(index);
+					button.innerHTML = `<span class="answer-letter">${String.fromCharCode(65 + index)}</span><span></span>`;
+					button.lastElementChild.textContent = option;
+					button.addEventListener("click", () => selectAnswer(index));
+					answersEl.append(button);
+				});
+			}
+
+			function selectAnswer(choice) {
+				if (answered) return;
+				answered = true;
+				const item = round[current];
+				const correct = choice === item.answer;
+				const buttons = [...answersEl.querySelectorAll(".answer")];
+				buttons.forEach(button => {
+					const index = Number(button.dataset.answer);
+					button.disabled = true;
+					if (index === item.answer) button.classList.add("is-correct");
+					else if (index === choice) button.classList.add("is-wrong");
+				});
+				if (correct) {
+					streak++;
+					score += 100 + Math.min(streak - 1, 4) * 25;
+					feedback.textContent = `Correct! ${item.explain}`;
+					feedback.className = "feedback is-correct";
+				} else {
+					streak = 0;
+					feedback.textContent = `Not quite. ${item.explain}`;
+					feedback.className = "feedback is-wrong";
+				}
+				scoreEl.textContent = String(score);
+				streakEl.textContent = `${streak} streak`;
+				progress.setAttribute("aria-valuenow", String(current + 1));
+				progressFill.style.width = `${(current + 1) / round.length * 100}%`;
+				nextButton.textContent = current === round.length - 1 ? "See results →" : "Continue →";
+				nextButton.hidden = false;
+				nextButton.focus();
+			}
+
+			function useHint() {
+				if (!hintAvailable || answered) return;
+				hintAvailable = false;
+				hintCount.textContent = "0";
+				hintButton.disabled = true;
+				const item = round[current];
+				const wrong = shuffle(item.options.map((_, index) => index).filter(index => index !== item.answer)).slice(0, 2);
+				wrong.forEach(index => answersEl.querySelector(`[data-answer="${index}"]`)?.classList.add("is-removed"));
+				feedback.textContent = "Hint used — two incorrect choices removed.";
+				feedback.className = "feedback";
+			}
+
+			function finishRound() {
+				const finalScore = document.getElementById("finalScore");
+				const resultCopy = document.getElementById("resultCopy");
+				finalScore.textContent = String(score);
+				resultCopy.textContent = `${packs[selectedPack].label} pack complete. You scored ${score} points — ${score >= 500 ? "excellent work!" : score >= 300 ? "nice run!" : "ready for another round?"}`;
+				showScreen(resultScreen);
+				document.getElementById("playAgainButton").focus();
+			}
+
+			categories.forEach(button => button.addEventListener("click", () => {
+				selectedPack = button.dataset.category;
+				categories.forEach(item => item.setAttribute("aria-pressed", String(item === button)));
+			}));
+			document.getElementById("startButton").addEventListener("click", startRound);
+			document.getElementById("playAgainButton").addEventListener("click", startRound);
+			document.getElementById("changePackButton").addEventListener("click", () => showScreen(startScreen));
+			hintButton.addEventListener("click", useHint);
+			nextButton.addEventListener("click", () => {
+				if (current === round.length - 1) finishRound();
+				else { current++; renderQuestion(); document.querySelector(".answer:not(.is-removed)")?.focus(); }
+			});
+		})();
+	</script>
+</body>
+</html>
