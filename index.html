@@ -59,6 +59,14 @@
 				<p class="hero-tagline">I turn ideas into worlds you can play.</p>
 				<p class="hero-intro">Five indie releases. Millions of players. One more world waiting to be built.</p>
 			</div>
+			<div class="hero-prompt" aria-hidden="true"><span>INSERT CURIOSITY</span><span class="prompt-arrows">↓ ↓ ↓</span></div>
+			<div class="hero-stats" aria-label="Career highlights">
+				<div><strong>10<span>M+</span></strong><span>PLAYERS REACHED</span></div>
+				<i aria-hidden="true"></i>
+				<div><strong>25<span>+</span></strong><span>GAMES SHIPPED</span></div>
+				<i aria-hidden="true"></i>
+				<div><strong>5<span>+</span></strong><span>YEARS IN UNITY</span></div>
+			</div>
 			<div class="door-gallery" aria-label="Choose a portfolio section">
 				<button class="door-card" type="button" data-open-section="hypercasual" style="--door-index: 0">
 					<span class="door-number">01</span><span class="door-frame"><span class="door-glow"></span><span class="door-panel"><span class="door-inset"></span><span class="door-handle"></span></span></span><span class="door-plaque">CASUAL &amp;<br />HYPERCASUAL</span><span class="door-hint">Explore the arcade</span>
@@ -79,7 +87,7 @@
 					<span class="door-number">06</span><span class="door-frame"><span class="door-glow"></span><span class="door-panel"><span class="door-inset"></span><span class="door-handle"></span></span></span><span class="door-plaque">LET'S<br />TALK</span><span class="door-hint">Make something great</span>
 				</button>
 			</div>
-			<div class="landing-footer"><span>SELECT A DOOR TO EXPLORE</span><span class="landing-line"></span><span>SCROLL OR CLICK TO BEGIN <span aria-hidden="true">↓</span></span></div>
+			<div class="landing-footer"><span>SELECT A DOOR TO EXPLORE</span><span class="landing-line"></span><span>EVERY DOOR IS A NEW WORLD <span aria-hidden="true">✳</span></span></div>
 		</section>
 
 		<section class="section-screen project-section" id="hypercasual" data-portfolio-section="hypercasual" aria-labelledby="hypercasualTitle" hidden>
@@ -193,9 +201,30 @@
 			const doors = Array.from(document.querySelectorAll("[data-open-section]"));
 			const navLinks = Array.from(document.querySelectorAll("[data-section-link]"));
 			const backButton = document.getElementById("backToDoors");
+			const doorArtwork = ["assets/images/helix ball drop.png", "assets/Slot/SlotGame.jpg", "assets/images/header.jpg", "assets/images/TengoBlitz.png", "assets/images/VRSpaceShooter.png", "assets/images/AIQuizGame.png"];
+			const projectAccents = {
+				hypercasual: ["#b8ee65", "#ff8c70", "#51dbef", "#f2c655"],
+				casino: ["#e6b951", "#eb8295", "#bb94f4", "#57d8c0"],
+				studio: ["#54d4ee", "#b8ee65", "#ffbf5b", "#ff8c70"],
+				freelance: ["#ad93fa", "#56d4ed", "#ff8e72", "#72ddb4"]
+			};
 			const sectionMap = new Map(sections.map(section => [section.id, section]));
 			let isTransitioning = false;
 			let chosenDoor;
+
+			doors.forEach((door, index) => {
+				door.style.setProperty("--door-art", 'url("' + encodeURI(doorArtwork[index]) + '")');
+			});
+			const doorGallery = document.querySelector(".door-gallery");
+			doorGallery.addEventListener("pointermove", event => {
+				const bounds = doorGallery.getBoundingClientRect();
+				doorGallery.style.setProperty("--pointer-x", ((event.clientX - bounds.left) / bounds.width * 100) + "%");
+				doorGallery.style.setProperty("--pointer-y", ((event.clientY - bounds.top) / bounds.height * 100) + "%");
+			});
+			doorGallery.addEventListener("pointerleave", () => {
+				doorGallery.style.setProperty("--pointer-x", "50%");
+				doorGallery.style.setProperty("--pointer-y", "50%");
+			});
 
 			function setActiveNavigation(sectionId) {
 				navLinks.forEach(link => {
@@ -303,8 +332,12 @@
 						const card = document.createElement("article");
 						card.className = "project-card";
 						card.style.setProperty("--card-index", index);
+						card.style.setProperty("--card-accent", projectAccents[sectionId][index % projectAccents[sectionId].length]);
+						card.style.setProperty("--card-progress", ((index + 1) / projects.length * 100) + "%");
+						card.dataset.title = project.title;
 						const [genre, context = "Project context not specified"] = project.tag.split("|").map(value => value.trim());
 						const projectTagMarkup = '<p class="project-tag"><span class="project-genre">' + genre + '</span><span class="project-context">' + context + "</span></p>";
+						const sigilMarkup = '<div class="project-sigil"><div class="project-icon" aria-hidden="true">' + project.icon + '</div><span class="sigil-ring sigil-ring-one"></span><span class="sigil-ring sigil-ring-two"></span><span class="project-number">FIELD NOTE / ' + String(index + 1).padStart(2, "0") + "</span></div>";
 						const featureMarkup = project.features.map(feature => '<span class="feature-chip">' + feature + "</span>").join("");
 						const contributionMarkup = project.contribution
 							? '<p class="project-contribution"><span>MY CONTRIBUTION</span>' + project.contribution + "</p>"
@@ -319,8 +352,22 @@
 							const external = /^https?:\/\//.test(link.href);
 							return '<a class="project-action" href="' + link.href + '"' + (external ? ' target="_blank" rel="noopener noreferrer"' : "") + ">" + link.label + ' <span aria-hidden="true">↗</span></a>';
 						}).join("");
-						card.innerHTML = '<div class="project-copy"><div class="project-icon" aria-hidden="true">' + project.icon + '</div>' + projectTagMarkup + '<h3>' + project.title + '</h3><p class="project-description">' + project.description + '</p>' + contributionMarkup + '<div class="feature-list" aria-label="Technologies and highlights">' + featureMarkup + '</div><div class="project-actions">' + playMarkup + linksMarkup + '</div></div><div class="phone-wrap"><div class="phone-glow"></div><div class="phone-shell"><div class="phone-camera"></div><div class="phone-screen">' + videoMarkup + '<span class="phone-screen-caption">GAMEPLAY PREVIEW</span></div></div><span class="phone-base">' + String(index + 1).padStart(2, "0") + " / " + String(portfolioData.projects[sectionId].length).padStart(2, "0") + "</span></div>";
+						card.innerHTML = '<div class="project-copy">' + sigilMarkup + projectTagMarkup + '<h3>' + project.title + '</h3><p class="project-description">' + project.description + '</p>' + contributionMarkup + '<div class="feature-list" aria-label="Technologies and highlights">' + featureMarkup + '</div><div class="project-actions">' + playMarkup + linksMarkup + '</div></div><div class="phone-wrap"><span class="phone-hud"><i aria-hidden="true"></i> PLAY SESSION <span>' + String(index + 1).padStart(2, "0") + "</span></span><div class=\"phone-glow\"></div><div class=\"phone-shell\"><div class=\"phone-camera\"></div><div class=\"phone-screen\">" + videoMarkup + '<span class="phone-screen-caption">GAMEPLAY PREVIEW</span><span class="phone-scanline" aria-hidden="true"></span></div></div><span class="phone-base"><span>' + String(index + 1).padStart(2, "0") + " / " + String(portfolioData.projects[sectionId].length).padStart(2, "0") + '</span><span class="phone-progress"><i></i></span></span></div>';
 						list.append(card);
+						card.addEventListener("pointermove", event => {
+							if (reduceMotion || event.pointerType !== "mouse") return;
+							const bounds = card.getBoundingClientRect();
+							card.style.setProperty("--pointer-x", (event.clientX - bounds.left) + "px");
+							card.style.setProperty("--pointer-y", (event.clientY - bounds.top) + "px");
+							card.style.setProperty("--tilt-x", ((event.clientX - bounds.left) / bounds.width - .5) * 7 + "deg");
+							card.style.setProperty("--tilt-y", ((event.clientY - bounds.top) / bounds.height - .5) * -6 + "deg");
+						});
+						card.addEventListener("pointerleave", () => {
+							card.style.removeProperty("--pointer-x");
+							card.style.removeProperty("--pointer-y");
+							card.style.removeProperty("--tilt-x");
+							card.style.removeProperty("--tilt-y");
+						});
 					});
 				});
 			}
