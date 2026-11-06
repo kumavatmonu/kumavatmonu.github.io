@@ -1,1383 +1,381 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title>Monu Kumavat — Unity Developer | Mobile, XR &amp; Real-Time 3D</title>
-	<meta name="description" content="Unity developer with 5+ years of experience and 25+ shipped mobile games. Specialising in Unity, C#, LiveOps, multiplayer, VR/XR and performance optimisation." />
+	<meta name="theme-color" content="#0b0b0d" />
+	<meta name="description" content="Monu Kumavat is a Unity game developer in London, building mobile games, casino experiences, and playful worlds from prototype to launch." />
 	<meta name="author" content="Monu Kumavat" />
-	<meta property="og:title" content="Monu Kumavat — Unity Developer" />
-	<meta property="og:description" content="Unity · Mobile Games · VR/XR · LiveOps · 25+ games shipped · 10M+ downloads." />
+	<meta property="og:title" content="Monu Kumavat — Unity Game Developer" />
+	<meta property="og:description" content="A portfolio of mobile games, studio releases, casino games, and interactive experiences by Monu Kumavat." />
 	<meta property="og:type" content="website" />
-	<meta property="og:image" content="assets/images/VRSpaceShooter.png" />
-	<meta name="theme-color" content="#0b1220" />
-	<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230b1220'/%3E%3Cpath d='M20 55 h8 v-8 h8 v8 h8 v8 h-8 v8 h-8 v-8 h-8 z' fill='%234f9cff'/%3E%3Ccircle cx='72' cy='42' r='6' fill='%232dd4bf'/%3E%3Ccircle cx='58' cy='58' r='6' fill='%232dd4bf'/%3E%3C/svg%3E" />
-	<link rel="preload" href="assets/images/VRSpaceShooter.png" as="image" />
+	<meta property="og:image" content="assets/images/BingoWorld.jpg" />
+	<title>Monu Kumavat — Unity Game Developer</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-	<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=Rajdhani:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+	<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b0b0d'/%3E%3Cpath d='M16 48V16h8l8 13 8-13h8v32h-8V29l-8 12-8-12v19z' fill='%23d4a84b'/%3E%3C/svg%3E" />
 	<link rel="stylesheet" href="styles.css" />
 	<script type="application/ld+json">
 		{
-		  "@context": "https://schema.org",
-		  "@type": "Person",
-		  "name": "Monu Kumavat",
-		  "jobTitle": "Unity Developer",
-		  "url": "https://kumavatmonu.github.io/",
-		  "sameAs": [
-			"https://github.com/monu37",
-			"https://www.linkedin.com/in/monu-kumavat/"
-		  ],
-		  "knowsAbout": ["Unity","C#","Mobile Games","VR/XR","LiveOps","Multiplayer","Performance Optimisation","Photon","Firebase","Unity Editor Tools"],
-		  "alumniOf": "Kingston University"
+			"@context": "https://schema.org",
+			"@type": "Person",
+			"name": "Monu Kumavat",
+			"jobTitle": "Unity Game Developer",
+			"url": "https://kumavatmonu.github.io/",
+			"sameAs": [
+				"https://github.com/monu37",
+				"https://www.linkedin.com/in/monu-kumavat/"
+			],
+			"knowsAbout": ["Unity", "C#", "Mobile Games", "Game Development", "Firebase", "Unity IAP"],
+			"alumniOf": "Kingston University"
 		}
 	</script>
 </head>
 <body>
-	<div class="scroll-bar" aria-hidden="true"><span id="scrollFill"></span></div>
-
-	<nav class="hud-nav" data-reveal>
-		<a class="hud-brand" href="#top">
-			<span class="hud-brand-mark">MK</span>
-			<span class="hud-brand-text">Monu<em>.studio</em></span>
-		</a>
-		<button class="hud-toggle" id="navToggle" aria-expanded="false" aria-controls="hudLinks" aria-label="Toggle menu">
-			<span></span><span></span><span></span>
-		</button>
-		<div class="hud-links" id="hudLinks">
-			<a href="#top" data-nav>Home</a>
-			<a href="#about" data-nav>About</a>
-			<a href="#experience" data-nav>Experience</a>
-			<a href="#projects" data-nav>My Work</a>
-			<a href="#education" data-nav>Education</a>
-			<a href="#contact" data-nav>Contact</a>
-			<a class="nav-resume" href="assets/Monu_Kumavat_Resume.pdf" download>Resume <span aria-hidden="true">↓</span></a>
+	<a class="skip-link" href="#mainContent">Skip to content</a>
+	<nav class="site-nav" aria-label="Main navigation">
+		<a class="brand" href="#top" aria-label="Monu Kumavat, home"><span class="brand-mark">MK</span><span class="brand-name">MONU<span>.DEV</span></span></a>
+		<div class="nav-links" id="navLinks">
+			<a href="#hypercasual" data-section-link="hypercasual">Casual games</a>
+			<a href="#casino" data-section-link="casino">Casino</a>
+			<a href="#studio" data-section-link="studio">Studio</a>
+			<a href="#freelance" data-section-link="freelance">Freelance</a>
+			<a href="#story" data-section-link="story">My Story</a>
+			<a href="#contact" data-section-link="contact">Contact</a>
+		</div>
+		<div class="local-clock" aria-label="Local time in London">
+			<span class="clock-dot" aria-hidden="true"></span>
+			<span><time id="londonTime">--:--:--</time><span class="clock-separator"> · </span><time id="londonDate">---</time><span class="clock-zone"> LONDON</span></span>
 		</div>
 	</nav>
 
-	<div class="wrap">
-		<header id="top" data-reveal>
-			<canvas class="hero-fx" id="heroCanvas" aria-hidden="true"></canvas>
-			<div class="hero-backdrop" aria-hidden="true">
-				<img src="assets/images/BingoWorld.jpg" alt="" fetchpriority="high" />
+	<main id="mainContent">
+		<section class="landing-screen" id="top" aria-labelledby="heroTitle">
+			<div class="landing-glow" aria-hidden="true"></div>
+			<div class="landing-copy">
+				<p class="eyebrow"><span class="live-dot"></span> INDEPENDENT GAME DEVELOPER <span class="eyebrow-divider">/</span> LONDON, UK</p>
+				<h1 id="heroTitle">Monu Kumavat <span>— Unity Game Developer</span></h1>
+				<p class="hero-tagline">I turn ideas into worlds you can play.</p>
+				<p class="hero-intro">Five indie releases. Millions of players. One more world waiting to be built.</p>
 			</div>
-			<div class="hero-inner">
-				<div class="hero-layout">
-					<div class="hero-copy">
-						<span class="hero-kicker"><span class="live-dot"></span> THE CREATOR COLLECTION <span class="kicker-divider">/</span> UNITY · XR · GAMEPLAY</span>
-						<span class="hero-series">MONU KUMAVAT <span>— UNITY DEVELOPER</span></span>
-						<h1>Worlds worth<br /><span>getting lost in.</span></h1>
-						<p class="hero-tagline" id="heroTagline" aria-hidden="true"></p>
-						<p class="hero-description">
-							Unity developer with 5+ years building and shipping games across mobile, multiplayer and VR. I’ve published 5 indie games, built tools used across 22+ projects, and helped grow <strong>Bingo Free World</strong> to 10M+ downloads.
-						</p>
-						<div class="cta">
-							<a class="btn" href="#projects"><span aria-hidden="true">▶</span> Explore my work</a>
-							<a class="btn secondary" href="mailto:monukumavat37@gmail.com?subject=Game%20Developer%20Opportunity"><span aria-hidden="true">✉</span> Let’s talk</a>
-						</div>
-						<div class="hero-availability"><span class="live-dot"></span> London, UK <span class="availability-divider">·</span> Open to roles worldwide</div>
-					</div>
-				</div>
-				<div class="hero-now-playing">
-					<span class="now-playing-label"><span class="live-dot"></span> FEATURED CASE STUDY</span>
-					<strong>Bingo Free World</strong>
-					<span>LiveOps · Mobile · 10M+ downloads</span>
-				</div>
-				<div class="stat-hud" role="group" aria-label="Career stats">
-					<div class="stat-tile">
-						<span class="stat-num" data-count="5">0</span><span class="stat-suffix">+</span>
-						<span class="stat-label">Years building</span>
-					</div>
-					<div class="stat-tile">
-						<span class="stat-num" data-count="25">0</span><span class="stat-suffix">+</span>
-						<span class="stat-label">Games shipped</span>
-					</div>
-					<div class="stat-tile">
-						<span class="stat-num" data-count="10">0</span><span class="stat-suffix">M+</span>
-						<span class="stat-label">Player downloads</span>
-					</div>
-					<div class="stat-tile">
-						<span class="stat-num" data-count="22">0</span><span class="stat-suffix">+</span>
-						<span class="stat-label">Projects using my tools</span>
-					</div>
-				</div>
+			<div class="door-gallery" aria-label="Choose a portfolio section">
+				<button class="door-card" type="button" data-open-section="hypercasual" style="--door-index: 0">
+					<span class="door-number">01</span><span class="door-frame"><span class="door-glow"></span><span class="door-panel"><span class="door-inset"></span><span class="door-handle"></span></span></span><span class="door-plaque">CASUAL &amp;<br />HYPERCASUAL</span><span class="door-hint">Explore the arcade</span>
+				</button>
+				<button class="door-card" type="button" data-open-section="casino" style="--door-index: 1">
+					<span class="door-number">02</span><span class="door-frame"><span class="door-glow"></span><span class="door-panel"><span class="door-inset"></span><span class="door-handle"></span></span></span><span class="door-plaque">CASINO<br />GAMES</span><span class="door-hint">Step into the lounge</span>
+				</button>
+				<button class="door-card" type="button" data-open-section="studio" style="--door-index: 2">
+					<span class="door-number">03</span><span class="door-frame"><span class="door-glow"></span><span class="door-panel"><span class="door-inset"></span><span class="door-handle"></span></span></span><span class="door-plaque">GAME_HEART<br />STUDIO</span><span class="door-hint">See what shipped</span>
+				</button>
+				<button class="door-card" type="button" data-open-section="freelance" style="--door-index: 3">
+					<span class="door-number">04</span><span class="door-frame"><span class="door-glow"></span><span class="door-panel"><span class="door-inset"></span><span class="door-handle"></span></span></span><span class="door-plaque">FREELANCE<br />WORK</span><span class="door-hint">Made together</span>
+				</button>
+				<button class="door-card" type="button" data-open-section="story" style="--door-index: 4">
+					<span class="door-number">05</span><span class="door-frame"><span class="door-glow"></span><span class="door-panel"><span class="door-inset"></span><span class="door-handle"></span></span></span><span class="door-plaque">MY<br />STORY</span><span class="door-hint">A few years back</span>
+				</button>
+				<button class="door-card" type="button" data-open-section="contact" style="--door-index: 5">
+					<span class="door-number">06</span><span class="door-frame"><span class="door-glow"></span><span class="door-panel"><span class="door-inset"></span><span class="door-handle"></span></span></span><span class="door-plaque">LET'S<br />TALK</span><span class="door-hint">Make something great</span>
+				</button>
 			</div>
-		</header>
-
-		<!-- About -->
-		<section id="about" data-reveal>
-			<span class="eyebrow">01 // PLAYER PROFILE</span>
-			<h2>Unity, from first prototype to live game.</h2>
-			<p>Unity and C# developer with 5+ years across casual and hybrid-casual games, casino, multiplayer, VR/XR and AI-driven apps. I’ve shipped 25+ games on Android and iOS, built reusable editor tools, and worked across the full cycle—from gameplay and optimisation to launch and LiveOps.</p>
-
-			<div class="loadout">
-				<div class="loadout-slot">
-					<h4><span class="slot-icon">⌨</span> Unity &amp; Gameplay</h4>
-					<div class="skills-tags">
-						<span>Unity 6 · URP · C# · C++ · Python</span>
-						<span>Gameplay · OOP · SOLID · Design Patterns</span>
-						<span>uGUI · TextMeshPro · Physics · Animation</span>
-						<span>Cinemachine · NavMesh AI</span>
-					</div>
-				</div>
-				<div class="loadout-slot">
-					<h4><span class="slot-icon">🥽</span> XR &amp; Real-Time 3D</h4>
-					<div class="skills-tags">
-						<span>XR Interaction Toolkit · Oculus Integration</span>
-						<span>Tracked-controller VR interactions</span>
-						<span>Shader Graph · URP Renderer Features</span>
-						<span>Particle systems · Draw-call reduction</span>
-						<span>Texture compression</span>
-					</div>
-				</div>
-				<div class="loadout-slot">
-					<h4><span class="slot-icon">🌐</span> Platforms &amp; Integration</h4>
-					<div class="skills-tags">
-						<span>Android · iOS · WebGL · PC</span>
-						<span>Photon multiplayer · REST APIs</span>
-						<span>Firebase · Remote Config</span>
-						<span>Unity IAP · OpenAI API</span>
-						<span>IronSource · AdMob · AppLovin MAX</span>
-						<span>Singular · GameAnalytics</span>
-					</div>
-				</div>
-				<div class="loadout-slot">
-					<h4><span class="slot-icon">📈</span> LiveOps &amp; Player Growth</h4>
-					<div class="skills-tags">
-						<span>Live events · Themed content · Power-ups</span>
-						<span>Remote Config · Content updates</span>
-						<span>Ads · IAP · Analytics · Crash reporting</span>
-						<span>Retention · Revenue dashboards</span>
-					</div>
-				</div>
-				<div class="loadout-slot">
-					<h4><span class="slot-icon">⚡</span> Optimisation &amp; Debugging</h4>
-					<div class="skills-tags">
-						<span>Unity Profiler · Memory Profiler</span>
-						<span>Object pooling · Addressables</span>
-						<span>Multi-threading · ECS/DOTS</span>
-						<span>Firebase Crashlytics · Crashes &amp; ANRs</span>
-						<span>Native Android/iOS debugging</span>
-					</div>
-				</div>
-				<div class="loadout-slot">
-					<h4><span class="slot-icon">🛠</span> Tools &amp; Teamwork</h4>
-					<div class="skills-tags">
-						<span>Unity Editor tools · Reusable templates</span>
-						<span>Git · Plastic SCM · CI/CD</span>
-						<span>Jira · Agile sprints · Code reviews</span>
-						<span>Unit testing · TDD · Mentoring</span>
-						<span>AI-assisted prototyping &amp; debugging</span>
-					</div>
-				</div>
-			</div>
+			<div class="landing-footer"><span>SELECT A DOOR TO EXPLORE</span><span class="landing-line"></span><span>SCROLL OR CLICK TO BEGIN <span aria-hidden="true">↓</span></span></div>
 		</section>
-		<!-- Experience -->
-		<section id="experience" data-reveal>
-			<span class="eyebrow">02 // QUEST LOG</span>
-			<h2>Experience</h2>
-			<div class="xp">
-				<article class="xp-item">
-					<div class="xp-quest is-active">CURRENT · GAME_HEART STUDIO</div>
-					<h3>Indie Game Developer &amp; Freelance Unity Developer</h3>
-					<div class="xp-meta">Sep 2024 – Present · London, UK</div>
-					<ul class="xp-bullets">
-						<li>Designed, built and published five mobile games on Google Play: <strong>Word Sort ASMR, Arrow Crush 3D, Nut Flow, Perfect Slice 3D</strong> and <strong>Guess Me If You Can</strong>—owning development, release and updates. The Game_Heart Studio store catalogue also features <strong>Marble Land Puzzle</strong>.</li>
-						<li>Built distinct gameplay systems, integrated ads, analytics and crash reporting, tracked revenue, and shipped regular updates including a <strong>500-level content drop</strong>.</li>
-						<li>Deliver freelance Unity and C# projects through Upwork (since Jan 2026); use AI-assisted tools to accelerate prototyping and debugging.</li>
-					</ul>
-				</article>
-				<article class="xp-item">
-					<div class="xp-quest">PREVIOUS · ZAPPLOGICS SOLUTIONS</div>
-					<h3>Game Developer · Zapplogics Solutions</h3>
-					<div class="xp-meta">May 2022 – May 2023</div>
-					<ul class="xp-bullets">
-						<li>Built 10+ slot games, Baccarat and an Aviator-style crash game, plus live-data apps including Tennis Live Score and Bet Calculator.</li>
-						<li>Created Unity editor tools and reusable templates used across <strong>22+ client projects</strong>.</li>
-						<li>Cut client-server sync delays by <strong>~40%</strong> and improved mobile performance by <strong>25–30%</strong> through profiling and memory optimisation; shipped Android, iOS, WebGL and WebView builds.</li>
-						<li>Worked in Agile sprints with Jira, reviewed code and mentored an intern.</li>
-					</ul>
-				</article>
-				<article class="xp-item">
-					<div class="xp-quest">2021–2022 · CODESOFT INFOTECH</div>
-					<h3>Game Developer · Codesoft Infotech</h3>
-					<div class="xp-meta">Jan 2021 – Apr 2022</div>
-					<ul class="xp-bullets">
-						<li>Ran LiveOps for <strong>Bingo Free World (10M+ downloads)</strong>, building themed rooms, limited-time events, power-ups and hourly bonuses with Remote Config—contributing to an approximately <strong>20% retention lift</strong>.</li>
-						<li>Reworked win logic and UI, simplified IAP, added a forced-update flow and contributed to the REST API backend.</li>
-						<li>Built gameplay, UI, Cinemachine cameras and NavMesh AI for 20+ casual and hyper-casual games; improved load times and stutter by <strong>~30%</strong> through profiling, pooling and memory optimisation.</li>
-					</ul>
-				</article>
-				<article class="xp-item">
-					<div class="xp-quest">2019–2020 · PART-TIME</div>
-					<h3>Part-Time Game Developer · Codesoft Infotech</h3>
-					<div class="xp-meta">Jun 2019 – Dec 2020</div>
-					<ul class="xp-bullets">
-						<li>Shipped Unity and C# hyper-casual games, contributing gameplay, UI and release testing alongside a BSc in Computer Science.</li>
-					</ul>
-				</article>
+
+		<section class="section-screen project-section" id="hypercasual" data-portfolio-section="hypercasual" aria-labelledby="hypercasualTitle" hidden>
+			<div class="section-heading"><p class="eyebrow">01 / QUICK TO LEARN · HARD TO PUT DOWN</p><h2 id="hypercasualTitle">Casual &amp; <span>hypercasual.</span></h2><p>Short-play arcade, runner and puzzle games. Each card identifies its specific genre and whether it was freelance, personal or studio work.</p></div>
+			<div class="project-stack" data-project-list="hypercasual" aria-label="Casual, arcade, runner and hypercasual game projects"></div>
+		</section>
+
+		<section class="section-screen project-section" id="casino" data-portfolio-section="casino" aria-labelledby="casinoTitle" hidden>
+			<div class="section-heading"><p class="eyebrow">02 / REELS · TABLE GAMES · CRASH GAMES</p><h2 id="casinoTitle">A little <span>all in.</span></h2><p>Casino gameplay and social bingo, each described by its actual game type. The sports-odds calculator is listed with the other apps, not casino games.</p></div>
+			<div class="project-stack" data-project-list="casino" aria-label="Casino game projects"></div>
+		</section>
+
+		<section class="section-screen project-section" id="studio" data-portfolio-section="studio" aria-labelledby="studioTitle" hidden>
+			<div class="section-heading"><p class="eyebrow">03 / INDEPENDENT · SELF-PUBLISHED</p><h2 id="studioTitle">Made with <span>Game_Heart.</span></h2><p>Small team energy, hands-on releases, and a studio catalogue built one playful idea at a time.</p></div>
+			<div class="project-stack" data-project-list="studio" aria-label="Game_Heart Studio releases"></div>
+		</section>
+
+		<section class="section-screen project-section" id="freelance" data-portfolio-section="freelance" aria-labelledby="freelanceTitle" hidden>
+			<div class="section-heading"><p class="eyebrow">04 / CLIENT BUILDS · COMPANY PROJECTS · PERSONAL EXPERIMENTS</p><h2 id="freelanceTitle">Beyond <span>the brief.</span></h2><p>Selected client, company and independent projects outside the casual and casino collections. Genre and project context are shown separately on every card.</p></div>
+			<div class="project-stack" data-project-list="freelance" aria-label="Client, company, independent, and university projects"></div>
+		</section>
+
+		<section class="section-screen story-section" id="story" data-portfolio-section="story" aria-labelledby="storyTitle" hidden>
+			<div class="story-grid">
+				<div class="story-intro">
+					<p class="eyebrow">05 / THE PLAYER BECAME THE MAKER</p>
+					<h2 id="storyTitle">Let's go<br />back in <span>time.</span></h2>
+					<p class="story-caption">A curious kid, a first degree, and a whole lot of Unity projects later.</p>
+					<div class="story-year" id="storyYear" aria-live="polite">2026</div>
+					<p class="story-progress"><span class="progress-label">CAREER TIMELINE</span><span id="storyProgress">01 / 05</span></p>
+				</div>
+				<div class="timeline" id="timeline" aria-label="Career and education timeline"></div>
 			</div>
 		</section>
 
-		<!-- Projects -->
-		<section id="projects" data-reveal>
-			<span class="eyebrow">03 // PROJECT VAULT</span>
-			<h2>Selected projects</h2>
-			<p class="sub">A curated watchlist of games, tools and interactive experiences—built for mobile, multiplayer, XR and beyond.</p>
-			<div class="filters" role="tablist" aria-label="Project filters">
-				<button role="tab" aria-selected="true" data-filter="all">🗂 All</button>
-				<button role="tab" data-filter="live">▶ Live games</button>
-				<button role="tab" data-filter="company">🏢 Company</button>
-				<button role="tab" data-filter="freelance">🤝 Freelance</button>
-				<button role="tab" data-filter="personal">🚀 Personal</button>
+		<section class="section-screen contact-section" id="contact" data-portfolio-section="contact" aria-labelledby="contactTitle" hidden>
+			<div class="contact-orbit" aria-hidden="true"></div>
+			<p class="eyebrow">06 / YOUR NEXT PLAYER TWO?</p>
+			<h2 id="contactTitle">Let's build a<br /><span>game together.</span></h2>
+			<p>Have a game in mind, need a Unity developer, or just want to talk games? My inbox is open.</p>
+			<a class="email-button" href="mailto:monukumavat37@gmail.com?subject=Let%27s%20build%20a%20game" data-portfolio-link="email"><span aria-hidden="true">✉</span> monukumavat37@gmail.com <span aria-hidden="true">↗</span></a>
+			<div class="social-links" aria-label="More ways to connect">
+					<a href="https://www.linkedin.com/in/monu-kumavat/" data-portfolio-link="linkedin" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+					<a href="https://github.com/monu37" data-portfolio-link="github" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+					<a href="https://play.google.com/store/apps/developer?id=Game_Heart+Studio" data-portfolio-link="googlePlayDeveloper" target="_blank" rel="noopener noreferrer">Google Play <span aria-hidden="true">↗</span></a>
+					<a href="assets/Monu_Kumavat_Resume.pdf" data-portfolio-link="cv" download>Download CV <span aria-hidden="true">↓</span></a>
 			</div>
-			<div id="projectGrid" class="project-shelves">
-				<section class="project-shelf live-games-shelf" id="live-games" data-tags="live" aria-label="Live games on Google Play">
-					<div class="shelf-heading">
-						<div class="shelf-title"><h3>Now playing on Google Play</h3><span>Published by Game_Heart Studio</span></div>
-						<div class="shelf-controls" aria-label="Live games carousel controls">
-							<button type="button" data-shelf-step="-1" aria-label="Scroll live games left">&larr;</button>
-							<button type="button" data-shelf-step="1" aria-label="Scroll live games right">&rarr;</button>
-						</div>
-					</div>
-					<div class="grid">
-						<a class="card live-game-card" href="https://play.google.com/store/apps/details?id=com.TapTik.MarbleLandPuzzle" target="_blank" rel="noopener noreferrer" aria-label="Play Marble Land Puzzle on Google Play">
-							<div class="thumb-wrap"><img class="thumb" loading="lazy" src="https://play-lh.googleusercontent.com/5SMFCODJwaDfx0L6DWkeqkPFrVtQ9hM2Gwy31nc4Xv5meLkJ2WHhPDxXL6CC84ZvlwYLao380ZVxEVFvKy_fNg=s256-rw" alt="Marble Land Puzzle app icon" /></div>
-							<div class="card-body"><h3>Marble Land Puzzle</h3><span class="badge">Google Play ↗</span></div>
-						</a>
-						<a class="card live-game-card" href="https://play.google.com/store/apps/details?id=com.TapTik.ArrowCrush3D" target="_blank" rel="noopener noreferrer" aria-label="Play Arrow Crush 3D on Google Play">
-							<div class="thumb-wrap"><img class="thumb" loading="lazy" src="https://play-lh.googleusercontent.com/-mn6zM0SxL5Ei4hqyc1Tpcp60Dvv1lOIV87x-_0FK7KwvU_avdmrjD1_6Nh3ZorBx4PMf5OmN8xNFVzHApI-mQ=s256-rw" alt="Arrow Crush 3D app icon" /></div>
-							<div class="card-body"><h3>Arrow Crush 3D</h3><span class="badge">Google Play ↗</span></div>
-						</a>
-						<a class="card live-game-card" href="https://play.google.com/store/apps/details?id=com.TapTik.NutFlowColorSortPuzzle" target="_blank" rel="noopener noreferrer" aria-label="Play Nut Flow: Color Sort Puzzle on Google Play">
-							<div class="thumb-wrap"><img class="thumb" loading="lazy" src="https://play-lh.googleusercontent.com/zhjjTb1UG89qnAjXr97RTPU2nKcS5GG0xQ-I82NL1bXTxXNu_EjAMFV8uFiq-_voYGdNdeevG2078F2tsnus4g=s256-rw" alt="Nut Flow app icon" /></div>
-							<div class="card-body"><h3>Nut Flow: Color Sort Puzzle</h3><span class="badge">Google Play ↗</span></div>
-						</a>
-						<a class="card live-game-card" href="https://play.google.com/store/apps/details?id=com.taptik.perfectslice3D" target="_blank" rel="noopener noreferrer" aria-label="Play Perfect Slice 3D on Google Play">
-							<div class="thumb-wrap"><img class="thumb" loading="lazy" src="https://play-lh.googleusercontent.com/kR_dprKH-RAfoM6q0p7idEENCkuZLK82RwiTsSKs1aDMoWVSgE1hV5uYovBin0mD06zprxZV4dRckQEU-TMK=s256-rw" alt="Perfect Slice 3D app icon" /></div>
-							<div class="card-body"><h3>Perfect Slice 3D</h3><span class="badge">Google Play ↗</span></div>
-						</a>
-						<a class="card live-game-card" href="https://play.google.com/store/apps/details?id=com.TapTik.GuessMeIfYouCan" target="_blank" rel="noopener noreferrer" aria-label="Play Guess Me If You Can on Google Play">
-							<div class="thumb-wrap"><img class="thumb" loading="lazy" src="https://play-lh.googleusercontent.com/zPZak2pmjwv0GmpkBl_JIi-DIA_olET7tkU0wlJnyDDnKq-puCXUsED7pu6uiOWQZP8E4V-3lBRAgqCVY__fBA=s256-rw" alt="Guess Me If You Can app icon" /></div>
-							<div class="card-body"><h3>Guess Me If You Can</h3><span class="badge">Google Play ↗</span></div>
-						</a>
-						<a class="card live-game-card" href="https://play.google.com/store/apps/details?id=com.TapTik.WordSort" target="_blank" rel="noopener noreferrer" aria-label="Play Word Sort ASMR: Associations on Google Play">
-							<div class="thumb-wrap"><img class="thumb" loading="lazy" src="https://play-lh.googleusercontent.com/ZDOBVdO4tm18e-jkE_N64dXeehobROcgGNikv6_u3c9-wbkpf3NlTqN1jxA6qU8S66KNQnyS4ERgnoLgHSVL0CE=s256-rw" alt="Word Sort ASMR app icon" /></div>
-							<div class="card-body"><h3>Word Sort ASMR: Associations</h3><span class="badge">Google Play ↗</span></div>
-						</a>
-					</div>
-				</section>
-				<section class="project-shelf" data-tags="company" aria-label="Studio projects">
-					<div class="shelf-heading">
-						<div class="shelf-title"><h3>Studio credits</h3><span>Games made with great teams</span></div>
-						<div class="shelf-controls" aria-label="Studio projects carousel controls">
-							<button type="button" data-shelf-step="-1" aria-label="Scroll studio projects left">&larr;</button>
-							<button type="button" data-shelf-step="1" aria-label="Scroll studio projects right">&rarr;</button>
-						</div>
-					</div>
-					<div class="grid">
-				<article class="card" data-tags="company" data-open="BingoWorld">
-					<div class="thumb-wrap">
-						<span class="ribbon">🏆 10M+ Downloads</span>
-						<img class="thumb" loading="lazy" src="assets/images/BingoWorld.jpg" alt="Bingo World game thumbnail" />
-					</div>
-					<div class="card-body">
-						<h3>Bingo World Game</h3>
-						<span class="badge">Unity · C# </span>
-					</div>
-				</article>
-
-				<article class="card" data-tags="company" data-open="TennisLiveScoreApp">
-					<div class="thumb-wrap"><img class="thumb" loading="lazy" src="assets/images/Tennis Live app.jpg" alt="Tennis Live Score App thumbnail" /></div>
-					<div class="card-body">
-						<h3>Tennis Live Score App</h3>
-						<span class="badge">Unity · RapidAPI</span>
-					</div>
-				</article>
-
-				<article class="card" data-tags="company" data-open="Baccart">
-					<div class="thumb-wrap"><img class="thumb" loading="lazy" src="assets/zapplogics/Baccarat_lobby.png" alt="Baccarat_lobby game thumbnail" /></div>
-					<div class="card-body">
-						<h3>Baccart Game</h3>
-						<span class="badge">Unity · C# · Casino</span>
-					</div>
-				</article>
-
-				<article class="card" data-tags="company" data-open="BetCalculator">
-					<div class="thumb-wrap"><img class="thumb" loading="lazy" src="assets/zapplogics/BetCalculator.jpg" alt="BetCalculator app thumbnail" /></div>
-					<div class="card-body">
-						<h3>BetCalculator App</h3>
-						<span class="badge">Unity · C# · Maths · News · RapidAPi  </span>
-					</div>
-				</article>
-
-				<article class="card" data-tags="company" data-open="SlotGame">
-					<div class="thumb-wrap"><img class="thumb" loading="lazy" src="assets/Slot/SlotGame.jpg" alt="SlotGame thumbnail" /></div>
-					<div class="card-body">
-						<h3>Slot Game</h3>
-						<span class="badge">Unity · C# · Maths · IAP  </span>
-					</div>
-				</article>
-
-				<article class="card" data-tags="company" data-open="spaceshooter">
-					<div class="thumb-wrap"><img class="thumb" loading="lazy" src="assets/zapplogics/spaceshooter.png" alt="spaceshooter thumbnail" /></div>
-					<div class="card-body">
-						<h3>2D Space Shooter</h3>
-						<span class="badge">Unity · C# · Ads · IAP  </span>
-					</div>
-				</article>
-
-				<article class="card" data-tags="company" data-open="Aviator">
-					<div class="thumb-wrap"><img class="thumb" loading="lazy" src="assets/zapplogics/Aviator.png" alt="Aviator thumbnail" /></div>
-					<div class="card-body">
-						<h3>Aviator Game</h3>
-						<span class="badge">Unity · C# · Line Renderer · Rewarded Ads  </span>
-					</div>
-				</article>
-					</div>
-				</section>
-
-				<section class="project-shelf" data-tags="freelance" aria-label="Client projects">
-					<div class="shelf-heading">
-						<div class="shelf-title"><h3>Client projects</h3><span>From prototype to polished build</span></div>
-						<div class="shelf-controls" aria-label="Client projects carousel controls">
-							<button type="button" data-shelf-step="-1" aria-label="Scroll client projects left">&larr;</button>
-							<button type="button" data-shelf-step="1" aria-label="Scroll client projects right">&rarr;</button>
-						</div>
-					</div>
-					<div class="grid">
-				<article class="card" data-tags="freelance" data-open="fruitfighter">
-					<div class="thumb-wrap"><img class="thumb" loading="lazy" src="assets/images/fruit fighter.png" alt="Fruit Fighter game thumbnail" /></div>
-					<div class="card-body"><h3>Fruit Fighter</h3><span class="badge">Freelance</span></div>
-				</article>
-				<article class="card" data-tags="freelance" data-open="TengoBlitz">
-					<div class="thumb-wrap"><img class="thumb" loading="lazy" src="assets/images/TengoBlitz.png" alt="Tengo Blitz puzzle game thumbnail" /></div>
-					<div class="card-body"><h3>Tengo Blitz</h3><span class="badge">Freelance</span></div>
-				</article>
-				<article class="card" data-tags="freelance" data-open="helixballdrop">
-					<div class="thumb-wrap"><img class="thumb" loading="lazy" src="assets/images/helix ball drop.png" alt="Helix Ball Drop hyper-casual game thumbnail" /></div>
-					<div class="card-body"><h3>Helix Ball Drop</h3><span class="badge">Ads · IAP</span></div>
-				</article>
-				<article class="card" data-tags="freelance" data-open="blockandHoop">
-					<div class="thumb-wrap"><img class="thumb" loading="lazy" src="assets/images/blockandHoop.png" alt="Block and Hoop puzzle game thumbnail" /></div>
-					<div class="card-body"><h3>Block & Hoop</h3><span class="badge">Physics</span></div>
-				</article>
-					</div>
-				</section>
-
-				<section class="project-shelf" data-tags="personal" aria-label="Independent projects">
-					<div class="shelf-heading">
-						<div class="shelf-title"><h3>Beyond the brief</h3><span>Personal experiments &amp; passion projects</span></div>
-						<div class="shelf-controls" aria-label="Personal projects carousel controls">
-							<button type="button" data-shelf-step="-1" aria-label="Scroll personal projects left">&larr;</button>
-							<button type="button" data-shelf-step="1" aria-label="Scroll personal projects right">&rarr;</button>
-						</div>
-					</div>
-					<div class="grid">
-				<article class="card" data-tags="personal" data-open="blockchainRpgModal">
-					<div class="thumb-wrap"><img class="thumb" loading="lazy" src="assets/images/RPGOdyssey.png" alt="Blockchain RPG Odyssey thumbnail" /></div>
-					<div class="card-body"><h3>Blockchain RPG Odyssey</h3><span class="badge">NEAR · NFTs</span></div>
-				</article>
-				<article class="card" data-tags="personal" data-open="VRSpaceShooter">
-					<div class="thumb-wrap"><img class="thumb" loading="lazy" src="assets/images/VRSpaceShooter.png" alt="VR Space Shooter thumbnail" /></div>
-					<div class="card-body"><h3>VR Space Shooter</h3><span class="badge">XR Toolkit</span></div>
-				</article>
-				<article class="card" data-tags="personal" data-open="AIQuizGame">
-					<div class="thumb-wrap"><img class="thumb" loading="lazy" src="assets/images/AIQuizGame.png" alt="AI Quiz Game thumbnail" /></div>
-					<div class="card-body"><h3>AI Quiz Game</h3><span class="badge">▶ Play browser demo</span></div>
-				</article>
-				<article class="card" data-tags="personal" data-open="CarRaceMultiplayer">
-					<div class="thumb-wrap"><img class="thumb" loading="lazy" src="assets/images/CarRaceMultiplayer.png" alt="Multiplayer car race thumbnail" /></div>
-					<div class="card-body"><h3>Cosmic Racer (Multiplayer)</h3><span class="badge">Photon</span></div>
-				</article>
-				<article class="card" data-tags="personal" data-open="doubleRun">
-					<div class="thumb-wrap"><img class="thumb" loading="lazy" src="assets/images/doubleRun.png" alt="Double Run dual-control runner thumbnail" /></div>
-					<div class="card-body"><h3>Double Run</h3><span class="badge">▶ Play browser demo</span></div>
-				</article>
-					</div>
-				</section>
-			</div>
+			<p class="contact-location"><span class="live-dot"></span> Based in London, UK · Open to opportunities worldwide</p>
 		</section>
+	</main>
 
-		<!-- Education -->
-		<section id="education" data-reveal>
-			<span class="eyebrow">04 // PLAYER PROGRESSION</span>
-			<h2>Education</h2>
-			<div class="xp">
-				<article class="xp-item">
-					<div class="xp-quest">MASTER'S DEGREE</div>
-					<h3>MSc Game Development Programming</h3>
-					<div class="xp-meta">Kingston University · London, UK · Sep 2023 – Sep 2024</div>
-					<ul class="xp-bullets"><li>Built a 2D blockchain RPG featuring NEAR wallet integration and NFT item trading.</li></ul>
-				</article>
-				<article class="xp-item">
-					<div class="xp-quest">BACHELOR'S DEGREE</div>
-					<h3>BSc Computer Science</h3>
-					<div class="xp-meta">KC College · India · 2017 – 2020</div>
-				</article>
-			</div>
-		</section>
+	<button class="back-button" id="backToDoors" type="button" hidden><span aria-hidden="true">←</span> Back to the doors</button>
 
-		<!-- Contact / Footer -->
-		<footer id="contact" data-reveal>
-			<div class="contact-panel">
-				<span class="eyebrow">05 // LET’S CONNECT</span>
-				<h2 class="footer-title">Let’s build what’s next.</h2>
-				<p class="footer-sub">Building games, XR experiences and real-time tools. Based in London and open to on-site, hybrid, remote or relocation opportunities.</p>
-				<div class="cta">
-					<a class="btn" href="mailto:monukumavat37@gmail.com?subject=Unity%20Developer%20Opportunity">✉ Start a Conversation <span aria-hidden="true">↗</span></a>
-					<a class="btn secondary" href="assets/Monu_Kumavat_Resume.pdf" download>↓ Download CV</a>
-				</div>
-				<nav class="links" aria-label="Contact links">
-					<a rel="noopener" target="_blank" href="https://github.com/monu37"><span aria-hidden="true">GH</span> GitHub <span class="link-arrow" aria-hidden="true">↗</span></a>
-					<a rel="noopener" target="_blank" href="https://www.linkedin.com/in/monu-kumavat/"><span aria-hidden="true">in</span> LinkedIn <span class="link-arrow" aria-hidden="true">↗</span></a>
-					<a href="mailto:monukumavat37@gmail.com"><span aria-hidden="true">@</span> Email</a>
-					<a href="tel:+447741948421"><span aria-hidden="true">＋</span> +44 7741 948421</a>
-				</nav>
-			</div>
-			<div class="footer-meta">
-				<span>© <span id="y"></span> Monu Kumavat. All rights reserved.</span>
-				<a href="#top">Back to top <span aria-hidden="true">↑</span></a>
-			</div>
-		</footer>
-	</div>
-
-	<!-- ===== Modals ===== -->
-	<!-- Bingo World Modal -->
-	<div id="BingoWorld" class="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Bingo World">
-		<div class="modal-panel">
-			<div class="modal-head">
-				<strong>Bingo World</strong>
-				<button class="modal-close" data-close aria-label="Close">&times;</button>
-			</div>
-
-			<div class="modal-body">
-				<!-- SLIDESHOW -->
-				<div class="slider" data-slider>
-					<!-- main viewer -->
-					<div class="viewer" id="bingoViewer" aria-live="polite"></div>
-
-					<!-- nav -->
-					<button class="nav prev" data-prev aria-label="Previous">&#10094;</button>
-					<button class="nav next" data-next aria-label="Next">&#10095;</button>
-
-					<!-- counter -->
-					<div class="counter" aria-hidden="true"><span data-idx>1</span>/<span data-total>1</span></div>
-
-					<!-- thumbnails track -->
-					<div class="gallery" role="tablist" aria-label="Bingo media">
-						<!-- Each thumb declares its type & source -->
-						<!-- Video -->
-						<img role="tab" class="thumb is-active"
-							 src="assets/bingo/Logo.jpg"
-							 alt="Win Logic + Animation + Rate us"
-							 data-type="video"
-							 data-src="assets/bingo/Win logic and animation + rate us.mp4">
-
-						<img role="tab" class="thumb"
-							 src="assets/bingo/Updategame.jpg"
-							 alt="Hourly bonus & update screen"
-							 data-type="video"
-							 data-src="assets/bingo/Hourly bonus + update game.mp4">
-
-						<img role="tab" class="thumb"
-							 src="assets/bingo/Power up function added.png"
-							 alt="Power up function added"
-							 data-type="video"
-							 data-src="assets/bingo/Power up function added.mp4">
-
-						<!-- Image -->
-						<img role="tab" class="thumb"
-							 src="assets/bingo/Limited room for event.jpg"
-							 alt="Limited room for event"
-							 data-type="image"
-							 data-src="assets/bingo/Limited room for event.jpg">
-
-						<img role="tab" class="thumb"
-							 src="assets/bingo/Newroomcomingsoon.jpg"
-							 alt="Newroomcomingsoon"
-							 data-type="image"
-							 data-src="assets/bingo/Newroomcomingsoon.jpg">
-
-						<img role="tab" class="thumb"
-							 src="assets/bingo/New Room england.jpg"
-							 alt="New Room england"
-							 data-type="image"
-							 data-src="assets/bingo/New Room england.jpg">
-
-						<img role="tab" class="thumb"
-							 src="assets/bingo/New room japan.jpg"
-							 alt="New room japan"
-							 data-type="image"
-							 data-src="assets/bingo/New room japan.jpg">
-
-						<img role="tab" class="thumb"
-							 src="assets/bingo/New Room Spooky.jpg"
-							 alt="New Room Spooky"
-							 data-type="image"
-							 data-src="assets/bingo/New Room Spooky.jpg">
-
-						<!-- APK / File -->
-						<img role="tab" class="thumb"
-							 src="assets/bingo/Logo.jpg"
-							 alt="Download APK build"
-							 data-type="file"
-							 data-href="https://drive.google.com/file/d/1Fx5Ws7GvHVYA9r_TnTFhotYvh7ugJ1Jk/view?usp=sharing"
-							 data-filename="freebingoworld.apk">
-					</div>
-				</div>
-
-				<p>
-					Ran LiveOps for a game with 10M+ downloads, shipping themed rooms, limited-time events, power-ups and hourly bonuses through Remote Config. These features contributed to an approximately 20% retention lift. Reworked win logic and UI, streamlined IAP, added a forced-update flow and contributed to the REST API backend.
-					Connected the game to a centralized database for efficient player support and analytics, streamlined in-app purchases (IAPs) for smoother transactions, and optimized server logic to ensure fair play and better retention across the player base.
-				</p>
-			</div>
-		</div>
-	</div>
-
-	<div class="modal" id="TennisLiveScoreApp" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Tennis Live Score App">
-		<div class="modal-panel">
-			<div class="modal-head"><strong>Tennis Live Score App</strong><button class="modal-close" data-close>&times;</button></div>
-			<div class="modal-body">
-				<div class="video">
-					<video controls preload="metadata" playsinline poster="assets/images/Tennis Live app.jpg">
-						<source src="assets/videos/TennisLiveApp.mp4" type="video/mp4" />
-						Your browser does not support the video tag.
-					</video>
-				</div>
-				<p>Tennis Live Score is a real-time score tracking app focused on Tennis matches, ATP Tours, and tournaments, developed in just 5 days using Unity and C#. The app uses RapidAPI’s third-party sports API to fetch and display live match data. Players can view detailed match information, including live scores, player names, their country representation, current rankings, and even explore match history from previous years. I built a robust API integration system to manage live data streaming, handle JSON parsing, and update the UI in real time. The interface is clean, mobile-friendly, and optimized for quick access to key stats, with smooth transitions and real-time refresh capabilities. This project showcases my ability to work with external APIs, create dynamic data-driven UIs, and deliver fully functional applications under tight deadlines.</p>
-			</div>
-		</div>
-	</div>
-
-	<div class="modal" id="Baccart" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Baccart Game">
-		<div class="modal-panel">
-			<div class="modal-head"><strong>Baccart Game</strong><button class="modal-close" data-close>&times;</button></div>
-			<div class="modal-body">
-				<div class="video">
-					<video controls preload="metadata" playsinline poster="assets/zapplogics/Baccarat_lobby.png">
-						<source src="assets/zapplogics/Baccarat_lobby.mp4" type="video/mp4" />
-						Your browser does not support the video tag.
-					</video>
-				</div>
-				<p>
-					Built a complete single-player Baccarat card game from scratch using Unity and C#, implementing the full game logic, betting system, and win/loss conditions.
-					Designed an interactive lobby interface that allows players to join rooms, manage chips, and start games smoothly.
-					Created custom animations for card dealing, betting transitions, and victory effects to enhance visual appeal and realism. Developed with a modular structure for future scalability, making it easy to extend into multiplayer or backend-connected versions later. This prototype showcases strong skills in game logic programming, UI/UX design, and state management within Unity.
-				</p>
-			</div>
-		</div>
-	</div>
-
-	<div class="modal" id="BetCalculator" role="dialog" aria-modal="true" aria-hidden="true" aria-label="BetCalculator">
-		<div class="modal-panel">
-			<div class="modal-head"><strong>BetCalculator App</strong><button class="modal-close" data-close>&times;</button></div>
-			<div class="modal-body">
-				<div class="video">
-					<video controls preload="metadata" playsinline poster="assets/zapplogics/BetCalculator.jpg">
-						<source src="assets/zapplogics/BetCalculator.mp4" type="video/mp4" />
-						Your browser does not support the video tag.
-					</video>
-				</div>
-				<p>
-					Developed a sports betting calculator that allows players to calculate potential winnings, profits, and odds across multiple bet types, including singles, doubles, accumulators, Yankees, and Goliaths.
-					Built the entire system in Unity and C#, implementing complex mathematical algorithms to handle fractional, decimal, and American odds with high accuracy. Integrated RapidAPI to fetch live sports data and news, helping users make informed betting decisions based on current events. The app was inspired by professional-grade tools like Free Bet Calculator (UK) but customized with an interactive and intuitive UI for faster input and real-time calculations.
-					This project highlights strong expertise in mathematics, API integration, and gameplay tool development.
-			</div>
-		</div>
-	</div>
-	<!-- Slot Gamee Modal -->
-	<div id="SlotGame" class="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="SlotGame">
-		<div class="modal-panel">
-			<div class="modal-head">
-				<strong>Slot Game</strong>
-				<button class="modal-close" data-close aria-label="Close">&times;</button>
-			</div>
-
-			<div class="modal-body">
-				<!-- SLIDESHOW -->
-				<div class="slider" data-slider>
-					<!-- main viewer -->
-					<div class="viewer" id="SlotViewer" aria-live="polite"></div>
-
-					<!-- nav -->
-					<button class="nav prev" data-prev aria-label="Previous">&#10094;</button>
-					<button class="nav next" data-next aria-label="Next">&#10095;</button>
-
-					<!-- counter -->
-					<div class="counter" aria-hidden="true"><span data-idx>1</span>/<span data-total>1</span></div>
-
-					<!-- thumbnails track -->
-					<div class="gallery" role="tablist" aria-label="SlotGame media">
-						<!-- Each thumb declares its type & source -->
-						<!-- Video -->
-						<img role="tab" class="thumb is-active"
-							 src="assets/Slot/Slot1.png"
-							 alt="Slot1"
-							 data-type="video"
-							 data-src="assets/Slot/Slot1.mp4">
-
-						<img role="tab" class="thumb"
-							 src="assets/Slot/slot2.jpg"
-							 alt="slot2"
-							 data-type="video"
-							 data-src="assets/Slot/slot2.mp4">
-
-						<img role="tab" class="thumb"
-							 src="assets/Slot/slot3.jpg"
-							 alt="slot3"
-							 data-type="video"
-							 data-src="assets/Slot/slot3.mp4">
-
-						<img role="tab" class="thumb"
-							 src="assets/Slot/slot4.png"
-							 alt="slot4"
-							 data-type="video"
-							 data-src="assets/Slot/slot4.mp4">
-
-
-					</div>
-				</div>
-
-				<p>
-					Developed 10+ slot games from scratch using Unity and C#, each featuring unique reel logic, visual design, and payout structures (ranging from 3×3 to 6×6 grids).
-					Implemented full In-App Purchase (IAP) systems, dynamic win tables, and engaging sound design to enhance the overall user experience.
-					Each title was optimized for mobile performance and published on app stores under different variations to meet client and app store compliance requirements.
-					Focused on modular architecture, making it easy to adjust win probabilities, animations, and mechanics per release — showcasing expertise in gameplay programming, system logic design, and monetization integration.
-				</p>
-			</div>
-		</div>
-	</div>
-
-	<div class="modal" id="spaceshooter" role="dialog" aria-modal="true" aria-hidden="true" aria-label="spaceshooter">
-		<div class="modal-panel">
-			<div class="modal-head"><strong>2D Space Shooter</strong><button class="modal-close" data-close>&times;</button></div>
-			<div class="modal-body">
-				<div class="video">
-					<video controls preload="metadata" playsinline poster="assets/zapplogics/spaceshooter.png">
-						<source src="assets/zapplogics/spaceshooter.mp4" type="video/mp4" />
-					</video>
-				</div>
-				<p>
-					Developed a 2D space combat game from scratch using Unity and C#, where players control a customizable jet to defeat waves of enemies across 100+ progressively challenging levels. 
-					Each level features distinct enemy types, attack patterns, and abilities, creating an engaging difficulty curve. Implemented particle effects and dynamic animations for explosions, bullets, and boosters, delivering an immersive and visually appealing experience. Added In-App Purchases (IAP) and rewarded ads, allowing players to earn extra coins to upgrade jet power, bullet speed, and damage output, or purchase new, more powerful jets. The project demonstrates strong skills in game logic, monetization systems, visual effects, and player engagement design.
-				</p>
-			</div>
-		</div>
-	</div>
-
-
-	<div class="modal" id="Aviator" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Aviator">
-		<div class="modal-panel">
-			<div class="modal-head"><strong>Aviator Game</strong><button class="modal-close" data-close>&times;</button></div>
-			<div class="modal-body">
-				<div class="video">
-					<video controls preload="metadata" playsinline poster="assets/zapplogics/Aviator.png">
-						<source src="assets/zapplogics/Aviator.mp4" type="video/mp4" />
-					</video>
-				</div>
-				<p>
-					Developed a complete Aviator-style crash betting game from scratch using Unity and C#, designed for both landscape and portrait orientations to ensure a seamless mobile experience. Players place bets before the plane takes off, and as it ascends, the multiplier rises dynamically (e.g., 1.2x, 2x, 5x, etc.). To win, players must cash out before the plane crashes — securing profit — or lose their bet if they fail to react in time. Implemented a mathematics-driven algorithm to calculate random crash points and fair payout multipliers for balanced risk and reward. Used Line Renderer to visualize the flight trajectory, enhanced by particle effects, animations, and smooth UI transitions for betting and cash-out interactions.
-					(Note: The in-game title “Avaitor” appears due to an early prototype build; the updated version was not recorded.)
-					This project demonstrates advanced skills in real-time probability systems, Unity animation, responsive UI design, and mobile optimization.
-				</p>
-
-				<!-- Live crash-math demo: the actual RNG/cashout logic, running client-side -->
-				<div class="demo-widget" id="crashDemo">
-					<div class="demo-head">
-						<span class="demo-tag">▶ LIVE DEMO — the real crash math, running in your browser</span>
-						<span class="demo-balance">💰 <span id="crashBalance">1000</span> coins <button class="demo-reset" id="crashReset" title="Reset demo balance">↻</button></span>
-					</div>
-					<div class="demo-stage">
-						<div class="demo-multiplier" id="crashMultiplier">1.00x</div>
-						<div class="demo-status" id="crashStatus">Pick a bet and launch the plane</div>
-					</div>
-					<div class="demo-controls">
-						<div class="chip-row" id="chipRow">
-							<button class="chip is-active" data-bet="10">10</button>
-							<button class="chip" data-bet="50">50</button>
-							<button class="chip" data-bet="100">100</button>
-						</div>
-						<button class="demo-btn" id="crashLaunchBtn">🚀 Place Bet &amp; Launch</button>
-						<button class="demo-btn cashout" id="crashCashoutBtn" disabled>💸 Cash Out</button>
-					</div>
-					<div class="demo-log" id="crashLog" aria-live="polite"></div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-
-	<div class="modal" id="VRSpaceShooter" role="dialog" aria-modal="true" aria-hidden="true" aria-label="VR Space Shooter">
-		<div class="modal-panel">
-			<div class="modal-head"><strong>VR Space Shooter</strong><button class="modal-close" data-close>&times;</button></div>
-			<div class="modal-body">
-				<div class="video">
-					<video controls preload="metadata" playsinline poster="assets/images/VRSpaceShooter.png">
-						<source src="assets/videos/VRSpaceShooter.mp4" type="video/mp4" />
-					</video>
-				</div>
-				<p>A Unity VR shooter built with the XR Interaction Toolkit and Oculus Integration. Players aim with tracked controllers and hit incoming asteroid waves, earning points toward future upgrades. The project explores responsive VR interaction, 3D gameplay and progressively challenging encounters.</p>
-				<p><a rel="noopener" target="_blank" href="https://github.com/monu37/VR_Space_Shooter">View source on GitHub ↗</a></p>
-			</div>
-		</div>
-	</div>
-
-	<div class="modal" id="CarRaceMultiplayer" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Cosmic Racer">
-		<div class="modal-panel">
-			<div class="modal-head"><strong>Cosmic Racer (Multiplayer)</strong><button class="modal-close" data-close>&times;</button></div>
-			<div class="modal-body">
-				<div class="video">
-					<video controls preload="metadata" playsinline poster="assets/images/CarRaceMultiplayer.png">
-						<source src="assets/videos/CarRaceMultiplayer.mp4" type="video/mp4" />
-					</video>
-				</div>
-				<p>Built as a two-person project, Cosmic Racer is a real-time multiplayer 3D racing game. I developed the core gameplay and car mechanics, using Photon for player connections and competitive racing.</p>
-				<p><a rel="noopener" target="_blank" href="https://kumavatmonu.github.io/">Explore the portfolio ↗</a></p>
-			</div>
-		</div>
-	</div>
-
-	<div class="modal" id="doubleRun" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Double Run">
-		<div class="modal-panel">
-			<div class="modal-head"><strong>Double Run</strong><button class="modal-close" data-close>&times;</button></div>
-			<div class="modal-body">
-				<div class="playable-demo double-run-demo">
-					<iframe src="demos/double-run.html" title="Playable Double Run browser preview" loading="lazy" allow="fullscreen"></iframe>
-				</div>
-				<p class="demo-disclaimer">Browser preview inspired by the dual-character concept. Play the original Unity build for its full visuals and progression.</p>
-				<div class="video">
-					<video controls preload="metadata" playsinline poster="assets/images/doubleRun.png">
-						<source src="assets/videos/doubleRun.mp4" type="video/mp4" />
-					</video>
-				</div>
-				<p>In this fast-paced obstacle-avoidance game, players must control two characters at the same time—each facing different types of obstacles. While one character may need to jump, the other might have to slide, requiring sharp focus and coordination. As players progress, both speed and difficulty increase, creating an intense and rewarding gameplay experience. Points earned during play can be used to unlock new characters, adding variety and motivation. Built in just 10 days as a fun personal project, the game showcases smooth transitions using Unity’s animation tools, physics engine, and DoTween effects.</p>
-				<p><a rel="noopener" target="_blank" href="https://github.com/gameheart/DoubleRun3D">View Double Run source on GitHub ↗</a></p>
-			</div>
-		</div>
-	</div>
-
-	<div class="modal" id="AIQuizGame" role="dialog" aria-modal="true" aria-hidden="true" aria-label="AI Quiz Game">
-		<div class="modal-panel">
-			<div class="modal-head"><strong>AI Quiz Game</strong><button class="modal-close" data-close>&times;</button></div>
-			<div class="modal-body">
-				<div class="playable-demo">
-					<iframe src="demos/ai-quiz.html" title="Playable AI Quiz Game browser preview" loading="lazy" allow="fullscreen"></iframe>
-				</div>
-				<p class="demo-disclaimer">Browser preview: play a curated question pack with no sign-in or API key. The Unity project uses AI services to generate questions and matching images at runtime.</p>
-				<div class="video">
-					<video controls preload="metadata" playsinline poster="assets/images/AIQuizGame.png">
-						<source src="assets/videos/AIQuizGame.mp4" type="video/mp4" />
-					</video>
-				</div>
-				<p>A Unity trivia game that generates questions and images at runtime using the OpenAI API. ChatGPT creates quiz content while DALL·E generates matching imagery, giving each round a fresh set of multiple-choice questions.</p>
-				<p><a rel="noopener" target="_blank" href="https://github.com/monu37/AI_Quiz_Game">View source on GitHub ↗</a></p>
-			</div>
-		</div>
-	</div>
-
-	<div class="modal" id="blockchainRpgModal" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Blockchain RPG Odyssey">
-		<div class="modal-panel">
-			<div class="modal-head"><strong>The Blockchain RPG Odyssey</strong><button class="modal-close" data-close>&times;</button></div>
-			<div class="modal-body">
-				<div class="video">
-					<iframe width="100%" height="100%" src="https://www.youtube.com/embed/Tm-68s42WpY" title="Blockchain RPG Odyssey" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-				</div>
-				<p>My MSc final project: a 2D RPG with NEAR wallet integration and NFT item trading, combining blockchain features with traditional RPG progression and combat.</p>
-				<p><a rel="noopener" target="_blank" href="https://github.com/monu37/Ethereal_Realms_The_Blockchain_RPG_Odyssey">View source on GitHub ↗</a></p>
-			</div>
-		</div>
-	</div>
-
-	<div class="modal" id="fruitfighter" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Fruit Fighter">
-		<div class="modal-panel">
-			<div class="modal-head"><strong>Fruit Fighter</strong><button class="modal-close" data-close>&times;</button></div>
-			<div class="modal-body">
-				<div class="video">
-					<video controls preload="metadata" playsinline poster="assets/images/fruit fighter.png">
-						<source src="assets/videos/fruitfighter.mp4" type="video/mp4" />
-					</video>
-				</div>
-				<p>A fast-paced 2.5D fruit-slicing game prototype built in Unity in just 20 days for a freelance partner. Players slice fruits with a knife while avoiding bombs—one wrong slice, and it’s game over! This project introduced a fresh spin on the classic fruit-cutting genre, emphasizing quick reflexes and strategic dodges. Despite a tight deadline, it was an exciting challenge that yielded a polished, engaging result.</p>
-			</div>
-		</div>
-	</div>
-
-	<div class="modal" id="blockandHoop" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Block and Hoop">
-		<div class="modal-panel">
-			<div class="modal-head"><strong>Block and Hoop</strong><button class="modal-close" data-close>&times;</button></div>
-			<div class="modal-body">
-				<div class="video">
-					<video controls preload="metadata" playsinline poster="assets/images/blockandHoop.png">
-						<source src="assets/videos/blockandHoop.mp4" type="video/mp4" />
-					</video>
-				</div>
-				<p>A fast-paced arcade puzzle where you move or place blocks to guide a bouncing ball into the hoop. I used Unity’s Line Renderer to visualize the ball’s trajectory, making the gameplay more intuitive and satisfying. Each level ramps up in difficulty with faster ball movement and more complex layouts, challenging players to strategize quickly and adapt on the fly.</p>
-			</div>
-		</div>
-	</div>
-
-	<div class="modal" id="TengoBlitz" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Tengo Blitz">
-		<div class="modal-panel">
-			<div class="modal-head"><strong>Tengo Blitz</strong><button class="modal-close" data-close>&times;</button></div>
-			<div class="modal-body">
-				<div class="video">
-					<video controls preload="metadata" playsinline poster="assets/images/TengoBlitz.png">
-						<source src="assets/videos/TengoBlitz.mp4" type="video/mp4" />
-					</video>
-				</div>
-				<p>Tengo Blitz is a fast-paced puzzle game inspired by Tetris, developed in Unity using C# over a span of 20–25 days for a freelance partner. Unlike traditional match games, Tengo Blitz challenges players to strategically place and combine blocks so their total sums up to 10—clearing the stack only when the sum is exact. This adds a brain-teasing layer of math-based logic to the classic falling-block formula. I implemented a grid-based system to manage tile placement and stack control, along with smooth tile animations and visual effects powered by DoTween and Unity Animator. The game also features animated power-ups, including the Hammer (to destroy selected tiles) and Meow (a cat-themed power that clears rows or patterns). The interface is designed using Unity’s responsive UI tools, with animated feedback, timer-based gameplay, and real-time scoring. Tengo Blitz is a polished, engaging game that demonstrates my skills in logic-driven mechanics, animation, and delivering high-quality freelance projects on a tight timeline.</p>
-			</div>
-		</div>
-	</div>
-
-	<div class="modal" id="helixballdrop" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Helix Ball Drop">
-		<div class="modal-panel">
-			<div class="modal-head"><strong>Helix Ball Drop</strong><button class="modal-close" data-close>&times;</button></div>
-			<div class="modal-body">
-				<div class="video">
-					<video controls preload="metadata" playsinline poster="assets/images/helix ball drop.png">
-						<source src="assets/videos/helixballdrop.mp4" type="video/mp4" />
-					</video>
-				</div>
-				<p>Helix Ball Drop is a highly addictive hyper-casual game developed in Unity using C#, featuring simple yet satisfying mechanics and infinite level progression. Built as a freelance project, the core gameplay revolves around guiding a bouncing ball through rotating platforms, avoiding obstacles while progressing downward. The game includes Unity Ads integration, offering rewarded video ads and interstitials, along with In-App Purchase (IAP) functionality that allows players to permanently remove ads for a smoother experience. Players can also upgrade their ball, enhancing its appearance or abilities, adding a layer of personalization and progression. The project uses Unity's animation tools for bounce and destruction effects, ensuring smooth, polished feedback. With its endless level design, progressively increasing difficulty, and quick restart loop, Helix Ball Drop keeps players engaged for long sessions. This project highlights my ability to implement monetization, in-game economy, and polish addictive gameplay loops in a short development cycle.</p>
-			</div>
-		</div>
-	</div>
-
+	<footer class="site-footer"><span>© <span id="currentYear"></span> MONU KUMAVAT</span><span>CRAFTED WITH CURIOSITY <span class="footer-star">✳</span> IN UNITY</span></footer>
 
 	<script>
-		function stopMediaIn(modal) {
-			// Pause & reset <video>
-			modal.querySelectorAll('video').forEach(v => {
-				try { v.pause(); } catch (e) { }
-				// optional: rewind so it starts from beginning next time
-				try { v.currentTime = 0; } catch (e) { }
-			});
+		const portfolioData = {
+			links: {
+				email: "mailto:monukumavat37@gmail.com",
+				github: "https://github.com/monu37",
+				linkedin: "https://www.linkedin.com/in/monu-kumavat/",
+				googlePlayDeveloper: "https://play.google.com/store/apps/developer?id=Game_Heart+Studio",
+				cv: "assets/Monu_Kumavat_Resume.pdf"
+			},
+			projects: {
+				hypercasual: [
+					{ icon: "🎱", tag: "SOCIAL BINGO · LIVEOPS | CODESOFT INFOTECH", title: "Bingo Free World", description: "Led game development alongside one designer on a live social bingo game with 10M+ downloads. Shipped themed rooms, limited-time events, power-ups and hourly bonuses through Remote Config, contributing to an approximately 20% retention lift.", contribution: "Reworked win logic and UI, streamlined IAP, added forced-update flow, connected Firebase and contributed to REST API and player-support tooling.", features: ["Unity", "C#", "Firebase", "Remote Config", "IAP", "10M+ downloads"], image: "assets/images/BingoWorld.jpg", video: "assets/bingo/Hourly bonus + update game.mp4", links: [{ label: "More LiveOps footage", href: "assets/bingo/Power up function added.mp4" }] },
+					{ icon: "🌀", tag: "HYPERCASUAL · ENDLESS BALL-DROP | FREELANCE", title: "Helix Ball Drop", description: "An endless ball-drop game: steer a bouncing ball down rotating platforms, avoid hazards and keep descending through progressively harder levels. Made in Unity and C# for a freelance partner.", contribution: "Added Unity Ads rewarded videos and interstitials, an IAP to remove ads, ball upgrades and bounce and platform-destruction feedback.", features: ["Unity", "C#", "Endless levels", "Rewarded ads", "Interstitials", "IAP"], image: "assets/images/helix ball drop.png", video: "assets/videos/helixballdrop.mp4" },
+					{ icon: "🍉", tag: "2.5D FRUIT-SLICING · ARCADE | FREELANCE · 20-DAY BUILD", title: "Fruit Fighter", description: "A fast-paced fruit-slicing prototype built for a freelance partner in 20 days. Throw a knife to slice incoming fruit while avoiding bombs; a mistimed slice ends the run.", contribution: "Delivered a polished arcade loop under a tight production timeline, with quick-reflex gameplay and clear slice-or-dodge decisions.", features: ["Unity", "C#", "2.5D", "Arcade", "Freelance"], image: "assets/images/fruit fighter.png", video: "assets/videos/fruitfighter.mp4" },
+					{ icon: "🏃", tag: "CASUAL · DUAL-CHARACTER OBSTACLE RUNNER | PERSONAL PROJECT", title: "Double Run", description: "Control two runners at once, each facing a different obstacle. Jump with one character and slide with the other; increasing speed and difficulty make coordinating both lanes the central challenge.", contribution: "Built a dual-input obstacle-avoidance loop. The included browser preview is an inspired lightweight demo; the original Unity build contains the full visuals and progression.", features: ["Unity", "C#", "Dual-character controls", "Obstacle avoidance", "Playable demo"], image: "assets/images/doubleRun.png", video: "assets/videos/doubleRun.mp4", links: [{ label: "Play browser demo", href: "demos/double-run.html" }] }
+				],
+				casino: [
+					{ icon: "🎰", tag: "MOBILE SLOT GAMES · CASINO | ZAPPLOGICS SOLUTIONS · 10+ TITLES", title: "Slot Game Collection", description: "Built more than 10 slot games from scratch, with individual reel logic, visual designs and payout structures across 3×3 through 6×6 grids. Titles were optimized for mobile and released as multiple app-store variations.", contribution: "Implemented dynamic win tables, sound and IAP; structured the systems so probabilities, animations and mechanics could be adapted per release.", features: ["Unity", "C#", "3×3–6×6 reels", "Win tables", "IAP", "Mobile"], image: "assets/Slot/SlotGame.jpg", video: "assets/Slot/Slot1.mp4", links: [{ label: "Slot gameplay 02", href: "assets/Slot/slot2.mp4" }, { label: "Slot gameplay 03", href: "assets/Slot/slot3.mp4" }, { label: "Slot gameplay 04", href: "assets/Slot/slot4.mp4" }] },
+					{ icon: "♦️", tag: "SINGLE-PLAYER BACCARAT · TABLE GAME | ZAPPLOGICS SOLUTIONS", title: "Baccarat", description: "A complete single-player Baccarat game, built from scratch in Unity and C#. Players enter through an interactive lobby, join a room, manage chips and play through the card game's betting and win/loss flow.", contribution: "Implemented game rules and betting, then added animated card dealing, betting transitions and victory effects. The modular structure supports future extensions.", features: ["Unity", "C#", "Baccarat rules", "Betting", "Lobby and rooms", "Animation"], image: "assets/zapplogics/Baccarat_lobby.png", video: "assets/zapplogics/Baccarat_lobby.mp4" },
+					{ icon: "✈️", tag: "CRASH / MULTIPLIER BETTING GAME | ZAPPLOGICS SOLUTIONS", title: "Aviator", description: "A mobile crash-game prototype for portrait and landscape: place a bet before the plane takes off, follow the rising multiplier and cash out before the flight ends. Miss the window and the round ends with the bet lost.", contribution: "Built the round flow, multiplier presentation, trajectory effects and crash-point/payout model, plus a responsive betting and cash-out UI.", features: ["Unity", "C#", "Crash-game logic", "Multiplier UI", "Line Renderer", "Rewarded ads"], image: "assets/zapplogics/Aviator.png", video: "assets/zapplogics/Aviator.mp4" }
+				],
+				studio: [
+					{ icon: "🔵", tag: "3D COLOR-SORT PUZZLE | GAME_HEART STUDIO", title: "Marble Land Puzzle", description: "A color-sorting puzzle with 80+ handcrafted levels. Release marbles onto a moving conveyor and sort them into matching boxes before the belt overflows; mystery boxes and increasingly tricky layouts keep the route fresh.", contribution: "Published on Google Play as part of the Game_Heart Studio catalogue.", features: ["Unity", "3D physics", "80+ levels", "Color sorting", "Google Play"], image: "https://play-lh.googleusercontent.com/5SMFCODJwaDfx0L6DWkeqkPFrVtQ9hM2Gwy31nc4Xv5meLkJ2WHhPDxXL6CC84ZvlwYLao380ZVxEVFvKy_fNg=s256-rw", play: "https://play.google.com/store/apps/details?id=com.TapTik.MarbleLandPuzzle" },
+					{ icon: "🏹", tag: "3D ARROW-ORDER LOGIC PUZZLE | GAME_HEART STUDIO", title: "Arrow Crush 3D", description: "Clear colorful jelly-block sculptures by tapping arrows in a safe order. Each block can leave only when its path is clear, so every move opens new routes through the handcrafted 3D object.", contribution: "Published on Google Play with hundreds of puzzles, progressively introduced obstacles and offline play.", features: ["Unity", "3D puzzle", "Hundreds of levels", "Pathfinding logic", "Google Play"], image: "https://play-lh.googleusercontent.com/-mn6zM0SxL5Ei4hqyc1Tpcp60Dvv1lOIV87x-_0FK7KwvU_avdmrjD1_6Nh3ZorBx4PMf5OmN8xNFVzHApI-mQ=s256-rw", play: "https://play.google.com/store/apps/details?id=com.TapTik.ArrowCrush3D" },
+					{ icon: "🔩", tag: "3D NUT-SORT PUZZLE | GAME_HEART STUDIO", title: "Nut Flow", description: "Sort colorful nuts from trays into matching bolt boxes while a circular conveyor keeps moving. Plan each drop before the belt fills; mystery trays and 80+ crafted levels add new patterns and pressure.", contribution: "Published on Google Play with tactile drop physics, ASMR-style feedback and no mid-game ad interruptions.", features: ["Unity", "80+ levels", "Conveyor sorting", "3D physics", "Google Play"], image: "https://play-lh.googleusercontent.com/zhjjTb1UG89qnAjXr97RTPU2nKcS5GG0xQ-I82NL1bXTxXNu_EjAMFV8uFiq-_voYGdNdeevG2078F2tsnus4g=s256-rw", play: "https://play.google.com/store/apps/details?id=com.TapTik.NutFlowColorSortPuzzle" },
+					{ icon: "🔪", tag: "3D TIMING / SLICING ARCADE PUZZLE | GAME_HEART STUDIO", title: "Perfect Slice 3D", description: "Time each knife throw to slice fruit and break the board without hitting bombs or your own blades. Spinning traps, hidden targets, locks and boss boards build a timing challenge into every run.", contribution: "Published on Google Play with hundreds of levels, unlockable knife skins and goal-based puzzle stages.", features: ["Unity", "3D physics", "Timing puzzles", "Boss boards", "Google Play"], image: "https://play-lh.googleusercontent.com/kR_dprKH-RAfoM6q0p7idEENCkuZLK82RwiTsSKs1aDMoWVSgE1hV5uYovBin0mD06zprxZV4dRckQEU-TMK=s256-rw", play: "https://play.google.com/store/apps/details?id=com.taptik.perfectslice3D" },
+					{ icon: "💭", tag: "PICTURE-CLUE WORD PUZZLE | GAME_HEART STUDIO", title: "Guess Me If You Can", description: "Study an image clue, then tap the correct letters to uncover the word or phrase it represents. A mix of visual clues, randomized letters and hundreds of puzzles turns quick rounds into a brain-teasing word game.", contribution: "Published on Google Play with hint support for players who get stuck.", features: ["Unity", "Word puzzle", "Image clues", "Hundreds of levels", "Google Play"], image: "https://play-lh.googleusercontent.com/zPZak2pmjwv0GmpkBl_JIi-DIA_olET7tkU0wlJnyDDnKq-puCXUsED7pu6uiOWQZP8E4V-3lBRAgqCVY__fBA=s256-rw", play: "https://play.google.com/store/apps/details?id=com.TapTik.GuessMeIfYouCan" },
+					{ icon: "🧩", tag: "3D WORD-ASSOCIATION PUZZLE | GAME_HEART STUDIO", title: "Word Sort ASMR: Associations", description: "Select word tiles from a bowl and sort them into meaning-based categories before the level timer runs out. Calming 3D scenes and ASMR sounds sit alongside bonus image rounds and progressively harder associations.", contribution: "Published on Google Play with unlockable themes and a changing mix of word and image-based levels.", features: ["Unity", "3D puzzle", "Timed sorting", "ASMR", "Bonus levels", "Google Play"], image: "https://play-lh.googleusercontent.com/ZDOBVdO4tm18e-jkE_N64dXeehobROcgGNikv6_u3c9-wbkpf3NlTqN1jxA6qU8S66KNQnyS4ERgnoLgHSVL0CE=s256-rw", play: "https://play.google.com/store/apps/details?id=com.TapTik.WordSort" }
+				],
+				freelance: [
+					{ icon: "🔟", tag: "FALLING-BLOCK NUMBER PUZZLE | FREELANCE · 20–25-DAY BUILD", title: "Tengo Blitz", description: "A falling-block-inspired puzzle with a twist: place tiles and combine their values to make exactly 10 and clear the stack. The timed grid-based game pairs strategic placement with animated feedback and scoring.", contribution: "Implemented tile placement and stack control, DoTween and Animator effects, plus Hammer and Meow power-ups for clearing tiles, rows or patterns.", features: ["Unity", "C#", "Grid logic", "DoTween", "Power-ups", "20–25 days"], image: "assets/images/TengoBlitz.png", video: "assets/videos/TengoBlitz.mp4" },
+					{ icon: "🏀", tag: "PHYSICS ARCADE PUZZLE | FREELANCE", title: "Block & Hoop", description: "Guide a bouncing ball into the hoop by moving or placing blocks. Levels add faster ball movement and more complex layouts, asking players to rethink the path as the challenge ramps up.", contribution: "Used Unity's Line Renderer to show the ball's trajectory and make each shot easier to read and plan.", features: ["Unity", "C#", "Physics", "Line Renderer", "Level design"], image: "assets/images/blockandHoop.png", video: "assets/videos/blockandHoop.mp4" },
+					{ icon: "📊", tag: "SPORTS ODDS CALCULATOR · APP | ZAPPLOGICS SOLUTIONS", title: "BetCalculator", description: "A Unity and C# betting calculator for estimating potential returns across singles, doubles, accumulators, Yankees and Goliaths. Accepts fractional, decimal and American odds and surfaces current sports data and news through RapidAPI.", contribution: "Implemented the odds and return calculations with an interactive input UI and live-data integration.", features: ["Unity", "C#", "Odds calculations", "RapidAPI", "Sports data", "Responsive UI"], image: "assets/zapplogics/BetCalculator.jpg", video: "assets/zapplogics/BetCalculator.mp4" },
+					{ icon: "🎾", tag: "LIVE TENNIS SCORES · SPORTS DATA APP | ZAPPLOGICS SOLUTIONS", title: "Tennis Live Score", description: "A live tennis tracker covering matches, ATP Tours and tournaments, developed in Unity and C# in five days. Match screens display scores, player names, country flags and rankings, with historical match data available alongside live play.", contribution: "Integrated RapidAPI's sports data and built the system that retrieves and presents live match information.", features: ["Unity", "C#", "RapidAPI", "Live scores", "ATP Tours", "5-day build"], image: "assets/images/Tennis Live app.jpg", video: "assets/videos/TennisLiveApp.mp4" },
+					{ icon: "🚀", tag: "2D WAVE-BASED SHOOTER · ACTION | ZAPPLOGICS SOLUTIONS", title: "2D Space Shooter", description: "Fight through 100+ progressively challenging levels as a customizable jet. Distinct enemies, attack patterns and abilities build the difficulty from wave to wave.", contribution: "Built combat and progression, with particle effects and animations for weapons, explosions and boosters. Added jet upgrades, IAP and rewarded ads.", features: ["Unity", "C#", "100+ levels", "Jet upgrades", "IAP", "Rewarded ads"], image: "assets/zapplogics/spaceshooter.png", video: "assets/zapplogics/spaceshooter.mp4" },
+					{ icon: "🪐", tag: "VR WAVE SHOOTER · XR | PERSONAL PROJECT", title: "VR Space Shooter", description: "A Unity VR shooter built with XR Interaction Toolkit and Oculus Integration. Aim using tracked controllers, clear incoming asteroid waves and earn points toward future upgrades.", contribution: "Explored tracked-controller interactions, responsive 3D shooting and waves that progressively increase the challenge.", features: ["Unity", "XR Interaction Toolkit", "Oculus Integration", "Tracked controllers"], image: "assets/images/VRSpaceShooter.png", video: "assets/videos/VRSpaceShooter.mp4", links: [{ label: "View source on GitHub", href: "https://github.com/monu37/VR_Space_Shooter" }] },
+					{ icon: "🤖", tag: "AI-ASSISTED TRIVIA · IMAGE-GENERATION GAME | PERSONAL PROJECT", title: "AI Quiz Game", description: "A Unity trivia game that generates new question text and matching images at runtime using the OpenAI API: ChatGPT writes the quiz content and DALL·E supplies imagery for each round.", contribution: "The browser demo offers a curated question pack without sign-in or an API key; the Unity project demonstrates the live AI-generated flow.", features: ["Unity", "OpenAI API", "DALL·E", "Runtime content", "Playable demo"], image: "assets/images/AIQuizGame.png", video: "assets/videos/AIQuizGame.mp4", links: [{ label: "Play browser demo", href: "demos/ai-quiz.html" }, { label: "View source on GitHub", href: "https://github.com/monu37/AI_Quiz_Game" }] },
+					{ icon: "🏎️", tag: "3D MULTIPLAYER RACING · PHOTON | PERSONAL PROJECT", title: "Cosmic Racer", description: "A real-time multiplayer 3D racing game built as a two-person project. Race against other connected players in a competitive session instead of racing only a local clock.", contribution: "Developed the core gameplay and car mechanics, and used Photon for player connections and multiplayer races.", features: ["Unity", "C#", "Photon", "Multiplayer", "3D racing"], image: "assets/images/CarRaceMultiplayer.png", video: "assets/videos/CarRaceMultiplayer.mp4" },
+					{ icon: "⚔️", tag: "2D ACTION RPG · BLOCKCHAIN / NFT | MSc CAPSTONE · NEAR", title: "Blockchain RPG Odyssey", description: "An MSc final project exploring the overlap between a conventional 2D RPG and blockchain features: players progress through a game world, fight using traditional RPG mechanics and interact with NEAR wallet and NFT-item trading.", contribution: "Combined an RPG progression and combat loop with NEAR wallet integration and NFT item trading.", features: ["Unity", "2D RPG", "NEAR wallet", "NFT item trading", "MSc capstone"], image: "assets/images/RPGOdyssey.png", links: [{ label: "View source on GitHub", href: "https://github.com/monu37/Ethereal_Realms_The_Blockchain_RPG_Odyssey" }] }
+				]
+			},
+			timeline: [
+				{ date: "SEP 2024 — PRESENT", year: 2026, title: "Independent Developer", company: "Game_Heart Studio · London", bullets: ["Built and published five mobile games on Google Play, owning development, release and updates.", "Integrated ads, analytics and crash reporting; shipped regular updates including a 500-level content drop.", "Deliver freelance Unity and C# projects alongside independent studio work."] },
+				{ date: "2023 — 2024", year: 2024, title: "MSc Game Development Programming", company: "Kingston University London", bullets: ["Advanced game development programming and real-time interactive experiences.", "Built on a foundation of computer science with hands-on Unity development."] },
+				{ date: "MAY 2022 — MAY 2023", year: 2023, title: "Game Developer", company: "Zapplogics Solutions", bullets: ["Built 10+ slot games, Baccarat and an Aviator-style crash game, plus live-data sports apps.", "Created reusable Unity tools and templates used across 22+ client projects.", "Improved mobile performance by 25–30%; worked in Agile teams and mentored an intern."] },
+				{ date: "JAN 2021 — APR 2022", year: 2022, title: "Game Developer", company: "Codesoft Infotech", bullets: ["Led LiveOps work for Bingo Free World, reaching 10M+ downloads; contributed to an approximately 20% retention lift.", "Reworked win logic and IAP, and integrated Firebase and Remote Config.", "Built gameplay for 20+ casual games; mentored an intern and optimized performance."] },
+				{ date: "2017 — 2020", year: 2019, title: "BSc Computer Science", company: "K.C. College", bullets: ["Studied computer science while taking on early part-time game development work.", "Shipped Unity and C# gameplay, UI and release testing for hypercasual projects."] }
+			]
+		};
 
-			// Stop iframe players (YouTube/Vimeo)
-			modal.querySelectorAll('iframe').forEach(f => {
-				const src = f.getAttribute('src') || '';
-				// If YouTube with JS API enabled, send stop command
-				if (src.includes('youtube.com') && src.includes('enablejsapi=1')) {
-					try { f.contentWindow.postMessage('{"event":"command","func":"stopVideo","args":""}', '*'); } catch (e) { }
-				} else {
-					// Fallback: force reload (stops audio)
-					f.setAttribute('src', src);
-				}
-			});
-		}
-	</script>
-
-	<script>
-		// Footer year
-		document.getElementById('y').textContent = new Date().getFullYear();
-
-		// Reveal on scroll
-		const io = new IntersectionObserver((entries) => {
-			entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } });
-		}, { threshold: .1 });
-		document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
-
-		// Scroll progress bar
-		const scrollFill = document.getElementById('scrollFill');
-		function updateScrollBar() {
-			const h = document.documentElement;
-			const scrolled = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
-			if (scrollFill) scrollFill.style.width = scrolled + '%';
-		}
-		document.addEventListener('scroll', updateScrollBar, { passive: true });
-		updateScrollBar();
-
-		// HUD nav: shrink on scroll + mobile toggle
-		const hudNav = document.querySelector('.hud-nav');
-		document.addEventListener('scroll', () => {
-			hudNav?.classList.toggle('is-scrolled', window.scrollY > 40);
-		}, { passive: true });
-
-		const navToggle = document.getElementById('navToggle');
-		const hudLinks = document.getElementById('hudLinks');
-		navToggle?.addEventListener('click', () => {
-			const open = hudLinks.classList.toggle('is-open');
-			navToggle.setAttribute('aria-expanded', String(open));
-		});
-		document.querySelectorAll('#hudLinks a').forEach(a => a.addEventListener('click', () => {
-			hudLinks.classList.remove('is-open');
-			navToggle?.setAttribute('aria-expanded', 'false');
-		}));
-
-		// Scroll-spy: highlight active nav link
-		const navLinks = document.querySelectorAll('[data-nav]');
-		const spySections = ['top', 'about', 'experience', 'projects', 'education', 'contact']
-			.map(id => document.getElementById(id))
-			.filter(Boolean);
-		const spyIO = new IntersectionObserver((entries) => {
-			entries.forEach(entry => {
-				if (entry.isIntersecting) {
-					navLinks.forEach(l => l.classList.remove('is-active'));
-					const match = document.querySelector(`[data-nav][href="#${entry.target.id}"]`);
-					match?.classList.add('is-active');
-				}
-			});
-		}, { rootMargin: '-45% 0px -50% 0px' });
-		spySections.forEach(s => spyIO.observe(s));
-
-		// Animated stat counters (count up once in view)
-		const statNums = document.querySelectorAll('.stat-num');
-		const statIO = new IntersectionObserver((entries) => {
-			entries.forEach(entry => {
-				if (!entry.isIntersecting) return;
-				const el = entry.target;
-				const target = parseInt(el.dataset.count, 10) || 0;
-				const duration = 1200;
-				const start = performance.now();
-				function tick(now) {
-					const p = Math.min((now - start) / duration, 1);
-					el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
-					if (p < 1) requestAnimationFrame(tick);
-				}
-				requestAnimationFrame(tick);
-				statIO.unobserve(el);
-			});
-		}, { threshold: .5 });
-		statNums.forEach(el => statIO.observe(el));
-
-		// Hero tagline typewriter
-		const taglineEl = document.getElementById('heroTagline');
-		const taglines = ['Unity Developer', 'AR / VR Builder', 'Multiplayer Engineer', 'Live-Ops Designer'];
-		const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-		if (taglineEl && !reduceMotion) {
-			let tIdx = 0, cIdx = 0, deleting = false;
-			function typeTick() {
-				const full = taglines[tIdx];
-				cIdx += deleting ? -1 : 1;
-				taglineEl.textContent = full.slice(0, cIdx);
-				let delay = deleting ? 40 : 80;
-				if (!deleting && cIdx === full.length) { delay = 1400; deleting = true; }
-				else if (deleting && cIdx === 0) { deleting = false; tIdx = (tIdx + 1) % taglines.length; delay = 300; }
-				setTimeout(typeTick, delay);
-			}
-			typeTick();
-		} else if (taglineEl) {
-			taglineEl.textContent = taglines[0];
-		}
-
-		// Hero canvas: lightweight starfield/particle FX
 		(function () {
-			const canvas = document.getElementById('heroCanvas');
-			const header = document.getElementById('top');
-			if (!canvas || !header || reduceMotion) return;
-			const ctx = canvas.getContext('2d');
-			let w, h, particles, running = false, raf;
-			const mouse = { x: -9999, y: -9999 };
+			const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+			const transitionDuration = reduceMotion ? 0 : 680;
+			const landing = document.querySelector(".landing-screen");
+			const sections = Array.from(document.querySelectorAll("[data-portfolio-section]"));
+			const doors = Array.from(document.querySelectorAll("[data-open-section]"));
+			const navLinks = Array.from(document.querySelectorAll("[data-section-link]"));
+			const backButton = document.getElementById("backToDoors");
+			const sectionMap = new Map(sections.map(section => [section.id, section]));
+			let isTransitioning = false;
+			let chosenDoor;
 
-			function resize() {
-				const rect = header.getBoundingClientRect();
-				w = canvas.width = rect.width;
-				h = canvas.height = rect.height;
-				const count = Math.min(90, Math.floor((w * h) / 14000));
-				particles = Array.from({ length: count }, () => ({
-					x: Math.random() * w,
-					y: Math.random() * h,
-					r: Math.random() * 1.6 + 0.4,
-					vx: (Math.random() - 0.5) * 0.25,
-					vy: (Math.random() - 0.5) * 0.25,
-				}));
+			function setActiveNavigation(sectionId) {
+				navLinks.forEach(link => {
+					const active = link.dataset.sectionLink === sectionId;
+					link.classList.toggle("is-active", active);
+					if (active) link.setAttribute("aria-current", "page");
+					else link.removeAttribute("aria-current");
+				});
 			}
 
-			function draw() {
-				ctx.clearRect(0, 0, w, h);
-				for (const p of particles) {
-					p.x += p.vx; p.y += p.vy;
-					if (p.x < 0 || p.x > w) p.vx *= -1;
-					if (p.y < 0 || p.y > h) p.vy *= -1;
-					const dx = p.x - mouse.x, dy = p.y - mouse.y;
-					const dist = Math.sqrt(dx * dx + dy * dy);
-					if (dist < 120) { p.x += dx / dist * 0.6; p.y += dy / dist * 0.6; }
-					ctx.beginPath();
-					ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-					ctx.fillStyle = 'rgba(150,190,255,.55)';
-					ctx.fill();
-				}
-				for (let i = 0; i < particles.length; i++) {
-					for (let j = i + 1; j < particles.length; j++) {
-						const a = particles[i], b = particles[j];
-						const dx = a.x - b.x, dy = a.y - b.y;
-						const d2 = dx * dx + dy * dy;
-						if (d2 < 120 * 120) {
-							ctx.strokeStyle = `rgba(79,156,255,${0.12 * (1 - d2 / (120 * 120))})`;
-							ctx.lineWidth = 1;
-							ctx.beginPath();
-							ctx.moveTo(a.x, a.y);
-							ctx.lineTo(b.x, b.y);
-							ctx.stroke();
-						}
+			function showSection(sectionId, trigger) {
+				const section = sectionMap.get(sectionId);
+				if (!section || isTransitioning) return;
+				isTransitioning = true;
+				sections.forEach(openSection => {
+					if (openSection !== section && !openSection.hidden) {
+						openSection.hidden = true;
+						openSection.inert = true;
+						openSection.classList.remove("is-visible");
 					}
-				}
-				raf = requestAnimationFrame(draw);
+				});
+				chosenDoor = trigger || doors.find(door => door.dataset.openSection === sectionId);
+				doors.forEach(door => door.classList.toggle("is-chosen", door === chosenDoor));
+				document.body.classList.add("is-entering");
+				section.hidden = false;
+				section.tabIndex = -1;
+				section.classList.remove("is-visible");
+				window.setTimeout(() => {
+					landing.hidden = true;
+					section.classList.add("is-visible");
+					section.inert = false;
+					landing.inert = true;
+					backButton.hidden = false;
+					setActiveNavigation(sectionId);
+					history.replaceState(null, "", "#" + sectionId);
+					window.scrollTo({ top: 0, behavior: "auto" });
+					section.focus({ preventScroll: true });
+					document.body.classList.remove("is-entering");
+					document.body.classList.add("section-open");
+					isTransitioning = false;
+				}, reduceMotion ? 0 : 500);
 			}
 
-			function start() { if (!running) { running = true; raf = requestAnimationFrame(draw); } }
-			function stop() { running = false; cancelAnimationFrame(raf); }
+			function returnToDoors() {
+				if (isTransitioning) return;
+				const section = sections.find(item => !item.hidden);
+				if (!section) return;
+				isTransitioning = true;
+				document.body.classList.add("is-returning");
+				section.classList.remove("is-visible");
+				setActiveNavigation("");
+				window.setTimeout(() => {
+					section.hidden = true;
+					section.inert = true;
+					landing.hidden = false;
+					landing.inert = false;
+					doors.forEach(door => door.classList.remove("is-chosen"));
+					backButton.hidden = true;
+					document.body.classList.remove("section-open", "is-returning");
+					history.replaceState(null, "", "#top");
+					window.scrollTo({ top: 0, behavior: "auto" });
+					document.getElementById("navLinks").scrollLeft = 0;
+					(chosenDoor || document.querySelector(".brand")).focus({ preventScroll: true });
+					isTransitioning = false;
+				}, transitionDuration);
+			}
 
-			header.addEventListener('mousemove', (e) => {
-				const rect = header.getBoundingClientRect();
-				mouse.x = e.clientX - rect.left;
-				mouse.y = e.clientY - rect.top;
-				header.style.setProperty('--mx', mouse.x + 'px');
-				header.style.setProperty('--my', mouse.y + 'px');
-			});
-			header.addEventListener('mouseleave', () => { mouse.x = -9999; mouse.y = -9999; });
-
-			const visIO = new IntersectionObserver((entries) => {
-				entries.forEach(e => e.isIntersecting ? start() : stop());
-			}, { threshold: 0 });
-			visIO.observe(header);
-
-			resize();
-			window.addEventListener('resize', resize);
-			if (document.fonts && document.fonts.ready) document.fonts.ready.then(resize);
-			if (window.ResizeObserver) new ResizeObserver(resize).observe(header);
-		})();
-
-		// Filters
-		const filterBtns = document.querySelectorAll('.filters button');
-		const projectShelves = document.querySelectorAll('.project-shelf');
-		function updateShelfControls(shelf) {
-			const track = shelf.querySelector('.grid');
-			const controls = shelf.querySelectorAll('[data-shelf-step]');
-			if (!track || !controls.length) return;
-			const maxScroll = track.scrollWidth - track.clientWidth;
-			controls.forEach(button => {
-				const direction = Number(button.dataset.shelfStep);
-				button.disabled = direction < 0 ? track.scrollLeft <= 2 : track.scrollLeft >= maxScroll - 1;
-			});
-		}
-		filterBtns.forEach(btn => btn.addEventListener('click', () => {
-			filterBtns.forEach(b => b.setAttribute('aria-selected', 'false'));
-			btn.setAttribute('aria-selected', 'true');
-			const tag = btn.dataset.filter;
-			projectShelves.forEach(shelf => {
-				shelf.style.display = tag === 'all' || shelf.dataset.tags === tag ? '' : 'none';
-			});
-			requestAnimationFrame(() => projectShelves.forEach(updateShelfControls));
-		}));
-		document.querySelectorAll('.project-shelf').forEach(shelf => {
-			const track = shelf.querySelector('.grid');
-			const controls = shelf.querySelectorAll('[data-shelf-step]');
-			if (!track || !controls.length) return;
-			controls.forEach(button => button.addEventListener('click', () => {
-				const direction = Number(button.dataset.shelfStep);
-				track.scrollBy({ left: direction * track.clientWidth * .8, behavior: reduceMotion ? 'auto' : 'smooth' });
+			landing.inert = false;
+			sections.forEach(section => { section.inert = true; });
+			doors.forEach(door => door.addEventListener("click", () => showSection(door.dataset.openSection, door)));
+			navLinks.forEach(link => link.addEventListener("click", event => {
+				event.preventDefault();
+				showSection(link.dataset.sectionLink);
+				document.getElementById("navLinks").classList.remove("is-open");
 			}));
-			const updateControls = () => updateShelfControls(shelf);
-			track.addEventListener('scroll', updateControls, { passive: true });
-			window.addEventListener('resize', updateControls);
-			updateControls();
-		});
-
-		// Modals
-		let lastFocus;
-		function openModal(id) {
-			const m = document.getElementById(id);
-			if (!m) return;
-
-			// Close & stop any other open modals/videos
-			document.querySelectorAll('.modal[aria-hidden="false"]').forEach(openM => {
-				stopMediaIn(openM);
-				openM.setAttribute('aria-hidden', 'true');
+			document.querySelector(".brand").addEventListener("click", event => {
+				event.preventDefault();
+				returnToDoors();
+			});
+			backButton.addEventListener("click", returnToDoors);
+			document.querySelectorAll("[data-portfolio-link]").forEach(link => {
+				link.href = portfolioData.links[link.dataset.portfolioLink];
+			});
+			document.addEventListener("keydown", event => {
+				if (event.key === "Escape" && !backButton.hidden) returnToDoors();
 			});
 
-			lastFocus = document.activeElement;
-			m.setAttribute('aria-hidden', 'false');
-			m.querySelector('[data-close]')?.focus();
-		}
-
-		function closeModal(m) {
-			// Stop media in this modal when it’s closed
-			stopMediaIn(m);
-			m.setAttribute('aria-hidden', 'true');
-			lastFocus?.focus();
-		}
-		document.querySelectorAll('.grid [data-open]').forEach(card => {
-			card.addEventListener('click', () => openModal(card.getAttribute('data-open')));
-		});
-		document.querySelectorAll('.modal').forEach(m => {
-			m.addEventListener('click', (e) => { if (e.target === m) closeModal(m); });
-			m.querySelector('[data-close]').addEventListener('click', () => closeModal(m));
-			m.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(m); });
-		});
-
-		// Simple gallery switcher inside modals
-		document.querySelectorAll('.gallery img').forEach(thumb => {
-			thumb.addEventListener('click', () => {
-				const mainVideo = thumb.closest('.modal-body').querySelector('video');
-				if (thumb.dataset.src) {
-					// switch video source
-					mainVideo.src = thumb.dataset.src;
-					mainVideo.poster = thumb.src;
-					mainVideo.load();
-					mainVideo.play();
-				} else if (thumb.dataset.img) {
-					// replace video with static image
-					mainVideo.pause();
-					mainVideo.outerHTML = `<img class="gallery-view" src="${thumb.dataset.img}" alt="Project Screenshot">`;
-				}
-			});
-		});
-	</script>
-
-	<script>
-		/* -------- Universal slider for modals -------- */
-		(function () {
-			function createMediaEl(slide) {
-				const type = slide.dataset.type;
-				if (type === "video") {
-					const v = document.createElement("video");
-					v.controls = true;
-					v.playsInline = true;
-					v.preload = "metadata";
-					v.src = slide.dataset.src;
-					v.poster = slide.getAttribute("src") || "";
-					// Safari sometimes needs an explicit load on first render
-					v.addEventListener("loadedmetadata", () => { /* noop, ensures sizing */ }, { once: true });
-					return v;
-				}
-				if (type === "image") {
-					const img = new Image();
-					img.src = slide.dataset.src || slide.getAttribute("src");
-					img.alt = slide.alt || "Project image";
-					return img;
-				}
-				if (type === "file") {
-					const card = document.createElement("div");
-					card.className = "apk-card";
-					card.innerHTML = `
-						<div class="apk-icon">📦</div>
-						<div><strong>${slide.dataset.filename || "Download build"}</strong></div>
-						<a href="${slide.dataset.href}" target="_blank" rel="noopener"
-						   download="${slide.dataset.filename || ""}">
-						  ${slide.dataset.href?.includes("drive.google.com") ? "Download from Drive" : "Download APK"}
-						</a>
-					  `;
-					return card;
-				}
-				return document.createTextNode("Unsupported media");
+			function updateLondonClock() {
+				const now = new Date();
+				document.getElementById("londonTime").textContent = new Intl.DateTimeFormat("en-GB", {
+					timeZone: "Europe/London", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false
+				}).format(now);
+				document.getElementById("londonDate").textContent = new Intl.DateTimeFormat("en-GB", {
+					timeZone: "Europe/London", day: "2-digit", month: "short", year: "numeric"
+				}).format(now).toUpperCase();
 			}
+			updateLondonClock();
+			window.setInterval(updateLondonClock, 1000);
+			document.getElementById("currentYear").textContent = String(new Date().getFullYear());
 
-			function initSlider(modal) {
-				const slider = modal.querySelector("[data-slider]");
-				if (!slider || slider.__inited) return;
-				slider.__inited = true;
-
-				const viewer = slider.querySelector(".viewer");
-				const thumbs = Array.from(slider.querySelectorAll(".gallery .thumb"));
-				const btnPrev = slider.querySelector("[data-prev]");
-				const btnNext = slider.querySelector("[data-next]");
-				const idxEl = slider.querySelector("[data-idx]");
-				const totalEl = slider.querySelector("[data-total]");
-
-				let i = 0;
-				const total = thumbs.length;
-				if (totalEl) totalEl.textContent = String(total);
-
-				function render(index) {
-					if (!total) return;
-					i = (index + total) % total; // wrap around
-					viewer.innerHTML = "";
-					const media = createMediaEl(thumbs[i]);
-					viewer.appendChild(media);
-					thumbs.forEach(t => t.classList.remove("is-active"));
-					thumbs[i].classList.add("is-active");
-					if (idxEl) idxEl.textContent = String(i + 1);
-
-					// If first is a video, make sure it's ready (don’t autoplay unless you want)
-					if (media.tagName === "VIDEO") {
-						try { media.load(); } catch (e) { }
-					}
-				}
-
-				// nav handlers
-				btnPrev?.addEventListener("click", () => render(i - 1));
-				btnNext?.addEventListener("click", () => render(i + 1));
-				thumbs.forEach((t, ti) => t.addEventListener("click", () => render(ti)));
-
-				// keyboard + swipe
-				modal.addEventListener("keydown", (e) => {
-					if (e.key === "ArrowLeft") render(i - 1);
-					if (e.key === "ArrowRight") render(i + 1);
+			function renderProjects() {
+				Object.entries(portfolioData.projects).forEach(([sectionId, projects]) => {
+					const list = document.querySelector('[data-project-list="' + sectionId + '"]');
+					projects.forEach((project, index) => {
+						const card = document.createElement("article");
+						card.className = "project-card";
+						card.style.setProperty("--card-index", index);
+						const [genre, context = "Project context not specified"] = project.tag.split("|").map(value => value.trim());
+						const projectTagMarkup = '<p class="project-tag"><span class="project-genre">' + genre + '</span><span class="project-context">' + context + "</span></p>";
+						const featureMarkup = project.features.map(feature => '<span class="feature-chip">' + feature + "</span>").join("");
+						const contributionMarkup = project.contribution
+							? '<p class="project-contribution"><span>MY CONTRIBUTION</span>' + project.contribution + "</p>"
+							: "";
+						const videoMarkup = project.video && !project.placeholder
+							? '<video class="phone-video" muted playsinline loop preload="none" poster="' + project.image + '" data-video="' + project.video + '" aria-label="' + project.title + ' gameplay preview"></video>'
+							: '<img class="phone-image" src="' + project.image + '" alt="' + project.title + ' game artwork" loading="lazy" />';
+						const playMarkup = project.play
+							? '<a class="play-link" href="' + project.play + '" target="_blank" rel="noopener noreferrer">Play on Google Play <span aria-hidden="true">↗</span></a>'
+							: "";
+						const linksMarkup = (project.links || []).map(link => {
+							const external = /^https?:\/\//.test(link.href);
+							return '<a class="project-action" href="' + link.href + '"' + (external ? ' target="_blank" rel="noopener noreferrer"' : "") + ">" + link.label + ' <span aria-hidden="true">↗</span></a>';
+						}).join("");
+						card.innerHTML = '<div class="project-copy"><div class="project-icon" aria-hidden="true">' + project.icon + '</div>' + projectTagMarkup + '<h3>' + project.title + '</h3><p class="project-description">' + project.description + '</p>' + contributionMarkup + '<div class="feature-list" aria-label="Technologies and highlights">' + featureMarkup + '</div><div class="project-actions">' + playMarkup + linksMarkup + '</div></div><div class="phone-wrap"><div class="phone-glow"></div><div class="phone-shell"><div class="phone-camera"></div><div class="phone-screen">' + videoMarkup + '<span class="phone-screen-caption">GAMEPLAY PREVIEW</span></div></div><span class="phone-base">' + String(index + 1).padStart(2, "0") + " / " + String(portfolioData.projects[sectionId].length).padStart(2, "0") + "</span></div>";
+						list.append(card);
+					});
 				});
-				let sx = 0;
-				viewer.addEventListener("touchstart", (e) => (sx = e.changedTouches[0].clientX), { passive: true });
-				viewer.addEventListener("touchend", (e) => {
-					const dx = e.changedTouches[0].clientX - sx;
-					if (Math.abs(dx) > 40) render(i + (dx < 0 ? 1 : -1));
-				});
-
-				// initial render immediately
-				render(0);
 			}
+			renderProjects();
 
-			// A) Init all sliders once DOM is ready (fixes 1/1 & blank viewer)
-			document.addEventListener("DOMContentLoaded", () => {
-				document.querySelectorAll(".modal").forEach(initSlider);
-			});
-
-			// B) Also init whenever a modal becomes visible (in case you add sliders later)
-			const mo = new MutationObserver((mutations) => {
-				for (const m of mutations) {
-					if (
-						m.type === "attributes" &&
-						m.attributeName === "aria-hidden" &&
-						m.target.getAttribute("aria-hidden") === "false"
-					) {
-						initSlider(m.target);
+			const videoObserver = "IntersectionObserver" in window ? new IntersectionObserver(entries => {
+				entries.forEach(entry => {
+					const video = entry.target;
+					if (entry.isIntersecting) {
+						if (!video.src) {
+							video.src = video.dataset.video;
+							video.load();
+						}
+						if (!reduceMotion) video.play().catch(() => {});
+					} else {
+						video.pause();
 					}
-				}
+				});
+			}, { rootMargin: "240px 0px", threshold: 0.05 }) : null;
+			document.querySelectorAll("[data-video]").forEach(video => {
+				if (videoObserver) videoObserver.observe(video);
+				else if (!reduceMotion) { video.src = video.dataset.video; video.load(); }
 			});
-			document.querySelectorAll(".modal").forEach((m) => {
-				mo.observe(m, { attributes: true });
+
+			const timeline = document.getElementById("timeline");
+			portfolioData.timeline.forEach((item, index) => {
+				const card = document.createElement("article");
+				card.className = "timeline-card";
+				card.dataset.year = item.year;
+				const bullets = item.bullets.map(bullet => "<li>" + bullet + "</li>").join("");
+				card.innerHTML = '<span class="timeline-dot" aria-hidden="true"></span><div class="timeline-card-inner"><p class="timeline-date">' + item.date + '</p><h3>' + item.title + '</h3><p class="timeline-company">' + item.company + '</p><ul>' + bullets + '</ul></div><span class="timeline-index">' + String(index + 1).padStart(2, "0") + "</span>";
+				timeline.append(card);
 			});
+
+			const timelineCards = Array.from(document.querySelectorAll(".timeline-card"));
+			const storyYear = document.getElementById("storyYear");
+			const storyProgress = document.getElementById("storyProgress");
+			function updateStoryProgress() {
+				const story = document.getElementById("story");
+				if (story.hidden) return;
+				const bounds = story.getBoundingClientRect();
+				const distance = Math.max(1, story.offsetHeight - window.innerHeight);
+				const progress = Math.min(1, Math.max(0, -bounds.top / distance));
+				storyYear.textContent = String(Math.round(2026 - progress * (2026 - 2017)));
+				let activeIndex = 0;
+				timelineCards.forEach((card, index) => {
+					if (card.getBoundingClientRect().top < window.innerHeight * 0.62) activeIndex = index;
+				});
+				storyProgress.textContent = String(activeIndex + 1).padStart(2, "0") + " / " + String(timelineCards.length).padStart(2, "0");
+			}
+			window.addEventListener("scroll", updateStoryProgress, { passive: true });
+			window.addEventListener("resize", updateStoryProgress);
+			navLinks.filter(link => link.dataset.sectionLink === "story").forEach(link => link.addEventListener("click", () => window.setTimeout(updateStoryProgress, 240)));
+			doors.filter(door => door.dataset.openSection === "story").forEach(door => door.addEventListener("click", () => window.setTimeout(updateStoryProgress, 240)));
 		})();
 	</script>
-
-	<!-- ===== Live Crash-Math Demo (Aviator) ===== -->
-	<script>
-		(function () {
-			const root = document.getElementById('crashDemo');
-			if (!root) return;
-
-			const balanceEl = document.getElementById('crashBalance');
-			const multEl = document.getElementById('crashMultiplier');
-			const statusEl = document.getElementById('crashStatus');
-			const launchBtn = document.getElementById('crashLaunchBtn');
-			const cashoutBtn = document.getElementById('crashCashoutBtn');
-			const resetBtn = document.getElementById('crashReset');
-			const logEl = document.getElementById('crashLog');
-			const chips = Array.from(root.querySelectorAll('.chip'));
-
-			const STORE_KEY = 'mk_crash_demo_balance';
-			let balance = parseInt(localStorage.getItem(STORE_KEY), 10);
-			if (!Number.isFinite(balance) || balance < 0) balance = 1000;
-
-			let bet = 10;
-			let phase = 'idle'; // idle | flying | crashed
-			let crashPoint = 1;
-			let startTime = 0;
-			let tickHandle = null;
-			let currentMultiplier = 1;
-
-			function saveBalance() {
-				try { localStorage.setItem(STORE_KEY, String(balance)); } catch (e) { }
-			}
-
-			function renderBalance() {
-				balanceEl.textContent = balance;
-			}
-
-			function log(kind, text) {
-				const row = document.createElement('div');
-				row.className = 'demo-log-row ' + kind;
-				row.textContent = text;
-				logEl.prepend(row);
-				while (logEl.children.length > 5) logEl.removeChild(logEl.lastChild);
-			}
-
-			// Fair-ish crash curve: 99% RTP style long-tail distribution, clamped for demo sanity.
-			function rollCrashPoint() {
-				const r = Math.max(Math.random(), 1e-6);
-				const point = 0.99 / r;
-				return Math.max(1.01, Math.min(point, 25));
-			}
-
-			chips.forEach(chip => {
-				chip.addEventListener('click', () => {
-					if (phase !== 'idle') return;
-					chips.forEach(c => c.classList.remove('is-active'));
-					chip.classList.add('is-active');
-					bet = parseInt(chip.dataset.bet, 10);
-				});
-			});
-
-			function setMultiplierDisplay(m) {
-				multEl.textContent = m.toFixed(2) + 'x';
-				multEl.classList.toggle('is-hot', m >= 2);
-				multEl.classList.toggle('is-danger', m >= 5);
-			}
-
-			function endRound(resetDelay) {
-				clearInterval(tickHandle);
-				launchBtn.disabled = false;
-				cashoutBtn.disabled = true;
-				chips.forEach(c => c.disabled = false);
-				setTimeout(() => {
-					phase = 'idle';
-					setMultiplierDisplay(1);
-					statusEl.textContent = 'Pick a bet and launch the plane';
-				}, resetDelay);
-			}
-
-			launchBtn.addEventListener('click', () => {
-				if (phase !== 'idle') return;
-				if (balance < bet) {
-					statusEl.textContent = "Not enough coins — hit ↻ to reset the demo balance";
-					return;
-				}
-				balance -= bet;
-				renderBalance();
-				saveBalance();
-
-				phase = 'flying';
-				crashPoint = rollCrashPoint();
-				startTime = performance.now();
-				currentMultiplier = 1;
-				setMultiplierDisplay(1);
-				statusEl.textContent = 'Flying… cash out before it crashes!';
-				launchBtn.disabled = true;
-				cashoutBtn.disabled = false;
-				chips.forEach(c => c.disabled = true);
-
-				tickHandle = setInterval(() => {
-					const elapsed = (performance.now() - startTime) / 1000;
-					currentMultiplier = Math.exp(elapsed * 0.16);
-					if (currentMultiplier >= crashPoint) {
-						currentMultiplier = crashPoint;
-						setMultiplierDisplay(currentMultiplier);
-						statusEl.textContent = '💥 Crashed at ' + currentMultiplier.toFixed(2) + 'x — bet lost';
-						log('lost', 'Crashed @ ' + currentMultiplier.toFixed(2) + 'x · -' + bet);
-						phase = 'crashed';
-						endRound(1400);
-						return;
-					}
-					setMultiplierDisplay(currentMultiplier);
-				}, 60);
-			});
-
-			cashoutBtn.addEventListener('click', () => {
-				if (phase !== 'flying') return;
-				clearInterval(tickHandle);
-				const winnings = Math.round(bet * currentMultiplier);
-				balance += winnings;
-				renderBalance();
-				saveBalance();
-				statusEl.textContent = '✅ Cashed out at ' + currentMultiplier.toFixed(2) + 'x — +' + winnings + ' coins';
-				log('won', 'Cashed out @ ' + currentMultiplier.toFixed(2) + 'x · +' + winnings);
-				phase = 'crashed';
-				endRound(1000);
-			});
-
-			resetBtn.addEventListener('click', () => {
-				if (phase !== 'idle') return;
-				balance = 1000;
-				renderBalance();
-				saveBalance();
-				statusEl.textContent = 'Balance reset — pick a bet and launch';
-				logEl.innerHTML = '';
-			});
-
-			renderBalance();
-		})();
-	</script>
-
 </body>
 </html>
